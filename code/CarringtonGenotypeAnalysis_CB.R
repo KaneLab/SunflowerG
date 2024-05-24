@@ -506,7 +506,59 @@ dev.off()
 
 
 #### 3. Beta ####
+#### _16S ####
+bc_16S <- calc_dm(input_n4_16S$data_loaded)
+set.seed(1150)
+ado1 <- adonis2(bc_16S ~ input_n4_16S$map_loaded$rep * input_n4_16S$map_loaded$pedigree)
+ado1
+# Both significant, 0.01***, 0.33***
+set.seed(1150)
+ado2 <- adonis2(bc_16S ~ input_n4_16S$map_loaded$pedigree * input_n4_16S$map_loaded$rep)
+ado2
+# Both significant, 0.33***, 0.01***, no effect of order.
+anova(betadisper(bc_16S, input_n4_16S$map_loaded$rep)) # Dispersion homogeneous
+anova(betadisper(bc_16S, input_n4_16S$map_loaded$pedigree)) # Dispersion not homogeneous
 
+# PCoA
+pcoa_16S <- cmdscale(bc_16S, k = nrow(input_n4_16S$map_loaded) - 1, eig = T)
+env_16S <- input_n4_16S$map_loaded %>%
+  dplyr::select(`Chlorophyll concentration`, rich, DiseaseIncidence)
+set.seed(100)
+ef_16S <- envfit(pcoa_16S, env_16S, permutations = 999, na.rm = TRUE)
+ef_16S # Chloro and rich sig. Sclero not.
+ordiplot(pcoa_16S)
+plot(ef_16S, p.max = 0.05, cex = 0.5)
+multiplier_16S <- ordiArrowMul(ef_16S)
+vec.df_16S <- as.data.frame(ef_16S$vectors$arrows*sqrt(ef_16S$vectors$r)) %>%
+  mutate(Dim1 = Dim1 * multiplier_16S,
+         Dim2 = Dim2 * multiplier_16S) %>%
+  mutate(variables = rownames(.)) %>%
+  filter(ef_16S$vectors$pvals < 0.05) %>%
+  mutate(shortnames = c("Chlorophyll", "Richness"))
+pcoaA1_16S <- paste("PC1: ", round((eigenvals(pcoa_16S)/sum(eigenvals(pcoa_16S)))[1]*100, 1), "%")
+pcoaA2_16S <- paste("PC2: ", round((eigenvals(pcoa_16S)/sum(eigenvals(pcoa_16S)))[2]*100, 1), "%")
+input_n4_16S$map_loaded$Axis01 <- vegan::scores(pcoa_16S)[,1]
+input_n4_16S$map_loaded$Axis02 <- vegan::scores(pcoa_16S)[,2]
+g4 <- ggplot(input_n4_16S$map_loaded, aes(Axis01, Axis02)) +
+  geom_point(size = 3, pch = 16, alpha = 0.75) +
+  geom_segment(data = vec.df_16S,
+               aes(x = 0, xend = Dim1, y = 0, yend = Dim2),
+               arrow = arrow(length = unit(0.35, "cm")),
+               colour = "gray", alpha = 0.6,
+               inherit.aes = FALSE) + 
+  geom_text_repel(data = vec.df_16S,
+                  aes(x = Dim1, y = Dim2, label = shortnames),
+                  size = 3, color = "black") +
+  labs(x = pcoaA1_16S, 
+       y = pcoaA2_16S) +
+  theme_bw() +  
+  theme(legend.position = "right",
+        axis.title = element_text(face = "bold", size = 12), 
+        axis.text = element_text(size = 10))
+g4
+
+
+#### _ITS ####
 
 
 #### 4. Heritability ####
