@@ -337,6 +337,15 @@ input_filt_rare_ITS <- readRDS("data/input_filt_rare_ITS.rds")
 input_n4_ITS <- readRDS("data/input_n4_ITS.rds")
 input_n3_ITS <- readRDS("data/input_n3_ITS.rds")
 
+input_n3_ITS$taxonomy_loaded <- input_n3_ITS$taxonomy_loaded %>%
+  mutate(taxonomy1 = gsub("k__", "", taxonomy1),
+         taxonomy2 = gsub("p__", "", taxonomy2),
+         taxonomy3 = gsub("c__", "", taxonomy3),
+         taxonomy4 = gsub("o__", "", taxonomy4),
+         taxonomy5 = gsub("f__", "", taxonomy5),
+         taxonomy6 = gsub("g__", "", taxonomy6),
+         taxonomy7 = gsub("s__", "", taxonomy7))
+
 # Per discussion with Nolan, use the n3 dataset, want to use all 95 genotypes!
 
 # Also filter out ASVs present in only 1 sample
@@ -1377,10 +1386,10 @@ export_ITS_wRep <- export_ITS_copy %>%
   dplyr::select(-sampleID)
 
 # Export to .txt
-write.table(export_16S_mean, "data/div_asvs_mean_16S.txt", sep = "\t", row.names = F)
-write.table(export_16S_wRep, "data/div_asvs_wReps_16S.txt", sep = "\t", row.names = F)
-write.table(export_ITS_mean, "data/div_asvs_mean_ITS.txt", sep = "\t", row.names = F)
-write.table(export_ITS_wRep, "data/div_asvs_wReps_ITS.txt", sep = "\t", row.names = F)
+#write.table(export_16S_mean, "data/div_asvs_mean_16S.txt", sep = "\t", row.names = F)
+#write.table(export_16S_wRep, "data/div_asvs_wReps_16S.txt", sep = "\t", row.names = F)
+#write.table(export_ITS_mean, "data/div_asvs_mean_ITS.txt", sep = "\t", row.names = F)
+#write.table(export_ITS_wRep, "data/div_asvs_wReps_ITS.txt", sep = "\t", row.names = F)
 
 
 #### _Higher Level ####
@@ -3837,6 +3846,34 @@ keystone <- roles %>%
 # Need help from others (Kyle, Cloe, Brian etc. to run this)
 # Most is done outside of R on the super computer
 # Kyle will run
+# Import files from Kyle
+snp_16S <- read.delim("data/AllSignificantSites16SWithGeneFunction.txt")
+nrow(snp_16S) # 1873
+sum(snp_16S$GeneIDs == "NoGenes") # 403
+snp_16S_taxa <- snp_16S %>%
+  group_by(ASV) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count)) %>%
+  mutate("ASV_ID" = gsub("_16S", "", ASV)) %>%
+  left_join(., input_n3_16S$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
+snp_16S_genes <- snp_16S %>%
+  group_by(GeneIDs) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+snp_ITS <- read.delim("data/AllSignificantSitesITSWithGeneFunction.txt")
+nrow(snp_ITS) # 25921
+sum(snp_ITS$GeneIDs == "NoGenes") # 5528
+snp_ITS_taxa <- snp_ITS %>%
+  group_by(ASV) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count)) %>%
+  mutate("ASV_ID" = gsub("_ITS", "", ASV)) %>%
+  left_join(., input_n3_ITS$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
+snp_ITS_genes <- snp_ITS %>%
+  group_by(GeneIDs) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
 
 
 
