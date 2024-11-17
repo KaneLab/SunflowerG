@@ -17,18 +17,18 @@
 
 ##### 1. Setup ####
 # Libraries
-library(plyr) # Data manipulation
-library(tidyverse) # Data manipulation
-library(mctoolsr) # Microbial analyses
-library(vegan) # Multivariate stats
-library(RColorBrewer) # Colors
-library(microseq) # for fastas
-library(car) # stats
-library(MASS) # stats
-library(FSA) # se
-library(lme4) # LMER
-library(emmeans) # TukeyHSD
-library(multcomp) # cld
+library(plyr) # For data manipulation
+library(tidyverse) # For data manipulation
+library(mctoolsr) # For microbial analyses
+library(vegan) # For multivariate stats
+library(RColorBrewer) # For colors
+library(microseq) # For fastas
+library(car) # For stats
+library(MASS) # For stats
+library(FSA) # For SE
+library(lme4) # For LMER
+library(emmeans) # For TukeyHSD
+library(multcomp) # For cld
 library(lmerTest) # For Sattherwaite df
 library(afex) # For alternative mixed model
 library(ggh4x) # For plots
@@ -39,6 +39,12 @@ library(SpiecEasi) # For networks
 library(igraph) # For networks
 library(rnetcarto) # For networks
 library(writexl) # Export
+library(naniar) # For NA management
+library(pheatmap) # For heatmaps
+library(iCAMP) # NTI
+library(ape) # Phylogenetics
+library(phyloseq) # microbial analyses, can handle trees
+library(picante) # Trees
 
 # Repo Directory
 setwd("~/Documents/GitHub/SunflowerG/")
@@ -364,11 +370,6 @@ prev_16S_n1 <- prev_16S %>%
   filter(Present == 1)
 input_n3_16S <- filter_taxa_from_input(input_n3_16S,
                                        taxa_IDs_to_remove = prev_16S_n1$ASV_ID) # 346 removed
-input_n3_16S$map_loaded$rich <- specnumber(input_n3_16S$data_loaded, 
-                                           MARGIN = 2)
-input_n3_16S$map_loaded$shannon <- vegan::diversity(input_n3_16S$data_loaded, 
-                                                    index = "shannon", 
-                                                    MARGIN = 2)
 
 tax_sum_asv_ITS <- summarize_taxonomy(input_n3_ITS, 
                                       level = 8, 
@@ -384,12 +385,28 @@ prev_ITS_n1 <- prev_ITS %>%
   filter(Present == 1)
 input_n3_ITS <- filter_taxa_from_input(input_n3_ITS,
                                        taxa_IDs_to_remove = prev_ITS_n1$ASV_ID) # 70 removed
+
+# Save those
+#saveRDS(input_n3_16S, "data/input_filt_16S_noSing.rds")
+#saveRDS(input_n3_ITS, "data/input_filt_ITS_noSing.rds")
+
+#### _Start here 2 ####
+input_n3_16S <- readRDS("data/input_filt_16S_noSing.rds")
+input_n3_ITS <- readRDS("data/input_filt_ITS_noSing.rds")
+input_n3_16S$map_loaded$rich <- specnumber(input_n3_16S$data_loaded, 
+                                           MARGIN = 2)
+input_n3_16S$map_loaded$shannon <- vegan::diversity(input_n3_16S$data_loaded, 
+                                                    index = "shannon", 
+                                                    MARGIN = 2)
 input_n3_ITS$map_loaded$rich <- specnumber(input_n3_ITS$data_loaded, 
                                                   MARGIN = 2)
 input_n3_ITS$map_loaded$shannon <- vegan::diversity(input_n3_ITS$data_loaded, 
                                                            index = "shannon", 
                                                            MARGIN = 2)
 
+# Export taxonomy
+#write.csv(input_n3_16S$taxonomy_loaded, "data/16S_taxonomy.csv", row.names = F)
+#write.csv(input_n3_ITS$taxonomy_loaded, "data/ITS_taxonomy.csv", row.names = F)
 
 
 #### 2. Alpha ####
@@ -399,6 +416,7 @@ min(input_n3_16S$map_loaded$rich) # 1676
 max(input_n3_16S$map_loaded$rich) # 2463
 mean(input_n3_16S$map_loaded$rich) # 2099.595
 se(input_n3_16S$map_loaded$rich) # 7.217861
+sd(input_n3_16S$map_loaded$rich) # 139
 
 # Sclerotinia
 m <- lm(DiseaseIncidence ~ rich, data = input_n3_16S$map_loaded)
@@ -491,7 +509,7 @@ g1 <- ggplot(alpha_long_16S, aes(reorder(pedigree, value, mean), value)) +
   #geom_point(size = 2, alpha = 0.75, pch = 16) +
   # geom_text(data = label_df_16S, aes(pedigree, y, label = str_trim(.group)), 
   #           size = 3, color = "black") +
-  labs(x = NULL, y = "ASV richness") +
+  labs(x = NULL, y = "ZOTU richness") +
   facet_wrap(~ name, scales = "free_y", labeller = as_labeller(facet_names)) +
   theme_bw() +
   theme(legend.position = "right",
@@ -513,6 +531,7 @@ min(input_n3_ITS$map_loaded$rich) # 144
 max(input_n3_ITS$map_loaded$rich) # 284
 mean(input_n3_ITS$map_loaded$rich) # 219.5652
 se(input_n3_ITS$map_loaded$rich) # 1.09572
+sd(input_n3_ITS$map_loaded$rich) # 21
 
 # Sclerotinia
 m <- lm(DiseaseIncidence ~ rich, data = input_n3_ITS$map_loaded)
@@ -605,7 +624,7 @@ g2 <- ggplot(alpha_long_ITS, aes(reorder(pedigree, value, mean), value)) +
   #geom_point(size = 2, alpha = 0.75, pch = 16) +
   # geom_text(data = label_df_ITS, aes(pedigree, y, label = str_trim(.group)), 
   #           size = 3, color = "black") +
-  labs(x = NULL, y = "ASV richness") +
+  labs(x = NULL, y = "ZOTU richness") +
   facet_wrap(~ name, scales = "free_y", labeller = as_labeller(facet_names)) +
   theme_bw() +
   theme(legend.position = "right",
@@ -648,7 +667,7 @@ label_df_long <- data.frame(x = c(75, 75, 75, 75),
                             py = c(2400, 7.3, 275, 4.25),
                             Dataset = c("16S", "16S", "ITS", "ITS"),
                             name = c("rich", "shannon", "rich", "shannon"))
-facet_names <- c("rich" = "ASV Richness",
+facet_names <- c("rich" = "ZOTU Richness",
                  "shannon" = "Shannon Diversity",
                  "16S" = "a) Archaea/Bacteria",
                  "ITS" = "b) Fungi")
@@ -674,6 +693,35 @@ g3 <- ggplot(alpha_long, aes(pedigree, value)) +
         panel.grid = element_blank())
 g3
 dev.off()
+
+pdf("FinalFigs/Figure1.pdf", width = 8, height = 6)
+g3
+dev.off()
+
+fung_alph <- input_n3_ITS$map_loaded %>%
+  dplyr::select(sampleID, rich) %>%
+  rename(fun_rich = rich)
+alpha_fb <- input_n3_16S$map_loaded %>%
+  dplyr::select(sampleID, rich) %>%
+  rename(bac_rich = rich) %>%
+  left_join(., fung_alph, by = "sampleID")
+pdf("FinalFigs/FigureS1.pdf", width = 7, height = 5)
+figS1 <- ggplot(alpha_fb, aes(bac_rich, fun_rich)) +
+  geom_point(size = 2, alpha = 0.5, pch = 16) +
+  geom_smooth(method = "lm") +
+  geom_text(aes(x = -Inf, y = Inf, hjust = -0.1, vjust = 2, label = "R^2 == 0.09"), 
+            parse = TRUE, size = 3, check_overlap = TRUE) +
+  geom_text(aes(x = -Inf, y = Inf, hjust = -0.1, vjust = 5, label = "p < 0.001"), 
+            size = 3, check_overlap = TRUE) +
+  labs(x = "Prokaryotic ZOTU richness", 
+       y = "Fungal ZOTU richness") +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 12))
+figS1
+dev.off()
+m <- lm(fun_rich ~ bac_rich, data = alpha_fb)
+summary(m) # R2 = 0.09, p < 0.001
 
 
 
@@ -941,6 +989,23 @@ g5_wa <- g5_wa +
 pdf("InitialFigs/Beta_Bray_Combined_wascores.pdf", width = 10, height = 6)
 plot_grid(g4_wa, g5_wa, ncol = 2)
 dev.off()
+# ^ This is Figure 2.
+
+set.seed(1156)
+mantel(bc_16S, bc_ITS) # NS
+pdf("FinalFigs/FigureS2.pdf", width = 8, height = 6)
+qplot(bc_16S, bc_ITS, geom = "point", alpha = 0.001) +
+  geom_text(aes(x = -Inf, y = Inf, hjust = -0.1, vjust = 2, label = "r == -0.03"), 
+            parse = TRUE, size = 3, check_overlap = TRUE) +
+  geom_text(aes(x = -Inf, y = Inf, hjust = -0.1, vjust = 5, label = "p = 0.95"), 
+            size = 3, check_overlap = TRUE) +
+  labs(x = "Prokaryotic Bray-Curtis dissimilarity",
+       y = "Fungal Bray-Curtis dissimilarity") +
+  #xlim(0, 1) +
+  #ylim(0, 1) +
+  theme_bw() +
+  theme(legend.position = "none")
+dev.off()
 
 
 
@@ -1036,8 +1101,15 @@ sigGenoNB_16S <- results_16S %>%
   filter(GenotypePFDRnb < 0.05) # 1410 p, 1385 pFDR
 
 hist(results_16S$Heritability)
+ggplot(results_16S, aes(Heritability)) +
+  geom_histogram()
+ggplot(results_16S, aes(Heritability)) +
+  geom_density() +
+  theme_bw()
 mean(results_16S$Heritability) # 0.3906376
 se(results_16S$Heritability) # 0.002089092
+mean(sigGenoNB_16S$Heritability) # 0.4182238
+se(sigGenoNB_16S$Heritability) # 0.001970485
 # What % of the input abund/ubiq ASVs were heritable?
 round(nrow(sigGenoNB_16S)/nrow(input_au_16S$data_loaded)*100, digits = 2) # 80.24%
 
@@ -1127,6 +1199,8 @@ sigGenoNB_ITS <- results_ITS %>%
 hist(results_ITS$Heritability)
 mean(results_ITS$Heritability) # 0.4066793
 se(results_ITS$Heritability) # 0.005194114
+mean(sigGenoNB_ITS$Heritability) # 0.4171681
+se(sigGenoNB_ITS$Heritability) # 0.00496342
 # What % of the input abund/ubiq ASVs were heritable?
 round(nrow(sigGenoNB_ITS)/nrow(input_au_ITS$data_loaded)*100, digits = 2) # 92.5%
 
@@ -1187,7 +1261,7 @@ g6 <- ggplot(num_h_16S, aes(x = Dataset, y = prop*100, fill = taxonomy2)) +
   geom_bar(stat = "identity") +
   scale_fill_manual(values = c("grey90", "grey40", brewer.pal(12, "Paired")[11:1])) +
   labs(x = NULL,
-       y = "% Heritable ASVs",
+       y = "% Heritable ZOTUs",
        fill = "Phylum") +
   guides(fill = guide_legend(ncol = 1)) +
   theme_classic() +
@@ -1195,14 +1269,6 @@ g6 <- ggplot(num_h_16S, aes(x = Dataset, y = prop*100, fill = taxonomy2)) +
 g6
 
 View(input_au_ITS$taxonomy_loaded)
-input_au_ITS$taxonomy_loaded <- input_au_ITS$taxonomy_loaded %>%
-  mutate(taxonomy1 = gsub("k__", "", taxonomy1),
-         taxonomy2 = gsub("p__", "", taxonomy2),
-         taxonomy3 = gsub("c__", "", taxonomy3),
-         taxonomy4 = gsub("o__", "", taxonomy4),
-         taxonomy5 = gsub("f__", "", taxonomy5),
-         taxonomy6 = gsub("g__", "", taxonomy6),
-         taxonomy7 = gsub("s__", "", taxonomy7))
 results_ITS_wTax <- results_ITS %>%
   left_join(., input_au_ITS$taxonomy_loaded, by = c("OTU" = "taxonomy8"))
 num_h_ITS <- results_ITS_wTax %>%
@@ -1214,12 +1280,13 @@ num_h_ITS <- results_ITS_wTax %>%
   mutate(Dataset = "ITS") %>%
   arrange(prop) %>%
   mutate(taxonomy2 = factor(taxonomy2,
-                            levels = taxonomy2))
+                            levels = taxonomy2)) %>%
+  mutate(Subset = "Sig.")
 g7 <- ggplot(num_h_ITS, aes(x = Dataset, y = prop*100, fill = taxonomy2)) +
   geom_bar(stat = "identity") +
   scale_fill_manual(values = brewer.pal(7, "Paired")) +
   labs(x = NULL,
-       y = "% Heritable ASVs",
+       y = "% Heritable ZOTUs",
        fill = "Phylum") +
   guides(fill = guide_legend(ncol = 1)) +
   theme_classic() +
@@ -1236,8 +1303,9 @@ tot_count_16S <- input_n3_16S$taxonomy_loaded %>%
   summarise(num_sig = n()) %>%
   mutate(tot = nrow(input_n3_16S$taxonomy_loaded)) %>%
   mutate(prop = num_sig/tot) %>%
-  mutate(Dataset = "ITS",
-         Subset = "All")
+  mutate(Dataset = "16S",
+         Subset = "All") %>%
+  arrange(desc(prop))
 tot_count_ITS <- input_n3_ITS$taxonomy_loaded %>%
   group_by(taxonomy2) %>%
   summarise(num_sig = n()) %>%
@@ -1250,7 +1318,8 @@ tot_count_ITS <- input_n3_ITS$taxonomy_loaded %>%
   mutate(prop = num_sig/tot) %>%
   mutate(Dataset = "ITS",
          Subset = "All") %>%
-  mutate(taxonomy2 = factor(taxonomy2, levels = c("Other", as.character(num_h_ITS$taxonomy2))))
+  mutate(taxonomy2 = factor(taxonomy2, levels = c("Other", as.character(num_h_ITS$taxonomy2)))) %>%
+  arrange(desc(prop))
 tested_count_16S <- input_au_16S$taxonomy_loaded %>%
   mutate(taxonomy2 = ifelse(taxonomy2 %notin% top_taxa_16S$taxonomy2,
                             "Other",
@@ -1260,7 +1329,7 @@ tested_count_16S <- input_au_16S$taxonomy_loaded %>%
   summarise(num_sig = n()) %>%
   mutate(tot = nrow(input_au_16S$taxonomy_loaded)) %>%
   mutate(prop = num_sig/tot) %>%
-  mutate(Dataset = "ITS",
+  mutate(Dataset = "16S",
          Subset = "Tested")
 tested_count_ITS <- input_au_ITS$taxonomy_loaded %>%
   mutate(taxonomy2 = ifelse(taxonomy2 %notin% num_h_ITS$taxonomy2,
@@ -1279,35 +1348,55 @@ plot_grid(g6, g7, ncol = 1, align = "v")
 dev.off()
 
 # Plot with tot count and au count and sig count
+levels_16S <- data.frame("tax" = as.character(tot_count_16S$taxonomy2)) %>%
+  filter(tax != "NA") %>%
+  filter(tax != "Other")
 num_tax_16S <- rbind(tot_count_16S, tested_count_16S, num_h_16S) %>%
-  mutate(Subset = factor(Subset, levels = c("All", "Tested", "Sig.")))
+  mutate(Subset = factor(Subset, levels = c("All", "Tested", "Sig."))) %>%
+  mutate(taxonomy2 = factor(taxonomy2, 
+                            levels = c("Other", "NA", rev(levels_16S$tax))))
+nrow(input_n3_16S$taxonomy_loaded)
+nrow(input_au_16S$taxonomy_loaded)
+nrow(input_auh_16S$taxonomy_loaded)
+n_text_16S <- data.frame(x = c("All", "Tested", "Sig."),
+                         y = c(105, 105, 105),
+                         label = c("n = 19274", "n = 1726", "n = 1385"))
 g8 <- ggplot(num_tax_16S, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
   geom_bar(stat = "identity") +
+  geom_text(data = n_text_16S, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
   scale_fill_manual(values = c("grey90", "grey40", brewer.pal(12, "Paired")[11:1])) +
   labs(x = NULL,
-       y = "% ASV Count",
+       y = "% ZOTU Count",
        fill = "Phylum",
-       title = "16S") +
+       title = "a) Archaea/Bacteria") +
   guides(fill = guide_legend(ncol = 1)) +
   theme_classic() +
   theme(legend.key.size = unit(0.3, "cm"),
         plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
 g8
-ITS_levels <- data.frame("tax" = as.character(levels(tot_count_ITS$taxonomy2))) %>%
+ITS_levels <- data.frame("tax" = as.character(tot_count_ITS$taxonomy2)) %>%
   filter(tax != "NA") %>%
   filter(tax != "Other")
-ITS_levels <- ITS_levels$tax
 num_tax_ITS <- rbind(tot_count_ITS, tested_count_ITS, num_h_ITS) %>%
   mutate(Subset = factor(Subset, levels = c("All", "Tested", "Sig."))) %>%
   mutate(taxonomy2 = factor(taxonomy2, 
-                            levels = c("Other", "NA", ITS_levels)))
+                            levels = c("Other", "NA", rev(ITS_levels$tax))))
+nrow(input_n3_ITS$taxonomy_loaded)
+nrow(input_au_ITS$taxonomy_loaded)
+nrow(input_auh_ITS$taxonomy_loaded)
+n_text_ITS <- data.frame(x = c("All", "Tested", "Sig."),
+                         y = c(105, 105, 105),
+                         label = c("n = 1425", "n = 240", "n = 222"))
 g9 <- ggplot(num_tax_ITS, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
   geom_bar(stat = "identity") +
+  geom_text(data = n_text_ITS, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
   scale_fill_manual(values = c("grey90", "grey40", brewer.pal(6, "Paired"))) +
   labs(x = NULL,
-       y = "% ASV Count",
+       y = "% ZOTU Count",
        fill = "Phylum",
-       title = "ITS") +
+       title = "b) Fungi") +
   guides(fill = guide_legend(ncol = 1)) +
   theme_classic() +
   theme(legend.key.size = unit(0.3, "cm"),
@@ -1317,6 +1406,8 @@ g9
 pdf("InitialFigs/Heritability_TaxaCounts.pdf", width = 7, height = 5)
 plot_grid(g8, g9, ncol = 1, align = "v")
 dev.off()
+
+# Run section 7 to combine this info with SNP info for Figure 4
 
 
 
@@ -1390,6 +1481,48 @@ export_ITS_wRep <- export_ITS_copy %>%
 #write.table(export_16S_wRep, "data/div_asvs_wReps_16S.txt", sep = "\t", row.names = F)
 #write.table(export_ITS_mean, "data/div_asvs_mean_ITS.txt", sep = "\t", row.names = F)
 #write.table(export_ITS_wRep, "data/div_asvs_wReps_ITS.txt", sep = "\t", row.names = F)
+
+# Reload
+export_16S_mean <- read.delim("data/div_asvs_mean_16S.txt")
+input_auh_16S <- filter_taxa_from_input(input_au_16S,
+                                        taxa_IDs_to_keep = names(export_16S_mean))
+nrow(input_auh_16S$taxonomy_loaded)
+export_ITS_mean <- read.delim("data/div_asvs_mean_ITS.txt")
+input_auh_ITS <- filter_taxa_from_input(input_au_ITS,
+                                        taxa_IDs_to_keep = names(export_ITS_mean))
+nrow(input_auh_ITS$taxonomy_loaded)
+
+# How many of each taxonomic level?
+input_auh_16S_bac <- filter_taxa_from_input(input_auh_16S,
+                                            taxa_to_keep = "Bacteria",
+                                            at_spec_level = 1)
+input_auh_16S_arc <- filter_taxa_from_input(input_auh_16S,
+                                            taxa_to_keep = "Archaea",
+                                            at_spec_level = 1)
+length(unique(input_auh_16S$taxonomy_loaded$taxonomy2))
+length(unique(input_auh_16S$taxonomy_loaded$taxonomy3))
+length(unique(input_auh_16S$taxonomy_loaded$taxonomy4))
+length(unique(input_auh_16S$taxonomy_loaded$taxonomy5))
+length(unique(input_auh_16S$taxonomy_loaded$taxonomy6))
+
+length(unique(input_auh_16S_bac$taxonomy_loaded$taxonomy2))
+length(unique(input_auh_16S_bac$taxonomy_loaded$taxonomy3))
+length(unique(input_auh_16S_bac$taxonomy_loaded$taxonomy4))
+length(unique(input_auh_16S_bac$taxonomy_loaded$taxonomy5))
+length(unique(input_auh_16S_bac$taxonomy_loaded$taxonomy6))
+
+length(unique(input_auh_16S_arc$taxonomy_loaded$taxonomy2))
+length(unique(input_auh_16S_arc$taxonomy_loaded$taxonomy3))
+length(unique(input_auh_16S_arc$taxonomy_loaded$taxonomy4)) # NA
+length(unique(input_auh_16S_arc$taxonomy_loaded$taxonomy5)) # NA
+length(unique(input_auh_16S_arc$taxonomy_loaded$taxonomy6)) # NA
+View(input_auh_16S_arc$taxonomy_loaded)
+
+length(unique(input_auh_ITS$taxonomy_loaded$taxonomy2))
+length(unique(input_auh_ITS$taxonomy_loaded$taxonomy3))
+length(unique(input_auh_ITS$taxonomy_loaded$taxonomy4))
+length(unique(input_auh_ITS$taxonomy_loaded$taxonomy5))
+length(unique(input_auh_ITS$taxonomy_loaded$taxonomy6))
 
 
 #### _Higher Level ####
@@ -1472,7 +1605,7 @@ results_16S_gen <- results_16S_gen %>%
                                            "N.S."))))
 sigGeno_16S <- results_16S_gen %>%
   filter(GenotypePFDRaov < 0.05) # 136 p, 117 pFDR
-sigGenoNB_16S <- results_16S %>%
+sigGenoNB_16S <- results_16S_gen %>%
   filter(GenotypePFDRnb < 0.05) # 175 p, 169 pFDR
 
 hist(results_16S_gen$Heritability)
@@ -2337,7 +2470,7 @@ lab_df <- data.frame(Level = c("ASV", "ASV", "Genus", "Genus", "Family", "Family
                      Dataset = c("16S", "ITS", "16S", "ITS", "16S", "ITS",
                                  "16S", "ITS", "16S", "ITS", "16S", "ITS"),
                      label = c("a", "b", "a", "b", "a", "b", "a", "a", "a", "a", "a", "a"),
-                     Heritability = c(rep(0.67, 12))) %>%
+                     Heritability = c(rep(0.69, 12))) %>%
   mutate(Level = factor(Level,
                         levels = c("ASV", "Genus", "Family", "Order", "Class", "Phylum")))
 pdf("InitialFigs/Heritability_Combined_All.pdf", width = 8, height = 5)
@@ -2357,6 +2490,71 @@ ggplot(results_comb_all, aes(Dataset, Heritability)) +
         axis.text = element_text(size = 12))
 dev.off()
 
+# Save. Have handy for figure tweaking.
+#saveRDS(results_comb_all, "data/results_comb_all.rds")
+results_comb_all <- readRDS("data/results_comb_all.rds")
+results_comb_all <- results_comb_all %>%
+  mutate(Level = gsub("ASV", "ZOTU", Level)) %>%
+  mutate(Level = factor(Level,
+                        levels = c("ZOTU", "Genus", "Family", "Order", "Class", "Phylum"))) %>%
+  droplevels()
+lab_df <- data.frame(Level = c("ZOTU", "ZOTU", "Genus", "Genus", "Family", "Family",
+                               "Order", "Order", "Class", "Class", "Phylum", "Phylum"),
+                     Dataset = c("16S", "ITS", "16S", "ITS", "16S", "ITS",
+                                 "16S", "ITS", "16S", "ITS", "16S", "ITS"),
+                     label = c("a", "b", "a", "b", "a", "b", "a", "a", "a", "a", "a", "a"),
+                     Heritability = c(rep(0.69, 12))) %>%
+  mutate(Level = factor(Level,
+                        levels = c("ZOTU", "Genus", "Family", "Order", "Class", "Phylum")))
+results_sum_all <- results_comb_all %>%
+  group_by(Dataset, Level) %>%
+  summarise(mean = mean(Heritability),
+            se = se(Heritability))
+
+# Add histograms or density plots
+bot <- ggplot(results_comb_all, aes(Heritability, colour = Dataset)) +
+  geom_density(linewidth = 1.5) +
+  scale_colour_manual(values = c("#FFC107", "#004D40")) +
+  labs(x = "Heritability",
+       y = "Density") +
+  facet_wrap(~ Level, ncol = 6) +
+  theme_bw() +
+  theme(strip.background = element_blank(),
+        strip.text = element_blank(),
+        axis.title = element_text(size = 14),
+        axis.text.y = element_text(size = 12),
+        axis.text.x = element_text(size = 9))
+bot
+
+# Combined
+top <- ggplot(results_comb_all, aes(Dataset, Heritability)) +
+  geom_violin(colour = "black", draw_quantiles = T, scale = "area") +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.1, pch = 16, aes(colour = Sig)) +
+  geom_point(data = results_sum_all, aes(Dataset, mean), size = 4, colour = "black") +
+  geom_errorbar(data = results_sum_all, aes(x = Dataset, ymax = mean + se, ymin = mean - se),
+                inherit.aes = F, width = 0.1, colour = "black") +
+  geom_text(data = lab_df, aes(label = label)) +
+  facet_wrap(~ Level, ncol = 6) +
+  labs(colour = "GLM") +
+  scale_colour_manual(values = c("#619CFF", "#F8766D")) +
+  guides(colour = guide_legend(override.aes = list(alpha = 1, size = 2))) +
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 9))
+top_leg <- get_legend(top)
+top <- top + theme(legend.position = "none")
+bot_leg <- get_legend(bot)
+bot <- bot + theme(legend.position = "none")
+leg <- plot_grid(top_leg, bot_leg, ncol = 1)
+leg
+plot <- plot_grid(top, bot, ncol = 1, align = "v", rel_heights = c(0.54, 0.46))
+plot
+pdf("InitialFigs/Heritability_Combined_All_wDens.pdf", width = 8, height = 6)
+plot_grid(plot, leg, ncol = 2, rel_widths = c(0.88, 0.12))
+dev.off()
+pdf("FinalFigs/Figure3.pdf", width = 8, height = 6)
+plot_grid(plot, leg, ncol = 2, rel_widths = c(0.88, 0.12))
+dev.off()
 
 
 #### _NULL ####
@@ -3847,33 +4045,388 @@ keystone <- roles %>%
 # Most is done outside of R on the super computer
 # Kyle will run
 # Import files from Kyle
-snp_16S <- read.delim("data/AllSignificantSites16SWithGeneFunction.txt")
-nrow(snp_16S) # 1873
-sum(snp_16S$GeneIDs == "NoGenes") # 403
-snp_16S_taxa <- snp_16S %>%
-  group_by(ASV) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count)) %>%
-  mutate("ASV_ID" = gsub("_16S", "", ASV)) %>%
-  left_join(., input_n3_16S$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
-snp_16S_genes <- snp_16S %>%
-  group_by(GeneIDs) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count))
 
-snp_ITS <- read.delim("data/AllSignificantSitesITSWithGeneFunction.txt")
-nrow(snp_ITS) # 25921
-sum(snp_ITS$GeneIDs == "NoGenes") # 5528
-snp_ITS_taxa <- snp_ITS %>%
-  group_by(ASV) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count)) %>%
-  mutate("ASV_ID" = gsub("_ITS", "", ASV)) %>%
-  left_join(., input_n3_ITS$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
-snp_ITS_genes <- snp_ITS %>%
-  group_by(GeneIDs) %>%
+# Old
+# snp_16S <- read.delim("data/AllSignificantSites16SWithGeneFunction.txt")
+# nrow(snp_16S) # 1873
+# sum(snp_16S$GeneIDs == "NoGenes") # 403
+# sum(snp_16S$GeneIDs == "NoGenes")/nrow(snp_16S)
+# snp_16S_taxa <- snp_16S %>%
+#   group_by(ASV) %>%
+#   summarise(count = n()) %>%
+#   arrange(desc(count)) %>%
+#   mutate("ASV_ID" = gsub("_16S", "", ASV)) %>%
+#   left_join(., input_n3_16S$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
+# snp_16S_genes <- snp_16S %>%
+#   group_by(GeneIDs) %>%
+#   summarise(count = n()) %>%
+#   arrange(desc(count))
+# 
+# snp_ITS <- read.delim("data/AllSignificantSitesITSWithGeneFunction.txt")
+# nrow(snp_ITS) # 25921
+# sum(snp_ITS$GeneIDs == "NoGenes") # 5528
+# sum(snp_ITS$GeneIDs == "NoGenes")/nrow(snp_ITS)
+# snp_ITS_taxa <- snp_ITS %>%
+#   group_by(ASV) %>%
+#   summarise(count = n()) %>%
+#   arrange(desc(count)) %>%
+#   mutate("ASV_ID" = gsub("_ITS", "", ASV)) %>%
+#   left_join(., input_n3_ITS$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
+# snp_ITS_genes <- snp_ITS %>%
+#   group_by(GeneIDs) %>%
+#   summarise(count = n()) %>%
+#   arrange(desc(count))
+# 
+# # Update with PC1 and PC2 included
+# # Import files from Kyle
+# snp_16S <- read.delim("data/Window16SProteinIdentitiesNoGenesRM.txt", header = F)
+# nrow(snp_16S) # 1820
+# sum(snp_16S$GeneIDs == "NoGenes") # 403
+# sum(snp_16S$GeneIDs == "NoGenes")/nrow(snp_16S)
+# snp_16S_taxa <- snp_16S %>%
+#   group_by(ASV) %>%
+#   summarise(count = n()) %>%
+#   arrange(desc(count)) %>%
+#   mutate("ASV_ID" = gsub("_16S", "", ASV)) %>%
+#   left_join(., input_n3_16S$taxonomy_loaded, by = c("ASV_ID" = "taxonomy8"))
+# snp_16S_genes <- snp_16S %>%
+#   group_by(GeneIDs) %>%
+#   summarise(count = n()) %>%
+#   arrange(desc(count))
+
+
+
+# Update from Kyle September 2, 2024 (use this!)
+# Update is that some ZOTUs were transformed if necessary, other were not
+# Uses the same PC1/PC2 as last update
+snp_16S <- read.delim("data/16SCandidateSites_wTaxonomy.txt", header = F) %>%
+  set_names(c("Test", "SNP", "Position", "Pvalue", "Gene1", "Gene2", "Taxonomy")) %>%
+  filter(is.na(SNP) == FALSE) %>%
+  separate(Test, into = c("OTU_ID", "Junk"), remove = F, sep = "_16S") %>%
+  dplyr::select(-Junk)
+nrow(snp_16S) # 640 (of 1654 rows, more than 1385 because some with multiple hits)
+length(unique(snp_16S$OTU_ID)) # 375 ZOTUs of 1385 tested (27%)
+sum(snp_16S$Gene1 == "NoGenes") # 433
+sum(snp_16S$Gene1 == "NoGenes")/nrow(snp_16S) # 68% of sig. SNPs with no associated genes
+# Richness, Shannon, PC1, PC2 no significant SNPs
+snp_16S_taxa <- snp_16S %>%
+  left_join(., input_auh_16S$taxonomy_loaded, by = c("OTU_ID" = "taxonomy8")) %>%
+  mutate(Taxonomy = paste(taxonomy1, taxonomy2, taxonomy3, taxonomy4,
+                          taxonomy5, taxonomy6, taxonomy7, OTU_ID, sep = ";")) %>%
+  group_by(Test, Taxonomy) %>%
   summarise(count = n()) %>%
   arrange(desc(count))
+snp_16S_genes <- snp_16S %>%
+  filter(Gene1 != "NoGenes") %>%
+  group_by(Gene1) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+snp_16S_genes_taxlist <- snp_16S %>%
+  filter(Gene1 != "NoGenes")
+length(unique(snp_16S_genes_taxlist$OTU_ID)) # 162 ZOTUs with SNPs with genes
+
+snp_ITS <- read.delim("data/ITSCandidateSites_wTaxonomy.txt", header = F) %>%
+  dplyr::select(-V8) %>%
+  set_names(c("Test", "SNP", "Position", "Pvalue", "Gene1", "Gene2", "Taxonomy")) %>%
+  filter(is.na(SNP) == FALSE) %>%
+  separate(Test, into = c("OTU_ID", "Junk"), remove = F, sep = "_ITS") %>%
+  dplyr::select(-Junk)
+nrow(snp_ITS) # 403 (out of 537 rows, more than 222 because some with multiple hits)
+length(unique(snp_ITS$OTU_ID)) # 92 ZOTUs of of 222 tested (41%)
+sum(snp_ITS$Gene1 == "NoGenes") # 239
+sum(snp_ITS$Gene1 == "NoGenes")/nrow(snp_ITS) # 59% of sig. SNPs with no associated genes
+# Richness, Shannon, PC1, PC2 no significant SNPs
+snp_ITS_taxa <- snp_ITS %>%
+  left_join(., input_auh_ITS$taxonomy_loaded, by = c("OTU_ID" = "taxonomy8")) %>%
+  mutate(Taxonomy = paste(taxonomy1, taxonomy2, taxonomy3, taxonomy4,
+                          taxonomy5, taxonomy6, taxonomy7, OTU_ID, sep = ";")) %>%
+  group_by(Test, Taxonomy) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+snp_ITS_genes <- snp_ITS %>%
+  filter(Gene1 != "NoGenes") %>%
+  group_by(Gene1) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+snp_ITS_genes_taxlist <- snp_ITS %>%
+  filter(Gene1 != "NoGenes")
+length(unique(snp_ITS_genes_taxlist$OTU_ID)) # 51 ZOTUs with SNPs with genes
+
+# Make Figure 5 - 
+# Now the left column was the Sig. column in figure 4
+# Make the dataframes
+SNP_tested_16S <- num_h_16S %>%
+  arrange(desc(prop)) %>%
+  mutate(Subset = "Heritable")
+sum(SNP_tested_16S$prop)
+SNP_sig_16S <- input_n3_16S$taxonomy_loaded %>%
+  filter(taxonomy8 %in% snp_16S$OTU_ID) %>%
+  mutate(taxonomy2 = ifelse(taxonomy2 %notin% top_taxa_16S$taxonomy2,
+                            "Other",
+                            taxonomy2)) %>%
+  mutate(taxonomy2 = factor(taxonomy2, levels = num_h_16S$taxonomy2)) %>%
+  group_by(taxonomy2) %>%
+  summarise(num_sig = n()) %>%
+  mutate(tot = 375) %>%
+  mutate(prop = num_sig/tot) %>%
+  mutate(Dataset = "16S",
+         Subset = "Sig. SNP")
+sum(SNP_sig_16S$prop)
+SNP_sig_gene_16S <- input_n3_16S$taxonomy_loaded %>%
+  filter(taxonomy8 %in% snp_16S_genes_taxlist$OTU_ID) %>%
+  mutate(taxonomy2 = ifelse(taxonomy2 %notin% top_taxa_16S$taxonomy2,
+                            "Other",
+                            taxonomy2)) %>%
+  mutate(taxonomy2 = factor(taxonomy2, levels = num_h_16S$taxonomy2)) %>%
+  group_by(taxonomy2) %>%
+  summarise(num_sig = n()) %>%
+  mutate(tot = 162) %>%
+  mutate(prop = num_sig/tot) %>%
+  mutate(Dataset = "16S",
+         Subset = "Sig. SNP w/Gene")
+sum(SNP_sig_gene_16S$prop)
+
+SNP_tested_ITS <- num_h_ITS %>%
+  arrange(desc(prop)) %>%
+  mutate(Subset = "Heritable")
+sum(SNP_tested_ITS$prop)
+SNP_sig_ITS <- input_n3_ITS$taxonomy_loaded %>%
+  filter(taxonomy8 %in% snp_ITS$OTU_ID) %>%
+  mutate(taxonomy2 = ifelse(taxonomy2 %notin% num_h_ITS$taxonomy2,
+                            "Other",
+                            taxonomy2)) %>%
+  mutate(taxonomy2 = factor(taxonomy2, levels = num_h_ITS$taxonomy2)) %>%
+  group_by(taxonomy2) %>%
+  summarise(num_sig = n()) %>%
+  mutate(tot = 92) %>%
+  mutate(prop = num_sig/tot) %>%
+  mutate(Dataset = "ITS",
+         Subset = "Sig. SNP")
+sum(SNP_sig_ITS$prop)
+SNP_sig_gene_ITS <- input_n3_ITS$taxonomy_loaded %>%
+  filter(taxonomy8 %in% snp_ITS_genes_taxlist$OTU_ID) %>%
+  mutate(taxonomy2 = ifelse(taxonomy2 %notin% num_h_ITS$taxonomy2,
+                            "Other",
+                            taxonomy2)) %>%
+  mutate(taxonomy2 = factor(taxonomy2, levels = num_h_ITS$taxonomy2)) %>%
+  group_by(taxonomy2) %>%
+  summarise(num_sig = n()) %>%
+  mutate(tot = 51) %>%
+  mutate(prop = num_sig/tot) %>%
+  mutate(Dataset = "ITS",
+         Subset = "Sig. SNP w/Gene")
+sum(SNP_sig_gene_ITS$prop)
+
+# Plot with heritable, sig SNP, sig SNP with gene
+SNP_tax_16S <- rbind(SNP_tested_16S, SNP_sig_16S, SNP_sig_gene_16S) %>%
+  mutate(Subset = factor(Subset, levels = c("Heritable", "Sig. SNP", "Sig. SNP w/Gene"))) %>%
+  mutate(taxonomy2 = factor(taxonomy2, 
+                            levels = c("Other", "NA", rev(levels_16S$tax))))
+n_text_16S <- data.frame(x = c("Heritable", "Sig. SNP", "Sig. SNP w/Gene"),
+                         y = c(105, 105, 105),
+                         label = c("n = 1385", "n = 375", "n = 162"))
+g10 <- ggplot(SNP_tax_16S, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
+  geom_bar(stat = "identity") +
+  geom_text(data = n_text_16S, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
+  scale_fill_manual(values = c("grey90", "grey40", brewer.pal(12, "Paired")[11:1])) +
+  labs(x = NULL,
+       y = "% ZOTU Count",
+       fill = "Phylum",
+       title = "a) Archaea/Bacteria") +
+  guides(fill = guide_legend(ncol = 1)) +
+  theme_classic() +
+  theme(legend.key.size = unit(0.3, "cm"),
+        plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
+g10
+SNP_tax_ITS <- rbind(SNP_tested_ITS, SNP_sig_ITS, SNP_sig_gene_ITS) %>%
+  mutate(Subset = factor(Subset, levels = c("Heritable", "Sig. SNP", "Sig. SNP w/Gene"))) %>%
+  mutate(taxonomy2 = factor(taxonomy2, 
+                            levels = c("Other", "NA", rev(ITS_levels$tax))))
+n_text_ITS <- data.frame(x = c("Heritable", "Sig. SNP", "Sig. SNP w/Gene"),
+                         y = c(105, 105, 105),
+                         label = c("n = 222", "n = 92", "n = 51"))
+g11 <- ggplot(SNP_tax_ITS, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
+  geom_bar(stat = "identity") +
+  geom_text(data = n_text_ITS, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
+  scale_fill_manual(values = c("grey90", "grey40", brewer.pal(6, "Paired"))) +
+  labs(x = NULL,
+       y = "% ZOTU Count",
+       fill = "Phylum",
+       title = "b) Fungi") +
+  guides(fill = guide_legend(ncol = 1)) +
+  theme_classic() +
+  theme(legend.key.size = unit(0.3, "cm"),
+        plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
+g11
+
+pdf("InitialFigs/SNP_taxa.pdf", width = 7, height = 5)
+plot_grid(g10, g11, ncol = 1, align = "v")
+dev.off()
+
+
+
+# Combine all counts from heritability testing and SNP testing into 1 figure!
+# Otherwise the Heritability column is shown in both figures, which isn't good
+# Use stacked bars for now but could also consider an alluvial plot
+SNP_tax_16S <- rbind(tot_count_16S, tested_count_16S, SNP_tested_16S, SNP_sig_16S, SNP_sig_gene_16S) %>%
+  mutate(Subset = factor(Subset, 
+                         levels = c("All", "Tested", "Heritable", "Sig. SNP", "Sig. SNP w/Gene"))) %>%
+  mutate(taxonomy2 = factor(taxonomy2, 
+                            levels = c("Other", "NA", rev(levels_16S$tax))))
+n_text_16S <- data.frame(x = c("All", "Tested", "Heritable", "Sig. SNP", "Sig. SNP w/Gene"),
+                         y = c(105, 105, 105, 105, 105),
+                         label = c("n = 19274", "n = 1726", "n = 1385", "n = 375", "n = 162"))
+g12 <- ggplot(SNP_tax_16S, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
+  geom_bar(stat = "identity") +
+  geom_text(data = n_text_16S, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
+  scale_fill_manual(values = c("grey90", "grey40", brewer.pal(12, "Paired")[11:1])) +
+  labs(x = NULL,
+       y = "% ZOTU Count",
+       fill = "Phylum",
+       title = "a) Archaea/Bacteria") +
+  guides(fill = guide_legend(ncol = 1)) +
+  theme_classic() +
+  theme(legend.key.size = unit(0.3, "cm"),
+        plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
+g12
+SNP_tax_ITS <- rbind(tot_count_ITS, tested_count_ITS, SNP_tested_ITS, SNP_sig_ITS, SNP_sig_gene_ITS) %>%
+  mutate(Subset = factor(Subset, 
+                         levels = c("All", "Tested", "Heritable", "Sig. SNP", "Sig. SNP w/Gene"))) %>%
+  mutate(taxonomy2 = factor(taxonomy2, 
+                            levels = c("Other", "NA", rev(ITS_levels$tax))))
+n_text_ITS <- data.frame(x = c("All", "Tested", "Heritable", "Sig. SNP", "Sig. SNP w/Gene"),
+                         y = c(105, 105, 105, 105, 105),
+                         label = c("n = 1425", "n = 240", "n = 222", "n = 92", "n = 51"))
+g13 <- ggplot(SNP_tax_ITS, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
+  geom_bar(stat = "identity") +
+  geom_text(data = n_text_ITS, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
+  scale_fill_manual(values = c("grey90", "grey40", brewer.pal(6, "Paired"))) +
+  labs(x = NULL,
+       y = "% ZOTU Count",
+       fill = "Phylum",
+       title = "b) Fungi") +
+  guides(fill = guide_legend(ncol = 1)) +
+  theme_classic() +
+  theme(legend.key.size = unit(0.3, "cm"),
+        plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
+g13
+
+pdf("FinalFigs/Figure4.pdf", width = 7, height = 5)
+plot_grid(g12, g13, ncol = 1, align = "v")
+dev.off()
+
+# Code copied from above
+# Plot with tot count and au count and sig count
+num_tax_ITS <- rbind(tot_count_ITS, tested_count_ITS, num_h_ITS) %>%
+  mutate(Subset = factor(Subset, levels = c("All", "Tested", "Sig."))) %>%
+  mutate(taxonomy2 = factor(taxonomy2, 
+                            levels = c("Other", "NA", rev(ITS_levels$tax))))
+nrow(input_n3_ITS$taxonomy_loaded)
+nrow(input_au_ITS$taxonomy_loaded)
+nrow(input_auh_ITS$taxonomy_loaded)
+n_text_ITS <- data.frame(x = c("All", "Tested", "Sig."),
+                         y = c(105, 105, 105),
+                         label = c("n = 1425", "n = 240", "n = 222"))
+g9 <- ggplot(num_tax_ITS, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
+  geom_bar(stat = "identity") +
+  geom_text(data = n_text_ITS, aes(x = x, y = y, label = label), 
+            inherit.aes = F, size = 3) +
+  scale_fill_manual(values = c("grey90", "grey40", brewer.pal(6, "Paired"))) +
+  labs(x = NULL,
+       y = "% ZOTU Count",
+       fill = "Phylum",
+       title = "b) Fungi") +
+  guides(fill = guide_legend(ncol = 1)) +
+  theme_classic() +
+  theme(legend.key.size = unit(0.3, "cm"),
+        plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
+g9
+
+# Export for sharing
+#write.csv(snp_16S_taxa, "data/snp_16S_taxa.csv", row.names = F)
+#write.csv(snp_ITS_taxa, "data/snp_ITS_taxa.csv", row.names = F)
+#write.csv(snp_16S_genes, "data/snp_16S_genes.csv", row.names = F)
+#write.csv(snp_ITS_genes, "data/snp_ITS_genes.csv", row.names = F)
+
+
+
+# Other figures
+# Conceptual figure with diagram and some microbe shapes and gene text
+# Plot with the significant red dots from Manhattan plots
+# Heatmap with p-value info?
+# Heatmap with total number of archaea, bacteria, fungal hits by chromosome
+# Heatmap with number of unique archaea, bacteria, fungal ZOTUs by chromosome
+
+# Total counts
+snp_arc <- snp_16S %>%
+  filter(grepl("Archaea", Taxonomy))
+snp_bac <- snp_16S %>%
+  filter(grepl("Bacteria", Taxonomy))
+snp_fun <- snp_ITS
+chr_arc <- as.data.frame(table(snp_arc$SNP)) %>%
+  set_names(c("ChromosomeID", "Archaea"))
+chr_bac <- as.data.frame(table(snp_bac$SNP)) %>%
+  set_names(c("ChromosomeID", "Bacteria"))
+chr_fun <- as.data.frame(table(snp_fun$SNP)) %>%
+  set_names(c("ChromosomeID", "Fungi"))
+chr_counts <- chr_arc %>%
+  full_join(., chr_bac, by = "ChromosomeID") %>%
+  full_join(., chr_fun, by = "ChromosomeID") %>%
+  replace_na_with(value = 0) %>%
+  mutate(Chrome = "Chromosome",
+         Number = as.integer(substr(ChromosomeID, start = 11, stop = 12))) %>%
+  mutate(Chromosome = paste(Chrome, Number, sep = "")) %>%
+  arrange(Number) %>%
+  column_to_rownames(var = "Chromosome") %>%
+  dplyr::select(Archaea, Bacteria, Fungi)
+pheatmap(mat = chr_counts,
+         scale = "column",
+         cluster_rows = F,
+         cluster_cols = F,
+         legend = F,
+         angle_col = 315,
+         display_numbers = chr_counts,
+         filename = "InitialFigs/Kyle_ChromosomeCountsTotal.png",
+         width = 4,
+         height = 5)
+
+# ZOTU counts
+chr_arc <- snp_arc %>%
+  group_by(SNP) %>%
+  summarise(Archaea = length(unique(OTU_ID))) %>%
+  set_names(c("ChromosomeID", "Archaea"))
+chr_bac <- snp_bac %>%
+  group_by(SNP) %>%
+  summarise(Bacteria = length(unique(OTU_ID))) %>%
+  set_names(c("ChromosomeID", "Bacteria"))
+chr_fun <- snp_fun %>%
+  group_by(SNP) %>%
+  summarise(Fungi = length(unique(OTU_ID))) %>%
+  set_names(c("ChromosomeID", "Fungi"))
+chr_zotus <- chr_arc %>%
+  full_join(., chr_bac, by = "ChromosomeID") %>%
+  full_join(., chr_fun, by = "ChromosomeID") %>%
+  replace_na_with(value = 0) %>%
+  mutate(Chrome = "Chromosome",
+         Number = as.integer(substr(ChromosomeID, start = 11, stop = 12))) %>%
+  mutate(Chromosome = paste(Chrome, Number, sep = "")) %>%
+  arrange(Number) %>%
+  column_to_rownames(var = "Chromosome") %>%
+  dplyr::select(Archaea, Bacteria, Fungi)
+pheatmap(mat = chr_zotus,
+         scale = "column",
+         cluster_rows = F,
+         cluster_cols = F,
+         legend = F,
+         angle_col = 315,
+         display_numbers = chr_zotus,
+         filename = "InitialFigs/Kyle_ChromosomeCountsZOTUs.png",
+         width = 4,
+         height = 5)
 
 
 
@@ -4056,5 +4609,149 @@ ggplot(df6_long_geno, aes(pedigree, value*100)) +
 dev.off()
 
 
+
+#### 9. NTI ####
+# Look at Nearest Taxon Index to infer assembly mechanisms
+# Just do for 16S as ITS trees are questionable
+# Hypothesis that genotype effects lead to deterministic assembly
+# Read in and filter repset fasta
+nrow(input_n3_16S$taxonomy_loaded)
+cs15 <- as.data.frame(rowSums(input_n3_16S$data_loaded)) %>%
+  set_names("Reads") %>%
+  filter(Reads >= 15)
+input_15 <- filter_taxa_from_input(input_n3_16S,
+                                   taxa_IDs_to_keep = rownames(cs15))
+nrow(input_15$taxonomy_loaded) # 10522
+View(input_15$taxonomy_loaded)
+repset <- readFasta("~/Desktop/Sunflower/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
+  filter(Header %in% input_15$taxonomy_loaded$taxonomy8)
+#writeFasta(repset, "~/Desktop/Sunflower/Cloe/16S/16S_rep_set_zotus_filt15.fa")
+
+# Transfer to microbe, run qiime commands for alignment and tree
+# screen align_seqs.py -i  16S_rep_set_zotus_filt15.fa -m muscle -o ./
+# screen make_phylogeny.py -i aligned.fasta -o ./rep_phylo.tre
+# Transfer tree back here
+
+# The NTI values between −2 and 2 indicate stochastic community assembly, whereas NTI values less than −2 or higher than 2 indicate that deterministic processes play a more important role in structuring the community (deterministic environmental filtering)
+
+# Run on microbe
+#saveRDS(input_15, "data/input_15.rds")
+# Use dataframe with taxa with >= 15 reads in whole dataset (10522)
+bac_asv <- as.data.frame(t(input_15$data_loaded))
+tree <- read.tree("data/rep_phylo.tre")
+colnames(bac_asv)
+tree$tip.label <- gsub("'", "", tree$tip.label)
+tree$tip.label
+sum(colnames(bac_asv) %in% tree$tip.label)
+sum(tree$tip.label %in% colnames(bac_asv))
+#tree <- prune.sample(bac_asv, tree)
+#bac_asv <- bac_asv[,tree$tip.label]
+phy.dist <- cophenetic(tree)
+NTI <- NTI.p(bac_asv, 
+             phy.dist, 
+             nworker = 4, 
+             memo.size.GB = 50,
+             weighted = TRUE, 
+             rand = 1000,
+             check.name = TRUE, 
+             output.MNTD = FALSE,
+             sig.index = "NTI",
+             silent = FALSE)
+#saveRDS(NTI, "NTI.rds")
+NTI <- readRDS("data/NTI.rds") %>%
+  rownames_to_column(var = "sampleID")
+hist(NTI$NTI)
+input_15$map_loaded <- input_15$map_loaded %>%
+  left_join(., NTI, by = "sampleID")
+rownames(input_n3_16S$map_loaded)
+rownames(input_15$map_loaded) <- input_15$map_loaded$sampleID
+
+# Get descriptive info
+min(input_15$map_loaded$NTI) # -4.186063
+max(input_15$map_loaded$NTI) # 5.074002
+mean(input_15$map_loaded$NTI) # 1.421827
+se(input_15$map_loaded$NTI) # 0.07257843
+sd(input_15$map_loaded$NTI) # 1.392296
+
+# Plot versus Sclerotinia and chlorophyll
+plot(input_15$map_loaded$DiseaseIncidence, input_15$map_loaded$NTI)
+plot(input_15$map_loaded$`Chlorophyll concentration`, input_15$map_loaded$NTI)
+pdf("InitialFigs/NTI_Sclero.pdf", width = 7 , height = 5)
+ggplot(input_15$map_loaded, aes(DiseaseIncidence, NTI)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_bw()
+dev.off()
+pdf("InitialFigs/NTI_Chloro.pdf", width = 7 , height = 5)
+ggplot(input_15$map_loaded, aes(`Chlorophyll concentration`, NTI)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_bw()
+dev.off()
+
+# Test and plot
+leveneTest(input_15$map_loaded$NTI ~ input_15$map_loaded$pedigree) # Homogeneous
+leveneTest(input_15$map_loaded$NTI ~ input_15$map_loaded$rep) # Not Homogeneous
+m <- lmer(NTI ~ pedigree + (1|rep), data = input_15$map_loaded)
+summary(m)
+Anova(m)
+anova(m)
+aovtab <- anova(m)
+mnull <- lmer(NTI ~ 1 + (1|rep), data = input_15$map_loaded)
+anova(mnull, m)
+m2 <- mixed(NTI ~ pedigree + (1|rep), data = input_15$map_loaded, method = "PB")
+m2
+anova(m2)
+# No way to get all Sum of Squares for mixed model, so just use two way ANOVA
+m <- aov(NTI ~ rep + pedigree, data = input_15$map_loaded)
+summary(m)
+Anova(m, type = "II")
+h <- eta_sq(m)[2]
+h
+hist(m$residuals)
+shapiro.test(m$residuals)
+plot(m$fitted.values, m$residuals)
+TukeyHSD(m)
+t <- emmeans(object = m, specs = "pedigree") %>%
+  cld(object = ., adjust = "Tukey", Letters = letters, alpha = 0.05) %>%
+  mutate(name = "NTI",
+         y = max(input_15$map_loaded$NTI)+
+           (max(input_15$map_loaded$NTI)-
+              min(input_15$map_loaded$NTI))/10)
+
+pdf("InitialFigs/NTI_15reads.pdf", width = 7, height = 5)
+ggplot(input_15$map_loaded, aes(reorder(pedigree, NTI, mean), NTI)) +
+  geom_hline(yintercept = 2, linetype = "dashed") +
+  geom_hline(yintercept = -2, linetype = "dashed") +
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(size = 2, alpha = 0.75, pch = 16, aes(colour = rep)) +
+  scale_y_continuous(breaks = c(-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6)) +
+  #geom_text(data = t, aes(pedigree, y, label = str_trim(.group)), 
+  #          size = 1, color = "black") +
+  labs(x = NULL, y = "NTI") +
+  theme_bw() +
+  theme(legend.position = "right",
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 12),
+        axis.text.y = element_text(size = 10),
+        axis.text.x = element_text(size = 3, angle = 90, hjust = 1, vjust = 0.5),
+        panel.grid = element_blank())
+dev.off()
+
+ggplot(input_15$map_loaded, aes(reorder(rep, NTI, mean), NTI)) +
+  geom_hline(yintercept = 2, linetype = "dashed") +
+  geom_hline(yintercept = -2, linetype = "dashed") +
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(size = 2, alpha = 0.75, pch = 16) +
+  #geom_text(data = t, aes(pedigree, y, label = str_trim(.group)), 
+  #          size = 1, color = "black") +
+  labs(x = NULL, y = "NTI") +
+  theme_bw() +
+  theme(legend.position = "right",
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 12),
+        axis.text.y = element_text(size = 10),
+        axis.text.x = element_text(size = 3, angle = 90, hjust = 1, vjust = 0.5),
+        panel.grid = element_blank())
 
 # End Script
