@@ -45,6 +45,8 @@ library(iCAMP) # NTI
 library(ape) # Phylogenetics
 library(phyloseq) # microbial analyses, can handle trees
 library(picante) # Trees
+library(conditionz)
+library(taxize) # version 0.9.100.1 from archive
 
 # Repo Directory
 setwd("~/Documents/GitHub/SunflowerG/")
@@ -133,6 +135,7 @@ input_filt_16S <- filter_taxa_from_input(input_filt_16S,
 
 sort(colSums(input_filt_16S$data_loaded))
 mean(colSums(input_filt_16S$data_loaded)) # 13767.36
+sd(colSums(input_filt_16S$data_loaded)) # 6730.455
 se(colSums(input_filt_16S$data_loaded)) # 343.9102
 
 # Check rarefaction curve
@@ -241,6 +244,7 @@ input_filt_ITS <- filter_taxa_from_input(input_filt_ITS,
 
 sort(colSums(input_filt_ITS$data_loaded))
 mean(colSums(input_filt_ITS$data_loaded)) # 18042.02
+sd(colSums(input_filt_ITS$data_loaded)) # 7083.585
 se(colSums(input_filt_ITS$data_loaded)) # 362.4278
 
 # Check rarefaction curve
@@ -332,7 +336,7 @@ saveRDS(input_n3_ITS, "data/input_n3_ITS.rds")
 
 
 
-#### _Start Here ####
+# Old Start Here
 input_filt_16S <- readRDS("data/input_filt_16S.rds")
 input_filt_rare_16S <- readRDS("data/input_filt_rare_16S.rds")
 input_n4_16S <- readRDS("data/input_n4_16S.rds")
@@ -390,7 +394,7 @@ input_n3_ITS <- filter_taxa_from_input(input_n3_ITS,
 #saveRDS(input_n3_16S, "data/input_filt_16S_noSing.rds")
 #saveRDS(input_n3_ITS, "data/input_filt_ITS_noSing.rds")
 
-#### _Start here 2 ####
+#### _Start here ####
 input_n3_16S <- readRDS("data/input_filt_16S_noSing.rds")
 input_n3_ITS <- readRDS("data/input_filt_ITS_noSing.rds")
 input_n3_16S$map_loaded$rich <- specnumber(input_n3_16S$data_loaded, 
@@ -407,6 +411,7 @@ input_n3_ITS$map_loaded$shannon <- vegan::diversity(input_n3_ITS$data_loaded,
 # Export taxonomy
 #write.csv(input_n3_16S$taxonomy_loaded, "data/16S_taxonomy.csv", row.names = F)
 #write.csv(input_n3_ITS$taxonomy_loaded, "data/ITS_taxonomy.csv", row.names = F)
+
 
 
 #### 2. Alpha ####
@@ -1403,7 +1408,7 @@ g9 <- ggplot(num_tax_ITS, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
         plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
 g9
 
-pdf("InitialFigs/Heritability_TaxaCounts.pdf", width = 7, height = 5)
+pdf("FinalFigs/Figure4.pdf", width = 7, height = 5)
 plot_grid(g8, g9, ncol = 1, align = "v")
 dev.off()
 
@@ -3717,7 +3722,7 @@ length(E(net))
 round(mean(deg), 1)
 round(transitivity(net), 3)
 
-#### _Color, Shape ####
+#### _Color, Shape
 # Color edges, shape by role
 
 # Plot Circle
@@ -3790,7 +3795,7 @@ V(net)$color <- as.character(tax$color)
 # And add ASV ID as vertex attribute
 V(net)$ASV_ID2 <- input_filt_abund_combined$taxonomy_loaded$ASV_ID2
 
-#### _Good Taxonomy ####
+#### _Good Taxonomy
 # Replot, Circle, shape by Role
 par(mar = c(3,8,1,0), xpd = TRUE) # bottom, left, top, right
 plot(net,
@@ -3854,7 +3859,7 @@ dev.off()
 
 
 
-#### _Betweenness ####
+#### _Betweenness
 # Plot degree versus betweenness for each network
 se <- se.mb2
 net <- adj2igraph(getRefit(se),  vertex.attr=list(name=taxa_names(input.phy)))
@@ -3939,7 +3944,7 @@ dev.off()
 
 
 
-#### _Participation ####
+#### _Participation
 # Plot participation coefficient and within-module degree (Barnes et al.)
 # Dashed lines at 0.61 and 2.2
 # z-score (within module degree) is "connectivity"
@@ -4315,7 +4320,7 @@ g13 <- ggplot(SNP_tax_ITS, aes(x = Subset, y = prop*100, fill = taxonomy2)) +
         plot.title = element_text(size = 14, hjust = 0.5, vjust = -2))
 g13
 
-pdf("FinalFigs/Figure4.pdf", width = 7, height = 5)
+pdf("InitialFigs/Heritability_TaxaCountswGWAS.pdf", width = 7, height = 5)
 plot_grid(g12, g13, ncol = 1, align = "v")
 dev.off()
 
@@ -4661,6 +4666,9 @@ NTI <- NTI.p(bac_asv,
 NTI <- readRDS("data/NTI.rds") %>%
   rownames_to_column(var = "sampleID")
 hist(NTI$NTI)
+t.test(NTI$NTI, mu = 0) # p < 0.05, different than 0!
+nrow(NTI) # 368
+sum(NTI$NTI > 2) # 127 of 368 above the 2 cutoff
 input_15$map_loaded <- input_15$map_loaded %>%
   left_join(., NTI, by = "sampleID")
 rownames(input_n3_16S$map_loaded)
@@ -4673,9 +4681,15 @@ mean(input_15$map_loaded$NTI) # 1.421827
 se(input_15$map_loaded$NTI) # 0.07257843
 sd(input_15$map_loaded$NTI) # 1.392296
 
-# Plot versus Sclerotinia and chlorophyll
+# Test and plot versus Sclerotinia, chlorophyll, richness, shannon
+summary(lm(NTI ~ DiseaseIncidence, data = input_15$map_loaded))
+summary(lm(NTI ~ `Chlorophyll concentration`, data = input_15$map_loaded))
+summary(lm(NTI ~ rich, data = input_15$map_loaded))
+summary(lm(NTI ~ shannon, data = input_15$map_loaded))
 plot(input_15$map_loaded$DiseaseIncidence, input_15$map_loaded$NTI)
 plot(input_15$map_loaded$`Chlorophyll concentration`, input_15$map_loaded$NTI)
+plot(input_15$map_loaded$rich, input_15$map_loaded$NTI)
+plot(input_15$map_loaded$shannon, input_15$map_loaded$NTI)
 pdf("InitialFigs/NTI_Sclero.pdf", width = 7 , height = 5)
 ggplot(input_15$map_loaded, aes(DiseaseIncidence, NTI)) +
   geom_point() +
@@ -4753,5 +4767,602 @@ ggplot(input_15$map_loaded, aes(reorder(rep, NTI, mean), NTI)) +
         axis.text.y = element_text(size = 10),
         axis.text.x = element_text(size = 3, angle = 90, hjust = 1, vjust = 0.5),
         panel.grid = element_blank())
+
+# Use the same style as the alpha diversity plot. Figure 5
+pdf("FinalFigs/Figure5.pdf", width = 8, height = 4)
+ggplot(input_15$map_loaded, aes(reorder(pedigree, NTI, mean), NTI)) +
+  geom_hline(yintercept = 2, linetype = "dashed") +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_hline(yintercept = -2, linetype = "dashed") +
+  geom_boxplot(outlier.shape = NA) +
+  geom_point(size = 1, alpha = 1, pch = 16) +
+  labs(x = "Genotype", y = "NTI") +
+  scale_y_continuous(breaks = c(-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6)) +
+  theme_bw() +
+  theme(legend.position = "right",
+        axis.title = element_text(size = 12),
+        axis.text.y = element_text(size = 10),
+        axis.text.x = element_text(size = 3, angle = 90, hjust = 1, vjust = 0.5),
+        strip.text = element_text(size = 14),
+        strip.background = element_rect(fill = "white"),
+        panel.grid = element_blank())
+dev.off()
+
+
+
+#### 10. Sloan ####
+# Run Sloane Neutral Model
+# Run with pctax package, use github version for plot editing
+#devtools::install_github("Asa12138/pctax", force = TRUE)
+library(pctax)
+
+# 16S
+ncm_res <- ncm(input_15$data_loaded, model = "nls")
+table(ncm_res$ncm_data$group) # 9884 above, 364 below, 274 in
+9884/10522*100
+364/10522*100
+274/10522*100
+
+# ITS
+nrow(input_n3_ITS$taxonomy_loaded) # 1425
+cs15_ITS <- as.data.frame(rowSums(input_n3_ITS$data_loaded)) %>%
+  set_names("Reads") %>%
+  filter(Reads >= 15)
+input_15_ITS <- filter_taxa_from_input(input_n3_ITS,
+                                       taxa_IDs_to_keep = rownames(cs15_ITS))
+nrow(input_15_ITS$taxonomy_loaded) # 981
+
+ncm_res_ITS <- ncm(input_15_ITS$data_loaded, model = "nls")
+table(ncm_res_ITS$ncm_data$group) # 558 above, 166 below, 257 in
+558/981*100
+166/981*100
+257/981*100
+
+# Combined plot (Figure 6)
+fig6a <- plot(ncm_res,
+     mycols = c(Above = "#069870", Below = "#e29e02", In = "#1e353a"),
+     text_position = NULL,
+     pie_text_params = list(size = 0)) +
+  ggtitle("a) Archaea/Bacteria") +
+  theme(plot.title = element_text(hjust = 0, vjust = -1))
+fig6a
+
+fig6b <- plot(ncm_res_ITS,
+              mycols = c(Above = "#069870", Below = "#e29e02", In = "#1e353a"),
+              text_position = NULL,
+              pie_text_params = list(size = 0)) +
+  ggtitle("b) Fungi") +
+  theme(plot.title = element_text(hjust = 0, vjust = -1))
+fig6b
+
+# Custom plot, use this
+lib_ps("patchwork", library = FALSE)
+mycols = c("Above" = "#069870", "Below" = "#e29e02", "In" = "#1e353a",
+           lincol <- "#4a8fb8")
+
+out <- ncm_res[[2]]
+text_position <- c(log(max(out$p)) - 2, 0.05)
+out$group %>%
+  table() %>%
+  as.data.frame() -> ad
+colnames(ad) <- c("type", "n")
+p1 <- ggplot() +
+  geom_line(data = out, aes(x = log(p), y = freq.pred), 
+            linewidth = 1.2, linetype = 1, col = lincol) +
+  geom_line(data = out, aes(x = log(p), y = Lower), 
+            linewidth = 1.2, linetype = 2, col = lincol) +
+  geom_line(data = out, aes(x = log(p), y = Upper), 
+            linewidth = 1.2, linetype = 2, col = lincol) +
+  geom_point(data = out, aes(x = log(p), y = freq, color = group), size = 1) +
+  labs(x = "log10(mean relative abundance)",
+       y ="Occurrence frequency") +
+  scale_colour_manual(values = mycols) +
+  annotate("text", 
+           x = text_position[1], 
+           y = text_position[2], 
+           label = paste("Nm = ", sprintf("%.0f", ncm_res[[1]][1] * ncm_res[[1]][3]), 
+                         sep = ""), size = 4) +
+  annotate("text", 
+           x = text_position[1], 
+           y = text_position[2] + 0.1,
+           label = paste0("R^2 ==", round(ncm_res[[1]][2], 3)), size = 4, parse = TRUE) +
+  guides(color = guide_legend(override.aes = list(size = 3))) +
+  ggtitle("a) Archaea/Bacteria") +
+  theme_classic() +
+  theme(legend.position = "none",
+        legend.title = element_blank(), legend.background = element_rect(I(0)),
+        plot.title = element_text(hjust = 0.5, vjust = -1))
+p1
+pie <- pcutils::gghuan(ad, name = FALSE, text_params = list(size = 0)) +
+  xlim(0.2, 3.3) +
+  scale_fill_manual(values = mycols) +
+  theme(plot.background = element_rect(I(0), linetype = 0),
+        panel.background = element_rect(I(0))) # 去除图片背景白色
+pie
+fig6a <- p1 + 
+  patchwork::inset_element(pie, left = -0.1, bottom = 0.5, right = 0.3, top = 1)
+fig6a
+
+out <- ncm_res_ITS[[2]]
+text_position <- c(log(max(out$p)) - 2.5, 0.05)
+out$group %>%
+  table() %>%
+  as.data.frame() -> ad
+colnames(ad) <- c("type", "n")
+p1 <- ggplot() +
+  geom_line(data = out, aes(x = log(p), y = freq.pred), 
+            linewidth = 1.2, linetype = 1, col = lincol) +
+  geom_line(data = out, aes(x = log(p), y = Lower), 
+            linewidth = 1.2, linetype = 2, col = lincol) +
+  geom_line(data = out, aes(x = log(p), y = Upper), 
+            linewidth = 1.2, linetype = 2, col = lincol) +
+  geom_point(data = out, aes(x = log(p), y = freq, color = group), size = 1) +
+  labs(x = "log10(mean relative abundance)",
+       y ="Occurrence frequency") +
+  scale_colour_manual(values = mycols) +
+  annotate("text", 
+           x = text_position[1], 
+           y = text_position[2], 
+           label = paste("Nm = ", sprintf("%.0f", ncm_res_ITS[[1]][1] * ncm_res_ITS[[1]][3]), 
+                         sep = ""), size = 4) +
+  annotate("text", 
+           x = text_position[1], 
+           y = text_position[2] + 0.1,
+           label = paste0("R^2 ==", round(ncm_res_ITS[[1]][2], 3)), size = 4, parse = TRUE) +
+  guides(color = guide_legend(override.aes = list(size = 3))) +
+  ggtitle("b) Fungi") +
+  theme_classic() +
+  theme(legend.position = c(0.85, 0.4),
+        legend.title = element_blank(), legend.background = element_rect(I(0)),
+        plot.title = element_text(hjust = 0.5, vjust = -1))
+p1
+pie <- pcutils::gghuan(ad, name = FALSE, text_params = list(size = 0)) +
+  xlim(0.2, 3.3) +
+  scale_fill_manual(values = mycols) +
+  theme(plot.background = element_rect(I(0), linetype = 0),
+        panel.background = element_rect(I(0))) # 去除图片背景白色
+pie
+fig6b <- p1 + 
+  patchwork::inset_element(pie, left = -0.1, bottom = 0.5, right = 0.3, top = 1)
+fig6b
+
+pdf("FinalFigs/Figure6.pdf", width = 8, height = 4)
+plot_grid(fig6a, fig6b)
+dev.off()
+
+#### 11. IAA ####
+# Check which taxa have genes for IAA
+# From Kyle: Check these:
+# 1. Acidobacteriota Holophagae (no)
+# 2. Actinobacteriota Solirubrobacterales (no)
+# 3. Proteobacteria Hyphomonadaceae (no)
+# 4. Acidobacteriota Holophagae (no)
+# 5. Myxococcota Polyangiales (no)
+# Are there genomes of those taxa in IMG? Yes.
+# Holophagae: 20
+# Solirubrobacterales: 28
+# Hyphomonadaceae: 63
+# Polyangiales: 37
+
+# Check for more detailed taxonomy. BLAST on NCBI
+# OTU_88, OTU_1044, OTU_1124, OTU_1156, and OTU_1514
+iaa_repset <- readFasta("~/Desktop/Kane/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
+  filter(Header %in% c("OTU_88", "OTU_1044", "OTU_1124", "OTU_1156", "OTU_1514"))
+# OTU_88: 100% with many uncultured bacteria
+# OTU_1044: 100% with many uncultured bacteria
+# OTU_1124: 100% with many uncultured bacteria
+# OTU_1156: 100% with many uncultured bacteria
+# OTU_1514: 100% with many uncultured bacteria
+
+# Searched MetaCyc for IAA biosynthesis pathways
+# There are 6 pathways on there, 4 of which are performed by bacteria
+# III: K00466, K01426, K21801
+# IV: K01721, K20807, (K01426, K21801)
+# V: K01501
+# VI: K14265, K04103, K11817, K22417
+
+# Searched IMG for these KOs on Dec 5 2024
+# Downloaded list of genomes with those KOs
+
+# K00466 (iaaM) - those taxa don't have
+iaa <- read.delim("data/K00466.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus != "Uncultured") # removes 2
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+taxonomy_info <- classification(iaa_genus$Genus, db = "ncbi")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = nrow(iaa_genus), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:nrow(iaa_genus)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
+# K01426 (amiE)
+iaa <- read.delim("data/K01426.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus != "Uncultured") %>% # removes 114
+  filter(Domain %in% c("Archaea", "Bacteria"))
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+taxonomy_info <- classification(iaa_genus$Genus, db = "ncbi")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = nrow(iaa_genus), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:nrow(iaa_genus)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
+
+
+# K21801 (iaaH)
+iaa <- read.delim("data/K21801.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus != "Uncultured") %>% # removes 114
+  filter(Domain %in% c("Archaea", "Bacteria"))
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+taxonomy_info <- classification(iaa_genus$Genus, db = "ncbi")
+taxonomy_info <- Filter(function(x) !is.logical(x), taxonomy_info)
+taxonomy_info_K21801 <- taxonomy_info
+#saveRDS(taxonomy_info_K21801, "data/taxonomy_info_K21801.rds")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = length(taxonomy_info), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:length(taxonomy_info)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_taxonomy_K21801 <- iaa_taxonomy
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
+
+
+# K01721
+iaa <- read.delim("data/K01721.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus %notin% c("Uncultured", "unclassified", "co-assembly", "putative")) %>%
+  filter(Domain %in% c("Bacteria"))
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+iaa_genus_toclassify <- iaa_genus %>%
+  filter(Genus %notin% iaa_taxonomy_K21801$Genus)
+taxonomy_info <- classification(iaa_genus_toclassify$Genus, db = "ncbi")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = nrow(iaa_genus), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:nrow(iaa_genus)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
+
+
+# K20807
+iaa <- read.delim("data/K20807.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus %notin% c("Uncultured", "unclassified", "co-assembly", "putative")) %>%
+  filter(Domain %in% c("Bacteria"))
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+taxonomy_info <- classification(iaa_genus$Genus, db = "ncbi")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = nrow(iaa_genus), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:nrow(iaa_genus)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
+
+
+# K01501
+iaa <- read.delim("data/K01501.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus %notin% c("Uncultured", "unclassified", "co-assembly", "putative")) %>%
+  filter(Domain %in% c("Bacteria"))
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+taxonomy_info <- classification(iaa_genus$Genus, db = "ncbi")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = nrow(iaa_genus), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:nrow(iaa_genus)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
+
+
+# K04103
+iaa <- read.delim("data/K04103.txt") %>%
+  mutate(Genome.Name = gsub("Candidatus ", "", Genome.Name)) %>% # remove Candidatus
+  separate(Genome.Name, into = c("Genus", "Species", "Strain1", "Strain2"), 
+           sep = " ", remove = F) %>%
+  filter(Genus %notin% c("Uncultured", "unclassified", "co-assembly", "putative")) %>%
+  filter(Domain %in% c("Bacteria"))
+iaa_genus <- iaa %>%
+  group_by(Genus) %>%
+  summarise(count = n())
+taxonomy_info <- classification(iaa_genus$Genus, db = "ncbi")
+iaa_taxonomy <- as.data.frame(matrix(data = NA, nrow = nrow(iaa_genus), ncol = 5)) %>%
+  set_names(c("Phylum", "Class", "Order", "Family", "Genus"))
+for (i in 1:nrow(iaa_genus)) {
+  resP <- taxonomy_info[[i]] %>%
+    filter(rank == "phylum") %>%
+    pull(name)
+  iaa_taxonomy$Phylum[i] <- if (length(resP) == 0) NA else resP
+  resC <- taxonomy_info[[i]] %>%
+    filter(rank == "class") %>%
+    pull(name)
+  iaa_taxonomy$Class[i] <- if (length(resC) == 0) NA else resC
+  resO <- taxonomy_info[[i]] %>%
+    filter(rank == "order") %>%
+    pull(name)
+  iaa_taxonomy$Order[i] <- if (length(resO) == 0) NA else resO
+  resF <- taxonomy_info[[i]] %>%
+    filter(rank == "family") %>%
+    pull(name)
+  iaa_taxonomy$Family[i] <- if (length(resF) == 0) NA else resF
+  iaa_taxonomy$Genus[i] <- names(taxonomy_info)[i]
+}
+iaa_taxonomy <- iaa_taxonomy %>%
+  left_join(., iaa_genus, by = "Genus")
+iaa_family <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order, Family) %>%
+  summarise(count = sum(count))
+hyph <- iaa_family %>%
+  filter(Family == "Hyphomonadaceae")
+iaa_order <- iaa_taxonomy %>%
+  group_by(Phylum, Class, Order) %>%
+  summarise(count = sum(count))
+soli <- iaa_order %>%
+  filter(Order == "Solirubrobacterales")
+poly <- iaa_order %>%
+  filter(Order == "Polyangiales")
+iaa_class <- iaa_taxonomy %>%
+  group_by(Phylum, Class) %>%
+  summarise(count = sum(count))
+holo <- iaa_class %>%
+  filter(Class == "Holophagae")
+iaa_phylum <- iaa_taxonomy %>%
+  group_by(Phylum) %>%
+  summarise(count = sum(count))
+
 
 # End Script

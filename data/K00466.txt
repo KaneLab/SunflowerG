@@ -1,0 +1,1286 @@
+Domain	Status	Genome ID	Genome Name	
+Bacteria	Permanent Draft	2511231031	Pseudomonas sp. GM16	
+Bacteria	Permanent Draft	2506210030	Pseudomonas fluorescens NZ011	
+Bacteria	Permanent Draft	2506783057	Pseudomonas syringae Psv4352	
+Bacteria	Permanent Draft	2521172642	Pseudomonas sp. LAMO17WK12:I10	
+Bacteria	Permanent Draft	2521172660	Pseudomonas sp. LAIL14HWK12:I10	
+Bacteria	Permanent Draft	2522572188	Salinarimonas rosea DSM 21201	
+Bacteria	Permanent Draft	2526164786	Pseudomonas chlororaphis HT66	
+Bacteria	Permanent Draft	2531839611	Pseudomonas syringae pv. glycinea B076	
+Bacteria	Finished	2540341095	Pseudomonas poae RE*1-1-14	
+Bacteria	Permanent Draft	2579778699	Pseudomonas syringae DSM 10604	
+Bacteria	Permanent Draft	2579778744	Pseudomonas chlororaphis aurantiaca PB-St2	
+Bacteria	Permanent Draft	8055900207	Pseudomonas anatoliensis P141	
+Bacteria	Permanent Draft	2585427683	Pseudomonas parafulva NBRC 16636	
+Bacteria	Finished	8069976826	Burkholderia pyrrocinia Hargis	
+Bacteria	Permanent Draft	2599185185	Pseudomonas sp. NFPP07	
+Bacteria	Finished	2627853985	Xenorhabdus poinarii G6	
+Bacteria	Permanent Draft	2630968450	Pseudomonas amygdali CFBP 3205	
+Bacteria	Permanent Draft	2630968522	Pseudomonas putida SF1	
+Bacteria	Permanent Draft	2630968593	Pseudomonas fluorescens H14	
+Bacteria	Permanent Draft	2636416160	Yersinia wautersii n.51	
+Bacteria	Permanent Draft	2639762715	Pseudomonas extremorientalis LMG 19695	
+Bacteria	Permanent Draft	2639762849	Agrobacterium arsenijevicii KFB 330	
+Bacteria	Permanent Draft	2645727914	Pseudomonas fluorescens C3	
+Bacteria	Permanent Draft	2648501218	Pseudomonas sp. RIT-PI-a	
+Bacteria	Permanent Draft	2648501512	Pseudomonas putida Simmons	
+Bacteria	Permanent Draft	2648501755	Pseudomonas batumici UCM B-321	
+Bacteria	Permanent Draft	2651869690	Pseudomonas syringae pv. actinidifoliorum CFBP8161 isolate:LSV43.61	
+Bacteria	Permanent Draft	2651869699	Pseudomonas savastanoi pv. savastanoi PseNe107	
+Bacteria	Permanent Draft	2654587828	Pseudomonas fluorescens SRM1	
+Bacteria	Finished	2654588028	Agrobacterium tumefaciens Ach5	
+Bacteria	Permanent Draft	2660237948	Pseudomonas fluorescens ICMP3636	
+Bacteria	Finished	2667527484	Pseudomonas fluorescens NCIMB 11764	
+Bacteria	Permanent Draft	2667527642	Pseudomonas syringae ICMP 13102	
+Bacteria	Permanent Draft	2671181009	Acinetobacter rudis DSM 24031	
+Bacteria	Permanent Draft	2671181174	Pseudomonas savastanoi pv. retacarpa ICMP 16945	
+Bacteria	Permanent Draft	2675903319	Pseudomonas savastanoi pv. nerii CFBP 5067	
+Bacteria	Permanent Draft	2681812804	Pseudomonas sp. B10	
+Bacteria	Permanent Draft	2703718697	Serratia marcescens 950163360	
+Bacteria	Permanent Draft	2713897221	Pseudomonas chlororaphis aureofaciens LMG 1245	
+Bacteria	Permanent Draft	2713897223	Pseudomonas chlororaphis chlororaphis LMG 5004	
+Bacteria	Permanent Draft	2718217675	Pseudomonas sp. S3E10	
+Bacteria	Finished	2718217876	Liberibacter crescens BT-0	
+Bacteria	Permanent Draft	2728368914	Pseudomonas syringae pv. syringae HRI-W 7872	
+Bacteria	Permanent Draft	2731639261	Pseudomonas asplenii ES_PA-B8	
+Bacteria	Permanent Draft	2731957839	Pseudomonas fluorescens C2	
+Bacteria	Permanent Draft	2734482259	Pseudomonas asplenii ES_FE-G7	
+Bacteria	Permanent Draft	2738541294	Pseudomonas sp. GV087	
+Bacteria	Permanent Draft	2744054450	Pseudomonas marginalis ICMP 3553	
+Bacteria	Permanent Draft	2744054787	Pseudomonas putida KB9	
+Bacteria	Permanent Draft	2751186014	Burkholderia sp. RF7-non_BP1	
+Bacteria	Finished	2754412341	Burkholderia stabilis ATCC BAA-67	
+Bacteria	Permanent Draft	2754412386	Burkholderia territorii MSMB1301WGS	
+Bacteria	Permanent Draft	2757320522	Pseudomonas sp. OV081	
+Bacteria	Permanent Draft	2772190756	Paraburkholderia nodosa CNPSo 1341	
+Bacteria	Permanent Draft	2773857714	Paraburkholderia sp. BL23I1N1	
+Bacteria	Permanent Draft	2781126803	Osedax symbiont Rs1	
+Bacteria	Permanent Draft	2784132036	Candidatus Fluviicola riflensis RIFCSPHIGHO2_02_FULL_43_260	
+Bacteria	Permanent Draft	2786546679	Paremcibacter congregatus ZYL	
+Bacteria	Permanent Draft	2791355536	Pseudomonas sp. MPR-R2A7	
+Bacteria	Permanent Draft	2791355552	Pseudomonas sp. FW305-47B	
+Bacteria	Permanent Draft	2791355564	Pseudomonas sp. GP01-A6	
+Bacteria	Permanent Draft	2791355567	Pseudomonas sp. FW215-T2	
+Bacteria	Permanent Draft	2791355583	Pseudomonas sp. FW507-F4	
+Bacteria	Permanent Draft	2791355594	Pseudomonas sp. GW247-5R2A	
+Bacteria	Permanent Draft	2791355625	Pseudomonas sp. GP01-A11	
+Bacteria	Permanent Draft	2791355633	Pseudomonas sp. GP01-A1	
+Bacteria	Permanent Draft	2795385511	Pseudomonas sp. FW306-2-11AD	
+Bacteria	Permanent Draft	2802429378	Pseudomonas lurida MYb16	
+Bacteria	Permanent Draft	2808606363	Pseudomonas putida TE19190	
+Bacteria	Permanent Draft	2808606445	Pseudomonas sp. SJZ131	
+Bacteria	Finished	2808606875	Burkholderia ubonensis MSMB0783	
+Bacteria	Permanent Draft	2814123443	Burkholderia vietnamiensis FL-1-2-10-S1-D0	
+Bacteria	Permanent Draft	2816332258	Burkholderia vietnamiensis FL-7-2-10-S2-D0	
+Bacteria	Permanent Draft	2816332259	Burkholderia vietnamiensis FL-7-3-30-S2-D0	
+Bacteria	Permanent Draft	2816332260	Burkholderia vietnamiensis LA-5-5-30-S1-D2	
+Bacteria	Finished	2816332261	Burkholderia vietnamiensis FL-2-3-30-S1-D0	
+Bacteria	Permanent Draft	2816332287	Burkholderia vietnamiensis AU26564	
+Bacteria	Finished	2846786412	Agrobacterium larrymoorei CFBP5473	
+Bacteria	Finished	2846802666	Agrobacterium tumefaciens CFBP5499	
+Bacteria	Finished	2847693221	Paraburkholderia terricola mHS1	
+Bacteria	Permanent Draft	2848581113	Xenorhabdus szentirmaii US123	
+Bacteria	Permanent Draft	2854572141	Dickeya dianthicola DE440	
+Bacteria	Permanent Draft	2854601825	Dickeya dianthicola SS70	
+Bacteria	Permanent Draft	2854606291	Dickeya dianthicola S4.16.03.P2.4	
+Bacteria	Permanent Draft	2855532815	Agrobacterium tumefaciens 15-174	
+Bacteria	Permanent Draft	2858635475	Agrobacterium tumefaciens B140/95	
+Bacteria	Finished	2860867994	Pseudomonas sp. R1-43-08	
+Bacteria	Permanent Draft	2868965481	Agrobacterium sp. B133/95	
+Bacteria	Permanent Draft	2871254029	Pectobacterium odoriferum Q40	
+Bacteria	Permanent Draft	2871286934	Pectobacterium odoriferum Q115	
+Bacteria	Permanent Draft	2873954064	Pectobacterium odoriferum Q32	
+Bacteria	Permanent Draft	2882528868	Paraburkholderia lacunae S27	
+Bacteria	Permanent Draft	2883058910	Pseudomonas sp. R22(2017)	
+Bacteria	Permanent Draft	2885882604	Pseudomonas sp. R25(2017)	
+Bacteria	Permanent Draft	2885955511	Pseudomonas sp. B11(2017)	
+Bacteria	Permanent Draft	2885972705	Pseudomonas sp. KBW05	
+Bacteria	Permanent Draft	2886047063	Pseudomonas sp. F01002	
+Bacteria	Permanent Draft	2887395293	Sneathiella litorea DP05	
+Bacteria	Permanent Draft	2889225146	Pseudomonas sp. PvP025	
+Bacteria	Finished	2897957997	Pseudomonas sp. RC3H12	
+Bacteria	Permanent Draft	2898849749	Dickeya sp. ws52	
+Bacteria	Permanent Draft	2913290767	Agrobacterium rubi DSM 6772	
+Bacteria	Finished	2917064153	Pseudomonas chlororaphis piscium DSM 21509	
+Bacteria	Permanent Draft	2917142836	Pseudomonas palleroniana LMG 23076	
+Bacteria	Permanent Draft	2917512510	Pseudomonas chlororaphis TECH58W	
+Bacteria	Finished	2917825782	Pseudomonas chlororaphis DSM 6698	
+Bacteria	Permanent Draft	2921691928	Paraburkholderia solisilvae LMG 29739	
+Bacteria	Finished	2925738233	Pseudomonas chlororaphis B25	
+Bacteria	Permanent Draft	2927248576	Pseudomonas sp. PvP006	
+Bacteria	Permanent Draft	2928135762	Paraburkholderia terricola 1988	
+Bacteria	Permanent Draft	2954597948	Pseudomonas sp. 087633	
+Bacteria	Permanent Draft	2956097856	Pseudomonas sp. S30_BP2TU TE3576	
+Bacteria	Finished	2965885166	Pseudomonas chlororaphis aurantiaca K27	
+Bacteria	Finished	2969246651	Pseudomonas sp. S19	
+Bacteria	Permanent Draft	2970756043	Serratia marcescens ERS1424038	
+Bacteria	Finished	2972039337	Pseudomonas chlororaphis aureofaciens P2	
+Bacteria	Permanent Draft	2979286765	Paraburkholderia sp. JPY306	
+Bacteria	Permanent Draft	2984716151	Paraburkholderia sp. JPY468	
+Bacteria	Permanent Draft	2979270056	Paraburkholderia youngii JPY396	
+Bacteria	Permanent Draft	2981067264	Actinobacteria bacterium 89743_195_D1	
+Bacteria	Permanent Draft	2984416049	Paraburkholderia sp. JPY407	
+Bacteria	Permanent Draft	2984688743	Paraburkholderia youngii JPY489	
+Bacteria	Permanent Draft	2990219107	Pseudomonas baltica MBT-2	
+Bacteria	Finished	2998139840	Pseudomonas iranensis SWRI54	
+Bacteria	Finished	3007320457	Pseudomonas chlororaphis aurantiaca Q16	
+Bacteria	Permanent Draft	3007457755	Pseudomonas sp. UFMG81	
+Bacteria	Permanent Draft	3007849513	Pseudomonas sp. C2B4	
+Bacteria	Permanent Draft	8000950893	Phormidium pseudopriestleyi FRX01	
+Bacteria	Permanent Draft	8003553064	Agrobacterium tumefaciens 1D1460	
+Bacteria	Finished	8003597438	Agrobacterium fabrum 2788	
+Bacteria	Permanent Draft	8004094597	Pseudoalteromonas luteoviolacea MMG009	
+Bacteria	Permanent Draft	8004423183	Serratia marcescens ML2637	
+Bacteria	Finished	8011261828	Pseudomonas mosselii DSM 17497	
+Bacteria	Permanent Draft	8020896671	Burkholderia sp. BCC0801	
+Bacteria	Permanent Draft	8021017480	Burkholderia sp. Bp9004	
+Bacteria	Permanent Draft	8034936395	Pseudomonas laurylsulfatiphila AP3_16	
+Bacteria	Permanent Draft	8035090469	Pseudomonas soli 57B-090714	
+Bacteria	Permanent Draft	8035332281	Pseudomonas reinekei MT1	
+Bacteria	Permanent Draft	8040179658	Burkholderia vietnamiensis AU3578	
+Bacteria	Permanent Draft	8044313151	Pseudomonas savastanoi pv. glycinea ICMP 5559	
+Bacteria	Permanent Draft	8044426102	Pseudomonas savastanoi pv. glycinea ICMP 9025	
+Bacteria	Permanent Draft	8044766207	Pseudomonas amygdali pv. myricae ICMP 11123	
+Bacteria	Permanent Draft	8045215023	Pseudomonas chlororaphis HAMBI_1977	
+Bacteria	Permanent Draft	8045221149	Pseudomonas chlororaphis L19	
+Bacteria	Permanent Draft	8047785607	Pseudomonas iridis Y-22	
+Bacteria	Permanent Draft	8052516636	Pseudomonas putida CA-3	
+Bacteria	Finished	8054578176	Pseudomonas juntendi PP_2463	
+Bacteria	Permanent Draft	8056029583	Agrobacterium salinitolerans ST15.13.097	
+Bacteria	Finished	8057522017	Pseudomonas quebecensis S1Bt42	
+Bacteria	Finished	8062046319	Paremcibacter congregatus ZYLT	
+Bacteria	Permanent Draft	8072020804	Pseudomonas sp. Irchel s3b2	
+Bacteria	Finished	8084820202	Pseudomonas chlororaphis NCCB 47033	
+Bacteria	Finished	8084856734	Pseudomonas chlororaphis ATCC 15926	
+Bacteria	Permanent Draft	8087755108	Serratia entomophila 73534db6-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087843006	Serratia entomophila 72ea1a9e-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8088455273	Pseudomonas chlororaphis piscium DSM 21509	
+Bacteria	Finished	8088461797	Pseudomonas chlororaphis piscium ATCC 17411	
+Bacteria	Finished	8108255537	Serratia plymuthica NCTC 8900	
+Bacteria	Finished	8110148599	Pseudomonas monsensis PGSB 8459	
+Bacteria	Permanent Draft	8111909995	Paraburkholderia kururiensis JCM 10599 = LMG 19447	
+Bacteria	Permanent Draft	8113372674	Pseudomonas petroselini MAFF 311094	
+Bacteria	Permanent Draft	8115411739	Burkholderia seminalis DSM 23518	
+Bacteria	Finished	8119319223	Paraburkholderia sabiae LMG 24235	
+Bacteria	Finished	641522609	Burkholderia orbicola MC0-3	
+Bacteria	Finished	648028024	Dickeya dadantii 3937	
+Bacteria	Permanent Draft	2508501124	Paraburkholderia dilworthii WSM3556	
+Bacteria	Permanent Draft	2513237151	Burkholderia sp. WSM2230	
+Bacteria	Permanent Draft	2513237166	Paraburkholderia azotifigens UYPR1.413	
+Bacteria	Permanent Draft	2511231006	Pseudomonas sp. GM17	
+Bacteria	Permanent Draft	2505119044	Agrobacterium rhizogenes A4	
+Bacteria	Permanent Draft	2512875012	Pseudoalteromonas luteoviolacea HI1	
+Bacteria	Permanent Draft	2505679085	Pseudomonas agarici NCPPB 2289	
+Bacteria	Permanent Draft	2517572175	Pseudomonas sp. FGI182	
+Bacteria	Finished	2519899536	Pseudomonas sp. UW4	
+Bacteria	Permanent Draft	2522572104	Paraburkholderia graminis URHA0054	
+Bacteria	Permanent Draft	2523231084	Pseudomonas sp. LAIL14HWK12:I7	
+Bacteria	Permanent Draft	2531839204	Pseudomonas putida LS46	
+Bacteria	Permanent Draft	2545824569	Pseudomonas sp. CC120222-01a	
+Bacteria	Permanent Draft	2547132119	Pseudomonas putida Idaho	
+Bacteria	Permanent Draft	2551306379	Dickeya dianthicola IPO 980	
+Bacteria	Permanent Draft	2551306728	Pseudomonas taiwanensis SJ9	
+Bacteria	Permanent Draft	2554235097	Pseudomonas veronii 1YdBTEX2	
+Bacteria	Finished	2558860219	Dickeya chrysanthemi NCPPB 3533	
+Bacteria	Permanent Draft	2563367037	Pseudomonas syringae pv. actinidia ICMP 18883	
+Bacteria	Permanent Draft	2576861597	Enterobacter sp. DC4	
+Bacteria	Permanent Draft	2582581011	Pseudomonas sp. Ant30-3	
+Bacteria	Finished	2597490151	Paraburkholderia xenovorans LB400	
+Bacteria	Permanent Draft	2597490185	Xenorhabdus szentirmaii DSM 16338	
+Bacteria	Permanent Draft	2619619019	Pseudomonas baetica LMG 25716	
+Bacteria	Permanent Draft	2630968512	Pseudoalteromonas luteoviolacea S4054	
+Bacteria	Permanent Draft	8073647886	Agrobacterium rhizogenes T155/95	
+Bacteria	Permanent Draft	2636416191	Pseudomonas gessardii LMG 21604	
+Bacteria	Permanent Draft	2639762506	Pseudomonas reinekei DSM 18361	
+Bacteria	Permanent Draft	2639762588	Pseudomonas palleroniana LMG 23076	
+Bacteria	Finished	2645727672	Pseudomonas syringae pv. syringae B301D	
+Bacteria	Permanent Draft	2645727738	Pseudomonas sp. 10-1B	
+Bacteria	Permanent Draft	2645727827	Pseudomonas putida HB4184	
+Bacteria	Finished	2651869676	Herbaspirillum rubrisubalbicans M1	
+Bacteria	Permanent Draft	2651870326	Roseivirga spongicola UST030701-084	
+Bacteria	Permanent Draft	2654587538	Pseudomonas syringae pv. actinidifoliorum CFBP8160 isolate:LSV43.62	
+Bacteria	Permanent Draft	2654587576	Pseudomonas savastanoi 4352	
+Bacteria	Permanent Draft	2654587653	Pseudomonas savastanoi pv. glycinea UnB647	
+Bacteria	Permanent Draft	2654588103	Paraburkholderia diazotrophica LMG 26031	
+Bacteria	Permanent Draft	2660238084	Pseudomonas syringae pv. actinidiae ICMP 19497	
+Bacteria	Permanent Draft	2663763475	Pantoea sp. NGS-ED-1003	
+Bacteria	Permanent Draft	2667527928	Pseudomonas poae DSM 14936	
+Bacteria	Permanent Draft	2671180172	Pseudomonas sp. NFIX51	
+Bacteria	Permanent Draft	2671180649	Serratia marcescens 9501453777	
+Bacteria	Permanent Draft	2671181143	Pseudomonas weihenstephanensis DSM 29140	
+Bacteria	Permanent Draft	2681812979	Herbaspirillum rubrisubalbicans NBRC 102523	
+Bacteria	Permanent Draft	2684622677	Yersinia pseudotuberculosis OK5586	
+Bacteria	Finished	2687453569	Pseudomonas putida 1A00316	
+Bacteria	Permanent Draft	2698536531	Serratia marcescens 945154301	
+Bacteria	Permanent Draft	2700989494	Pseudomonas trivialis DSM 14937	
+Bacteria	Permanent Draft	2700989541	Pseudomonas sp. ABAC21	
+Bacteria	Permanent Draft	2706794649	Yersinia wautersii sv. O:15 WP-931201	
+Bacteria	Permanent Draft	2713896865	Pseudomonas savastanoi pv. savastanoi ICMP 4352	
+Bacteria	Permanent Draft	2713896871	Pseudomonas fluorescens S613	
+Bacteria	Permanent Draft	2713896930	Pseudomonas savastanoi pv. savastanoi PSV	
+Bacteria	Permanent Draft	2713897222	Pseudomonas chlororaphis aureofaciens CD	
+Bacteria	Permanent Draft	2728368925	Pseudomonas syringae pv. cerasicola cera6109	
+Bacteria	Permanent Draft	2728369127	Pseudomonas sp. ABFPK	
+Bacteria	Permanent Draft	2738543002	Paraburkholderia sp. GV072	
+Bacteria	Permanent Draft	2744054662	Pseudomonas monteilii CD10_2	
+Bacteria	Permanent Draft	2744054668	Phormidium willei BDU 130791	
+Bacteria	Permanent Draft	2751186034	Pseudomonas sp. S5F11	
+Bacteria	Permanent Draft	2754412331	Burkholderia territorii MSMB1502WGS	
+Bacteria	Permanent Draft	2754412539	Caballeronia udeis ES_FE-H11	
+Bacteria	Permanent Draft	2767802266	Pseudomonas sp. 24 E 13	
+Bacteria	Permanent Draft	2773857670	Pseudomonas sp. 478	
+Bacteria	Permanent Draft	2773857752	Paraburkholderia sp. BL27I4N3	
+Bacteria	Permanent Draft	2791355110	Poseidonibacter lekithochrous LMG 28652	
+Bacteria	Permanent Draft	2791355526	Pseudomonas sp. FW306-2-11AC	
+Bacteria	Permanent Draft	2791355541	Pseudomonas sp. MPR-R5A	
+Bacteria	Permanent Draft	2791355568	Pseudomonas sp. FW306-02-H05-BA	
+Bacteria	Permanent Draft	2791355571	Pseudomonas sp. FW306-02-F04-AA	
+Bacteria	Permanent Draft	2791355573	Pseudomonas sp. FW300-N1A5	
+Bacteria	Permanent Draft	2791355575	Pseudomonas sp. FW306-2-11BA	
+Bacteria	Permanent Draft	2791355621	Pseudomonas sp. DP16D-L5	
+Bacteria	Permanent Draft	2791355623	Pseudomonas sp. FW306-02-H05-AA	
+Bacteria	Permanent Draft	2791355626	Pseudomonas sp. GW456-A1B	
+Bacteria	Permanent Draft	2791355629	Pseudomonas sp. GP01-A13	
+Bacteria	Permanent Draft	2791355632	Pseudomonas sp. GP01-A8	
+Bacteria	Permanent Draft	2791355638	Pseudomonas sp. GW123-5C08	
+Bacteria	Permanent Draft	2806311068	Pseudomonas chlororaphis TE19158	
+Bacteria	Permanent Draft	2808606397	Pseudomonas chlororaphis TE19184	
+Bacteria	Permanent Draft	2814123438	Burkholderia vietnamiensis PC082	
+Bacteria	Permanent Draft	2816332275	Burkholderia vietnamiensis FL-7-4-30-S3-D0	
+Bacteria	Permanent Draft	2818991315	Pseudomonas plecoglossicida TE19185	
+Bacteria	Permanent Draft	2838286092	Burkholderia sp. OAS925 (Illumina draft)	
+Bacteria	Finished	2850620083	Agrobacterium tumefaciens 15955	
+Bacteria	Finished	2851299803	Burkholderia stabilis	
+Bacteria	Finished	2851338344	Burkholderia pseudomallei 2002721171	
+Bacteria	Permanent Draft	2852751534	Paraburkholderia atlantica JPY158	
+Bacteria	Permanent Draft	2854587519	Dickeya dianthicola S4.16.03.LID	
+Bacteria	Permanent Draft	2855527181	Agrobacterium vitis V80/94	
+Bacteria	Permanent Draft	2858590830	Agrobacterium tumefaciens 15-172	
+Bacteria	Permanent Draft	2864688501	Pseudomonas chlororaphis TE-JGI32	
+Bacteria	Permanent Draft	2868913422	Pectobacterium odoriferum Q106	
+Bacteria	Permanent Draft	2868977803	Agrobacterium tumefaciens 15-1187-1-2b	
+Bacteria	Permanent Draft	2873958763	Pectobacterium odoriferum NCPPB3841	
+Bacteria	Finished	2875518283	Pseudomonas chlororaphis aureofaciens ChPhzTR36	
+Bacteria	Finished	2875542621	Pseudomonas chlororaphis chlororaphis DSM 50083	
+Bacteria	Permanent Draft	2876363079	Mesorhizobium loti R7ANS::ICEMlSym2042	
+Bacteria	Permanent Draft	2885894003	Pseudomonas sp. R16(2017)	
+Bacteria	Permanent Draft	2897691243	Caballeronia sordidicola PAMC 26633	
+Bacteria	Permanent Draft	2902115149	Agrobacterium vitis Ni1	
+Bacteria	Permanent Draft	2904530477	Herbaspirillum huttiense 611	
+Bacteria	Finished	2908416650	Pseudomonas sp. NC02	
+Bacteria	Permanent Draft	2914040186	Lusitaniella coriacea LEGE 07157	
+Bacteria	Permanent Draft	2916121227	Agrobacterium sp. ICMP 7243	
+Bacteria	Permanent Draft	2917093585	Pseudomonas chlororaphis chlororaphis NBRC 3904	
+Bacteria	Permanent Draft	2917203564	Pseudomonas gessardii DSM 17152	
+Bacteria	Permanent Draft	2917535239	Tychonema sp. LEGE 07199	
+Bacteria	Permanent Draft	2918718702	Paraburkholderia terricola DS1998	
+Bacteria	Permanent Draft	2918843722	Paraburkholderia phenoliruptrix DS1032	
+Bacteria	Permanent Draft	2919196562	Pseudomonas umsongensis BE55	
+Bacteria	Permanent Draft	2919202830	Pseudomonas hunanensis BE56	
+Bacteria	Permanent Draft	2919901453	Okeania sp. KiyG1	
+Bacteria	Permanent Draft	2921698563	Paraburkholderia sp. UCT31	
+Bacteria	Finished	2925718833	Pseudomonas chlororaphis aurantiaca M71	
+Bacteria	Finished	2931396565	Pseudomonas sp. DR48	
+Bacteria	Permanent Draft	2929053351	Pseudomonas sp. JUb96	
+Bacteria	Permanent Draft	2931015329	Pseudomonas rhodesiae TECH5	
+Bacteria	Permanent Draft	2931840637	Paraburkholderia sp. OAS925	
+Bacteria	Permanent Draft	2939794325	Pseudomonas trivialis PvP125	
+Bacteria	Permanent Draft	2956244648	Pseudomonas monsensis KBL33 TE4688	
+Bacteria	Finished	2965916435	Pseudomonas chlororaphis piscium ATCC 17411	
+Bacteria	Permanent Draft	2970730979	Serratia sp. SSNIH5	
+Bacteria	Permanent Draft	2998250349	Pseudomonas sp. Irchel 3A7	
+Bacteria	Permanent Draft	2979074090	Pseudomonas oryzihabitans ZKA13	
+Bacteria	Permanent Draft	2981414254	Caballeronia udeis GAS97	
+Bacteria	Permanent Draft	2981752396	Paraburkholderia sp. GAS38	
+Bacteria	Permanent Draft	2998214719	Pseudomonas sp. Irchel s3f7	
+Bacteria	Permanent Draft	3007866637	Pseudomonas marvdashtae SWRI102	
+Bacteria	Finished	8013669774	Pseudomonas sp. JA1H2	
+Bacteria	Finished	8004665259	Mesorhizobium sp. L-2-11	
+Bacteria	Permanent Draft	8011072914	Pseudomonas fluorescens PS712	
+Bacteria	Permanent Draft	8011079238	Pseudomonas fluorescens PS833	
+Bacteria	Permanent Draft	8011124195	Pseudomonas fluorescens PS910	
+Bacteria	Permanent Draft	8011175907	Pseudomonas aegrilactucae MAFF 301350	
+Bacteria	Permanent Draft	8011217001	Pseudomonas japonica 66C3	
+Bacteria	Permanent Draft	8021973284	Acinetobacter sp. RIT698	
+Bacteria	Finished	8017051857	Pseudomonas monsensis SARCC-3054	
+Bacteria	Finished	8020759304	Rhizobium sp. rho-6.2	
+Bacteria	Permanent Draft	8020931549	Burkholderia sp. BCC1640	
+Bacteria	Finished	8023948484	Agrobacterium fabrum N33/94	
+Bacteria	Permanent Draft	8035233717	Pseudomonas kilonensis ACN4	
+Bacteria	Permanent Draft	8035422605	Pseudomonas monteilii CY06	
+Bacteria	Permanent Draft	8038673412	Burkholderia cepacia Y14-15	
+Bacteria	Permanent Draft	8044223673	Pseudomonas savastanoi pv. nerii ICMP 13781	
+Bacteria	Permanent Draft	8044337526	Pseudomonas savastanoi pv. glycinea ICMP 5560	
+Bacteria	Permanent Draft	8044343416	Pseudomonas savastanoi pv. glycinea ICMP 4180	
+Bacteria	Permanent Draft	8044528701	Pseudomonas savastanoi pv. nerii ICMP 13786	
+Bacteria	Permanent Draft	8044623362	Pseudomonas savastanoi CECT 4861	
+Bacteria	Permanent Draft	8045208478	Pseudomonas chlororaphis NCTC 10686	
+Bacteria	Permanent Draft	8047767677	Pseudomonas citri OPS13-3	
+Bacteria	Permanent Draft	8052576720	Pseudomonas putida 12917	
+Bacteria	Permanent Draft	8056177738	Pseudomonas azerbaijanoccidentalis SWRI74	
+Bacteria	Finished	8071182561	Pseudomonas chlororaphis PCLRT04	
+Bacteria	Permanent Draft	8076347631	Pseudomonas sp. 6D_7.1_Bac1	
+Bacteria	Permanent Draft	8077226032	Pseudomonas sp. RGM2987	
+Bacteria	Permanent Draft	8083838602	Serratia entomophila 7c9f1814-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8084807198	Pseudomonas chlororaphis NCCB 60038	
+Bacteria	Permanent Draft	8087769664	Serratia entomophila 6d501d22-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087774450	Serratia entomophila 7bb1f99e-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8088468458	Pseudomonas chlororaphis chlororaphis ATCC 9446	
+Bacteria	Finished	8099484611	Agrobacterium tumefaciens Sta004	
+Bacteria	Draft	8110042340	Agrobacterium tumefaciens Kin003	
+Bacteria	Permanent Draft	8113290413	Burkholderia diffusa LMG 24065	
+Bacteria	Finished	8115981898	Pseudomonas sp. TL2A8	
+Bacteria	Permanent Draft	8119760769	Pseudomonas capeferrum WCS358	
+Bacteria	Permanent Draft	8119802577	Pseudomonas chlororaphis chlororaphis ATCC 9446	
+Bacteria	Finished	8122063731	Pseudomonas umsongensis CY-1	
+Bacteria	Finished	8023964767	Agrobacterium tumefaciens AF1/95	
+Bacteria	Finished	639279302	Agrobacterium tumefaciens C58-UWash	
+Bacteria	Permanent Draft	641736151	Paraburkholderia graminis C4D1M	
+Bacteria	Finished	650377963	Pseudomonas putida BIRD-1	
+Bacteria	Permanent Draft	2513237083	Paraburkholderia mimosarum LMG 23256	
+Bacteria	Permanent Draft	2509276053	Pseudomonas syringae USA011	
+Bacteria	Permanent Draft	2506783032	Pseudomonas syringae CC1559	
+Bacteria	Permanent Draft	8035193235	Pseudomonas jessenii GO3	
+Bacteria	Finished	2519103095	Burkholderia sp. KJ006	
+Bacteria	Permanent Draft	8044229865	Pseudomonas savastanoi pv. glycinea ICMP 10449	
+Bacteria	Permanent Draft	2548877000	Zavarzinella formosa DSM 19928	
+Bacteria	Finished	2551306348	Dickeya chrysanthemi NCPPB 516	
+Bacteria	Permanent Draft	2551306377	Dickeya dianthicola NCPPB 453	
+Bacteria	Permanent Draft	2551306380	Dickeya dianthicola NCPPB 3534	
+Bacteria	Permanent Draft	2554235131	Pseudomonas fluorescens LMG 5329	
+Bacteria	Permanent Draft	2556921653	Pseudomonas mosselii DSM 17497	
+Bacteria	Permanent Draft	2563367036	Pseudomonas syringae pv. actinidia ICMP 18807	
+Bacteria	Permanent Draft	2571042839	Enterobacter sp. DC3	
+Bacteria	Permanent Draft	2582580897	Pseudomonas putida S13.1.2	
+Bacteria	Finished	2585427645	Pseudomonas chlororaphis PA23	
+Bacteria	Permanent Draft	2588253837	Pseudomonas syringae pv. actinidia ICMP 1096	
+Bacteria	Permanent Draft	2600254931	Pseudomonas sp. NFIX28	
+Bacteria	Permanent Draft	2634166442	Pseudomonas fluorescens AU11114	
+Bacteria	Permanent Draft	2636416064	Pseudomonas chlororaphis aureofaciens ATCC 13985	
+Bacteria	Permanent Draft	2645728061	Pseudomonas amygdali pv. myricae AZ84488	
+Bacteria	Permanent Draft	2648501721	Pseudomonas syringae pv. actinidifoliorum CFBP8039 isolate:LSV38.26	
+Bacteria	Permanent Draft	2657245649	Pseudomonas sp. NBRC 111133	
+Bacteria	Permanent Draft	2663762771	Pseudomonas soli LMG 27941	
+Bacteria	Permanent Draft	2667528180	Pseudomonas chlororaphis piscium DSM 21509	
+Bacteria	Permanent Draft	2671180658	Pseudomonas syringae pv. maculicola M6	
+Bacteria	Permanent Draft	2671180933	Serratia marcescens 950165859	
+Bacteria	Permanent Draft	2675903003	Pseudomonas coleopterorum LMG 28558	
+Bacteria	Permanent Draft	2681812922	Pseudomonas syringae pv. cannabina BS0967	
+Bacteria	Finished	2687453597	Pseudomonas silesiensis A3(2016)	
+Bacteria	Permanent Draft	2700989466	Pseudomonas sp. NBRC 111140	
+Bacteria	Permanent Draft	2708743149	Trinickia symbiotica JPY-345	
+Bacteria	Permanent Draft	2713896858	Pseudomonas savastanoi pv. nerii ICMP 16943	
+Bacteria	Permanent Draft	2716884895	Pseudomonas sp. S3F9	
+Bacteria	Finished	2718217914	Pseudomonas fluorescens L111	
+Bacteria	Finished	2718218023	Pseudomonas frederiksbergensis AS1	
+Bacteria	Finished	2718218421	Pseudomonas azotoformans S4	
+Bacteria	Permanent Draft	2724679614	Pseudomonas sp. S3E10 re-analysis	
+Bacteria	Permanent Draft	2728368915	Pseudomonas syringae pv. syringae 2339	
+Bacteria	Permanent Draft	2728368990	Agrobacterium tumefaciens B6	
+Bacteria	Permanent Draft	2728369615	Pseudoalteromonas luteoviolacea S4047-1	
+Bacteria	Permanent Draft	2738541309	Pseudomonas sp. GV047	
+Bacteria	Permanent Draft	2738543025	Pseudomonas sp. GV091	
+Bacteria	Permanent Draft	2740892409	Pectobacterium betavasculorum NCPPB 2793	
+Bacteria	Permanent Draft	8111916876	Paraburkholderia phymatum STM815 LMG 21445	
+Bacteria	Permanent Draft	2754412322	Burkholderia sp. RF7-non_BP4	
+Bacteria	Permanent Draft	2757320372	Pantoea sp. JKS000250	
+Bacteria	Permanent Draft	2767802276	Pseudomonas sp. 34 E 7	
+Bacteria	Permanent Draft	2773857633	Paraburkholderia sp. BL6669N2	
+Bacteria	Permanent Draft	2775507198	Pseudomonas sp. S10E 269	
+Bacteria	Permanent Draft	2791355542	Pseudomonas sp. GW460-12	
+Bacteria	Permanent Draft	2791355572	Pseudomonas sp. FW306-2-11AB	
+Bacteria	Permanent Draft	2791355587	Pseudomonas sp. MPBD4-3	
+Bacteria	Permanent Draft	2791355602	Pseudomonas sp. MPR-R2A5	
+Bacteria	Permanent Draft	2791355603	Pseudomonas sp. MPBC4-3	
+Bacteria	Permanent Draft	2791355622	Pseudomonas sp. GW456-11-11-14-LB1	
+Bacteria	Permanent Draft	2791355631	Pseudomonas sp. GP01-A9	
+Bacteria	Permanent Draft	2791355646	Pseudomonas sp. FW306-02-F08-AA	
+Bacteria	Permanent Draft	2791355647	Pseudomonas sp. FW306-02-F04-BA	
+Bacteria	Permanent Draft	2802429609	Trinickia symbiotica JPY-366	
+Bacteria	Finished	2806310745	Pseudomonas mosselii PtA1	
+Bacteria	Permanent Draft	2814123439	Burkholderia vietnamiensis FL-7-5-30-S2-D0	
+Bacteria	Permanent Draft	2816332254	Burkholderia vietnamiensis Bp7027	
+Bacteria	Permanent Draft	2816332262	Burkholderia vietnamiensis HI3392	
+Bacteria	Finished	2816332281	Burkholderia vietnamiensis AU1233	
+Bacteria	Finished	2841624036	Agrobacterium tumefaciens 1D1609	
+Bacteria	Finished	2843204985	Agrobacterium tumefaciens CFBP7129	
+Bacteria	Finished	2846808634	Agrobacterium tumefaciens 1D1108	
+Bacteria	Permanent Draft	2858442855	Pectobacterium odoriferum T4	
+Bacteria	Permanent Draft	2861666540	Longimicrobium terrae DSM 29007	
+Bacteria	Permanent Draft	2868922837	Pectobacterium odoriferum Q47	
+Bacteria	Permanent Draft	2871745582	Pantoea alvi PSNIH6	
+Bacteria	Finished	2875524635	Pseudomonas chlororaphis aurantiaca 449	
+Bacteria	Permanent Draft	2881812976	Pseudomonas sp. R27(2017)	
+Bacteria	Permanent Draft	2881835490	Pseudomonas sp. B2(2017)	
+Bacteria	Permanent Draft	2885939346	Pseudomonas sp. B19(2017)	
+Bacteria	Permanent Draft	2885944559	Pseudomonas sp. B18(2017)	
+Bacteria	Permanent Draft	2886035907	Pseudomonas sp. BCA14	
+Bacteria	Permanent Draft	2887723448	Pararobbsia alpina LMG 28138	
+Bacteria	Permanent Draft	2898991528	Erwinia sp. OLMDLW33	
+Bacteria	Permanent Draft	2904589729	Herbaspirillum sp. 1130	
+Bacteria	Permanent Draft	2904615490	Paraburkholderia franconis CNPSo 3157	
+Bacteria	Finished	2912980361	Pseudomonas sp. SK	
+Bacteria	Permanent Draft	2916661554	Acinetobacter guillouiae NBRC 110550	
+Bacteria	Finished	2917051905	Pseudomonas kribbensis 46-2	
+Bacteria	Permanent Draft	2917178910	Pseudomonas chlororaphis piscium DSM 21509	
+Bacteria	Permanent Draft	2918569463	Pseudomonas chlororaphis TECH58R	
+Bacteria	Permanent Draft	2919079590	Herbaspirillum sp. 1173	
+Bacteria	Finished	2923122397	Pseudomonas chlororaphis aurantiaca M12	
+Bacteria	Permanent Draft	2931896798	Dactylosporangium sp. 049647	
+Bacteria	Permanent Draft	2933507292	Pseudomonas sp. 005183	
+Bacteria	Permanent Draft	2935505774	Phormidium sp. AB48	
+Bacteria	Finished	2962501950	Pseudomonas putida E46	
+Bacteria	Permanent Draft	2963760507	Pseudomonas sp. Y3 TE3536	
+Bacteria	Finished	2965892202	Pseudomonas syringae pv. syringae CFBP2118	
+Bacteria	Finished	2965910009	Pseudomonas chlororaphis aureofaciens ChPhzS23	
+Bacteria	Finished	2969304461	Pseudomonas sp. R84	
+Bacteria	Permanent Draft	2970750829	Serratia marcescens KHCo-24B	
+Bacteria	Permanent Draft	2979252983	Paraburkholderia youngii JPY622	
+Bacteria	Permanent Draft	2979294840	Paraburkholderia sp. JPY284	
+Bacteria	Permanent Draft	2983796802	Serratia nematodiphila DSM 21420	
+Bacteria	Finished	2984305856	Pseudomonas putida S13.1.2	
+Bacteria	Permanent Draft	2987023729	Elstera cyanobacteriorum TH019	
+Bacteria	Permanent Draft	2990154397	Pseudomonas pisciculturae P115	
+Bacteria	Draft	2990869499	Pseudomonas poae BP1624	
+Bacteria	Permanent Draft	3001376127	Sneathiella sp. CAU 1612	
+Bacteria	Permanent Draft	3003888886	Paraburkholderia humisilvae LMG 29542	
+Bacteria	Permanent Draft	3007718800	Pseudomonas fluorescens BW11P2	
+Bacteria	Permanent Draft	8003603048	Agrobacterium fabrum 1D132	
+Bacteria	Finished	8003618764	Agrobacterium rubi W2/73	
+Bacteria	Permanent Draft	8007132370	Burkholderia vietnamiensis LMG 10929	
+Bacteria	Permanent Draft	8011117741	Pseudomonas fluorescens PS900	
+Bacteria	Finished	8015687852	Pseudomonas chlororaphis aurantiaca RP4	
+Bacteria	Permanent Draft	8018170357	Rhizobium sp. rho-1.1	
+Bacteria	Finished	8020765121	Rhizobium tumorigenes 1078	
+Bacteria	Permanent Draft	8020925025	Burkholderia sp. BCC1638	
+Bacteria	Finished	8023655410	Pseudomonas savastanoi pv. savastanoi NCPPB 3335	
+Bacteria	Finished	8023959084	Agrobacterium tumefaciens H25/79	
+Bacteria	Permanent Draft	8032537761	Burkholderia seminalis TC3.4.2R3	
+Bacteria	Permanent Draft	8034915796	Pseudomonas inefficax JV551A3	
+Bacteria	Permanent Draft	8035377056	Pseudomonas fragi F1820	
+Bacteria	Permanent Draft	8035458732	Pseudomonas lundensis L1817	
+Bacteria	Permanent Draft	8043878949	Pseudomonas ogarae Ep R1	
+Bacteria	Permanent Draft	8044259249	Pseudomonas savastanoi pv. glycinea ICMP 10448	
+Bacteria	Permanent Draft	8044588156	Pseudomonas savastanoi ICMP 13928	
+Bacteria	Permanent Draft	8044593706	Pseudomonas savastanoi pv. glycinea ICMP 4181	
+Bacteria	Permanent Draft	8045202224	Pseudomonas chlororaphis LBs-160603	
+Bacteria	Permanent Draft	8051186316	Xanthomonas arboricola CFBP 3122	
+Bacteria	Permanent Draft	8052252931	Pseudomonas savastanoi pv. glycinea ICMP 7082	
+Bacteria	Permanent Draft	8052265449	Pseudomonas savastanoi ICMP 1411	
+Bacteria	Finished	8056143049	Pseudomonas alvandae SWRI17	
+Bacteria	Permanent Draft	8056166840	Pseudomonas triticicola SWRI88	
+Bacteria	Finished	8079944765	Dickeya dianthicola LAR.16.03.LID	
+Bacteria	Finished	8083336125	Aminobacter sp. Y103A	
+Bacteria	Permanent Draft	8083843254	Serratia entomophila 7423434a-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8083882447	Serratia entomophila 7f91f30c-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8084436736	Serratia entomophila 756d28c4-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8084451634	Serratia entomophila 7d00c564-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087494359	Aquibium sp. A9E412	
+Bacteria	Permanent Draft	8087862903	Serratia entomophila 7e06b43c-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087882434	Serratia entomophila 7df8ef0a-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8110696855	Paraburkholderia youngii JPY169	
+Bacteria	Finished	8113336567	Agrobacterium tumefaciens LMG 305	
+Bacteria	Permanent Draft	8116987508	Pseudomonas extremorientalis DSM 15824	
+Bacteria	Permanent Draft	8118595249	Dulcicalothrix desertica PCC 7102	
+Bacteria	Permanent Draft	8119754081	Pseudomonas grimontii DSM 17515	
+Bacteria	Finished	8121994809	Pseudomonas soli NMI4264_15	
+Bacteria	Finished	640069307	Burkholderia vietnamiensis G4	
+Bacteria	Finished	641522646	Pseudomonas putida W619	
+Bacteria	Permanent Draft	2504643024	Pseudomonas fluorescens HK44	
+Bacteria	Permanent Draft	2515154189	Paraburkholderia nodosa DSM 21604	
+Bacteria	Permanent Draft	2505313043	Pseudomonas syringae PgyKN44	
+Bacteria	Finished	2516653026	Pseudomonas monteilii SB3101	
+Bacteria	Permanent Draft	2517487005	Pseudomonas psychrophila HA-4	
+Bacteria	Permanent Draft	2521172646	Pseudomonas sp. LAMO17WK12:I9	
+Bacteria	Permanent Draft	2531839176	Pseudomonas sp. M47T1	
+Bacteria	Permanent Draft	2547132145	Pseudomonas sp. PAMC 25886	
+Bacteria	Permanent Draft	2548876750	Pseudomonas syringae ICMP 18804	
+Bacteria	Permanent Draft	2551306376	Dickeya dianthicola GBBC 2039	
+Bacteria	Permanent Draft	2551306545	Herbaspirillum sp. B501	
+Bacteria	Finished	2558860213	Dickeya dadantii dieffenbachiae NCPPB 2976	
+Bacteria	Permanent Draft	2563367040	Pseudomonas syringae pv. actinidia ICMP 19094	
+Bacteria	Permanent Draft	2563367044	Pseudomonas syringae pv. actinidia ICMP 19099	
+Bacteria	Permanent Draft	2563367045	Pseudomonas syringae pv. actinidia ICMP 19100	
+Bacteria	Permanent Draft	2565956802	Pseudomonas syringae pv. actinidiae ICMP 18807	
+Bacteria	Finished	8055666059	Pseudomonas canavaninivorans B21-020	
+Bacteria	Permanent Draft	2582581311	Burkholderia sp. WP42	
+Bacteria	Permanent Draft	8062946466	Kistimonas asteriae KMD 001	
+Bacteria	Permanent Draft	2596583578	Serratia nematodiphila CGMCC 1.6853	
+Bacteria	Permanent Draft	2600255076	Agrobacterium rubi NBRC 13261	
+Bacteria	Permanent Draft	2615840639	Burkholderia vietnamiensis WPB	
+Bacteria	Permanent Draft	2617271292	Colwellia psychrerythraea GAB14E	
+Bacteria	Permanent Draft	2627853681	Caballeronia mineralivorans PML1(12)	
+Bacteria	Permanent Draft	2627853691	Pseudoalteromonas luteoviolacea HI1	
+Bacteria	Permanent Draft	2627854199	Pectobacterium actinidiae KKH3	
+Bacteria	Permanent Draft	2634166474	Pseudomonas putida IOFA1	
+Bacteria	Permanent Draft	2636415859	Pseudomonas syringae pv. maculicola CFBP 1657	
+Bacteria	Permanent Draft	2645727653	Pseudomonas fluorescens AU10973	
+Bacteria	Permanent Draft	2645727682	Pseudomonas putida KF703	
+Bacteria	Finished	2648501162	Pseudomonas fluorescens PCL1751	
+Bacteria	Permanent Draft	2654587730	Pseudomonas syringae pv. actinidifoliorum CFBP8043 isolate:LSV39.19	
+Bacteria	Permanent Draft	2654588105	Paraburkholderia terricola LMG 20594	
+Bacteria	Permanent Draft	2667527224	Pseudomonas mohnii DSM 18327	
+Bacteria	Permanent Draft	2671180286	Pseudomonas syringae pv. syringae PD2774	
+Bacteria	Permanent Draft	2681812805	Pseudomonas putida N1R	
+Bacteria	Permanent Draft	2681813259	Serratia marcescens 950174583	
+Bacteria	Permanent Draft	2703718677	Serratia marcescens 950164094	
+Bacteria	Permanent Draft	2703719185	Pseudomonas sp. LE6C9	
+Bacteria	Permanent Draft	2708742541	Trinickia caryophylli Ballard 720	
+Bacteria	Permanent Draft	2708743153	Paraburkholderia sp. BL25I1N1	
+Bacteria	Permanent Draft	2710264670	Candidatus Fluviicola riflensis RIFCSPHIGHO2_02_FULL_43_260	
+Bacteria	Permanent Draft	2713896842	Pseudomonas syringae pv. aceris PacICMP2802	
+Bacteria	Permanent Draft	2713896866	Pseudomonas syringae pv. syringae ICMP 3023	
+Bacteria	Finished	2718218114	Pseudomonas fluorescens L228	
+Bacteria	Finished	2718218501	Paraburkholderia sp. SOS3	
+Bacteria	Permanent Draft	2728369621	Pseudoalteromonas luteoviolacea CPMOR-1	
+Bacteria	Permanent Draft	2738541298	Paraburkholderia sp. GV068	
+Bacteria	Permanent Draft	2738541306	Paraburkholderia sp. GV052	
+Bacteria	Permanent Draft	2738541323	Agrobacterium rhizogenes CGMCC 1.3747	
+Bacteria	Permanent Draft	2740892503	Pseudomonas chlororaphis piscium PCL1391	
+Bacteria	Permanent Draft	2744054965	Serratia marcescens 3691F	
+Bacteria	Permanent Draft	2751185442	Pseudomonas psychrophila JB418	
+Bacteria	Permanent Draft	2754412318	Burkholderia sp. FL-7-2-10-S1-D7	
+Bacteria	Permanent Draft	2757320438	Pseudomonas sp. OV286	
+Bacteria	Permanent Draft	2757320439	Pseudomonas sp. NP28-5	
+Bacteria	Permanent Draft	2767802262	Pseudomonas sp. 58 R 12	
+Bacteria	Permanent Draft	2767802271	Pseudomonas sp. 24 R 17	
+Bacteria	Permanent Draft	2767802273	Pseudomonas sp. 24 E 1	
+Bacteria	Permanent Draft	2767802277	Pseudomonas sp. 44 R 15	
+Bacteria	Finished	2767802287	Pseudomonas sp. NS1	
+Bacteria	Permanent Draft	2773857657	Paraburkholderia sp. BL9I2N2	
+Bacteria	Permanent Draft	2775507204	Pseudomonas laurylsulfatovorans AP3_22	
+Bacteria	Permanent Draft	2781125613	Paraburkholderia sp. BL6665CI2N2	
+Bacteria	Permanent Draft	2791355532	Pseudomonas sp. FW305-25	
+Bacteria	Permanent Draft	2791355540	Pseudomonas sp. FW301-21B01	
+Bacteria	Permanent Draft	2791355550	Pseudomonas sp. FW306-2-2C-D06C	
+Bacteria	Permanent Draft	2791355551	Pseudomonas sp. MPR-R5B	
+Bacteria	Permanent Draft	2791355565	Pseudomonas sp. GW456-A2	
+Bacteria	Permanent Draft	2791355576	Pseudomonas sp. GW456-E7	
+Bacteria	Permanent Draft	2791355582	Pseudomonas floridensis GEV388	
+Bacteria	Permanent Draft	2791355627	Pseudomonas sp. FW305-122	
+Bacteria	Permanent Draft	2795385508	Pseudomonas sp. FW306-02-F02-AA	
+Bacteria	Permanent Draft	2795385509	Pseudomonas sp. FW306-02-H05-AB	
+Bacteria	Permanent Draft	2814123435	Burkholderia vietnamiensis FL-7-1-10-S1-D0	
+Bacteria	Permanent Draft	2814123440	Burkholderia vietnamiensis FL-2-3-10-S1-D7	
+Bacteria	Permanent Draft	2814123441	Burkholderia vietnamiensis FL-2-1-10-S1-D0	
+Bacteria	Permanent Draft	2814123442	Burkholderia vietnamiensis FL-2-4-30-S1-D0	
+Bacteria	Permanent Draft	2816332257	Burkholderia vietnamiensis LA-6-3-30-S1-D2	
+Bacteria	Permanent Draft	2816332263	Burkholderia vietnamiensis AU21726	
+Bacteria	Permanent Draft	2816332267	Burkholderia vietnamiensis BAA-248	
+Bacteria	Permanent Draft	2816332272	Burkholderia vietnamiensis Bp7028	
+Bacteria	Permanent Draft	2816332282	Burkholderia vietnamiensis FL-2-2-30-S1-D0	
+Bacteria	Permanent Draft	2823826945	Rugamonas sp. SG757	
+Bacteria	Permanent Draft	2824268934	Longimicrobium terrae CECT 8660	
+Bacteria	Finished	2846791524	Agrobacterium tumefaciens 186	
+Bacteria	Finished	2848619279	Paraburkholderia graminis PHS1	
+Bacteria	Permanent Draft	2851235372	Noviherbaspirillum cavernae K2R10-39	
+Bacteria	Permanent Draft	2852759691	Paraburkholderia youngii JPY162	
+Bacteria	Permanent Draft	2852775904	Paraburkholderia atlantica JPY681	
+Bacteria	Permanent Draft	2852813956	Paraburkholderia sp. CI2	
+Bacteria	Permanent Draft	2855483474	Agrobacterium tumefaciens N2/73	
+Bacteria	Permanent Draft	2855501354	Agrobacterium tumefaciens B6	
+Bacteria	Permanent Draft	2858625304	Agrobacterium rosae NCPPB 1650	
+Bacteria	Permanent Draft	2868972448	Agrobacterium rubi W2/73	
+Bacteria	Permanent Draft	2871267870	Pectobacterium odoriferum Q166	
+Bacteria	Finished	2878047844	Pseudomonas chlororaphis aureofaciens ChPhzS24	
+Bacteria	Permanent Draft	2883052908	Pseudomonas sp. R35(2017)	
+Bacteria	Permanent Draft	2885820151	Pseudomonas sp. BCA17	
+Bacteria	Permanent Draft	2885933516	Pseudomonas sp. B26(2017)	
+Bacteria	Finished	2886163833	Pseudomonas monteilii 170918607	
+Bacteria	Permanent Draft	2900634093	Paraburkholderia dipogonis ICMP 19430	
+Bacteria	Permanent Draft	2902682994	Paraburkholderia atlantica CNPSo 3155	
+Bacteria	Permanent Draft	2903563664	Serratia marcescens ERS1424037	
+Bacteria	Finished	2908452937	Pseudomonas chlororaphis piscium PCL1607	
+Bacteria	Finished	2912515028	Burkholderia sp. MBR-1	
+Bacteria	Permanent Draft	2914114882	Tychonema sp. LEGE 07203	
+Bacteria	Finished	2915270592	Caballeronia sp. SBC2	
+Bacteria	Permanent Draft	2918560077	Pseudomonas rhodesiae TECH15	
+Bacteria	Permanent Draft	2918690734	Paraburkholderia graminis DS1059	
+Bacteria	Permanent Draft	2918849986	Paraburkholderia terricola DS1316	
+Bacteria	Permanent Draft	2919015088	Pseudomonas extremaustralis BE47	
+Bacteria	Permanent Draft	2919155634	Pseudomonas fulva 1992	
+Bacteria	Permanent Draft	2923510766	Herbaspirillum rubrisubalbicans SLBN-127	
+Bacteria	Finished	2925704981	Pseudomonas chlororaphis aureofaciens C50	
+Bacteria	Permanent Draft	2927713021	Pseudomonas sp. BIGb0278	
+Bacteria	Finished	2965954475	Pseudomonas chlororaphis aurantiaca CW2	
+Bacteria	Permanent Draft	2969310526	Pseudomonas migulae NBRC 103157	
+Bacteria	Finished	2972031963	Pseudomonas chlororaphis aureofaciens 66	
+Bacteria	Permanent Draft	2979311619	Paraburkholderia sp. Clong3	
+Bacteria	Permanent Draft	2975163706	Pseudomonas sp. 90234_182_F06	
+Bacteria	Permanent Draft	2979320103	Paraburkholderia sp. CI3	
+Bacteria	Permanent Draft	2979851903	Serratia sp. SSNIH2	
+Bacteria	Finished	2980655414	Pseudomonas sp. ACM7	
+Bacteria	Finished	2984286254	Pseudomonas chlororaphis aurantiaca JD37	
+Bacteria	Permanent Draft	2984734191	Paraburkholderia atlantica JPY422	
+Bacteria	Finished	2986578447	Pseudomonas sp. 43A	
+Bacteria	Permanent Draft	2987461459	Agrobacterium vitis AB4	
+Bacteria	Permanent Draft	2996310559	Mesorhizobium zhangyense CGMCC 1.15528	
+Bacteria	Permanent Draft	3007395558	Pseudomonas chlororaphis PCL1601	
+Bacteria	Permanent Draft	3007762304	Pseudomonas sp. Bc-h	
+Bacteria	Permanent Draft	8003570095	Agrobacterium rhizogenes GBBC3284	
+Bacteria	Permanent Draft	8002753203	Caballeronia sp. dw_19	
+Bacteria	Finished	8003535909	Agrobacterium tumefaciens G3/79	
+Bacteria	Finished	8003541697	Agrobacterium tumefaciens CG920	
+Bacteria	Permanent Draft	8003558692	Agrobacterium tumefaciens 1D1108	
+Bacteria	Finished	8003581238	Agrobacterium tumefaciens FPH-AT4	
+Bacteria	Permanent Draft	8003948350	Paraburkholderia terricola LMG 20594	
+Bacteria	Permanent Draft	8011066592	Pseudomonas fluorescens PS662	
+Bacteria	Permanent Draft	8011169934	Pseudomonas botevensis COW3	
+Bacteria	Finished	8011298463	Pseudomonas xanthosomae COR54	
+Bacteria	Permanent Draft	8020866589	Burkholderia sp. BCC0397	
+Bacteria	Permanent Draft	8020945358	Burkholderia sp. BE17	
+Bacteria	Permanent Draft	8035309526	Pseudomonas marginalis ICMP 3555	
+Bacteria	Permanent Draft	8040167225	Burkholderia vietnamiensis RS1	
+Bacteria	Permanent Draft	8044253385	Pseudomonas savastanoi pv. glycinea ICMP 5378	
+Bacteria	Permanent Draft	8044349410	Pseudomonas savastanoi ICMP 13519	
+Bacteria	Permanent Draft	8044378717	Pseudomonas savastanoi ICMP 16944	
+Bacteria	Permanent Draft	8044384437	Pseudomonas savastanoi ICMP 13927	
+Bacteria	Permanent Draft	8044420067	Pseudomonas savastanoi pv. glycinea ICMP 4630	
+Bacteria	Permanent Draft	8044546155	Pseudomonas savastanoi ICMP 16946	
+Bacteria	Permanent Draft	8044570506	Pseudomonas savastanoi pv. glycinea ICMP 2400	
+Bacteria	Permanent Draft	8052469819	Pseudomonas putida DZ-F23	
+Bacteria	Permanent Draft	8052510209	Pseudomonas putida DZ-C20	
+Bacteria	Finished	8054060585	Pseudomonas alkylphenolica Neo	
+Bacteria	Finished	8056115690	Pseudomonas muyukensis COW39	
+Bacteria	Permanent Draft	8057755802	Agrobacterium burrii Rnr	
+Bacteria	Draft	8069853593	Pseudomonas chlororaphis subsp. aurantiaca SRG 32	
+Bacteria	Finished	8070449620	Agrobacterium tumefaciens Yub001	
+Bacteria	Finished	8077497886	Pseudomonas sp. A2	
+Bacteria	Finished	8083189006	Nisaea acidiphila MEBiC11861	
+Bacteria	Finished	8083564315	Teredinibacter sp. KSP-S5-2	
+Bacteria	Permanent Draft	8084459223	Serratia entomophila 7ee7ce54-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8084628194	Pseudomonas sp. WJP1	
+Bacteria	Finished	8084850413	Pseudomonas chlororaphis ATCC 17414	
+Bacteria	Permanent Draft	8086741237	Pseudomonas sp. GD03867	
+Bacteria	Permanent Draft	8086746634	Pseudomonas sp. GD03858	
+Bacteria	Permanent Draft	8087813514	Serratia entomophila 7f3e036e-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087848109	Serratia entomophila 72dd1222-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8099478876	Agrobacterium tumefaciens Yub002	
+Bacteria	Finished	8109425600	Mesorhizobium jarvisii ATCC 700743	
+Bacteria	Permanent Draft	8111924950	Paraburkholderia phenoliruptrix LMG 22037	
+Bacteria	Finished	8112764859	Pseudomonas tensinigenes ZA 5.3	
+Bacteria	Finished	8112782709	Pseudomonas zarinae SWRI108	
+Bacteria	Finished	8118392280	Burkholderia vietnamiensis FDAARGOS_1517	
+Bacteria	Permanent Draft	8119766458	Pseudomonas gessardii DSM 17152	
+Bacteria	Finished	8120239208	Pseudomonas rhodesiae NL2019	
+Bacteria	Finished	8120473247	Serratia nematodiphila DH-S01	
+Bacteria	Permanent Draft	8120525727	Pantoea septica MGYG-HGUT-02423	
+Bacteria	Finished	642555112	Paraburkholderia phymatum STM815	
+Bacteria	Finished	643348505	Allorhizobium ampelinum S4	
+Bacteria	Finished	644736355	Dickeya zeae Ech1591	
+Bacteria	Finished	646564515	Paraburkholderia atlantica CCGE1002	
+Bacteria	Permanent Draft	2511231032	Pseudomonas sp. GM24	
+Bacteria	Permanent Draft	2512047019	Pseudoalteromonas luteoviolacea S4054	
+Bacteria	Permanent Draft	2515154122	Paraburkholderia atlantica JPY251	
+Bacteria	Permanent Draft	2505313042	Pseudomonas syringae PgyLN10	
+Bacteria	Permanent Draft	2505313041	Pseudomonas syringae PgyUnB647	
+Bacteria	Permanent Draft	2507262002	Pseudomonas syringae UB303	
+Bacteria	Permanent Draft	2506783055	Pseudomonas syringae PacA10853	
+Bacteria	Permanent Draft	2505313040	Pseudomonas syringae PgyBR1	
+Bacteria	Permanent Draft	2517572076	Mesorhizobium jarvisii NZP2037	
+Bacteria	Permanent Draft	8044487674	Pseudomonas savastanoi pv. glycinea ICMP 6372	
+Bacteria	Permanent Draft	8044540308	Pseudomonas savastanoi pv. glycinea ICMP 4182	
+Bacteria	Permanent Draft	2548876752	Pseudomonas syringae ICMP 18806	
+Bacteria	Permanent Draft	2548876813	Pseudomonas monteilii QM	
+Bacteria	Finished	2558860256	Agrobacterium tumefaciens LBA4213 (Ach5)	
+Bacteria	Permanent Draft	2563366760	Entotheonella gemina TSY2	
+Bacteria	Permanent Draft	2585428005	Burkholderia sp. MSh2	
+Bacteria	Permanent Draft	2596583627	Roseibium hamelinense ATCC BAA-252	
+Bacteria	Permanent Draft	2597489887	Pseudomonas chlororaphis aureofaciens 30-84	
+Bacteria	Permanent Draft	2599185179	Pseudomonas sp. NFR09	
+Bacteria	Permanent Draft	2599185240	Burkholderia sp. NFPP32	
+Bacteria	Permanent Draft	2600255063	Paraburkholderia mimosarum NBRC 106338	
+Bacteria	Permanent Draft	2634166466	Pseudomonas fuscovaginae IRRI 7007	
+Bacteria	Finished	2636415515	Burkholderia vietnamiensis LMG 10929	
+Bacteria	Permanent Draft	2648501236	Pseudomonas savastanoi pv. glycinea KN44	
+Bacteria	Permanent Draft	2648501670	Pseudomonas syringae pv. aceris A10853	
+Bacteria	Permanent Draft	2654587651	Pseudomonas savastanoi pv. glycinea LN10	
+Bacteria	Permanent Draft	2660238712	Pseudomonas putida ABAC8	
+Bacteria	Permanent Draft	2663762789	Pseudomonas prosekii LMG 26867	
+Bacteria	Permanent Draft	2663763376	Pseudomonas lundensis DSM 6252	
+Bacteria	Permanent Draft	2667527393	Lishizhenia tianjinensis CGMCC 1.7005	
+Bacteria	Permanent Draft	2671180683	Serratia marcescens 950005607	
+Bacteria	Permanent Draft	2675903370	Pseudomonas syringae pv. syringae B48	
+Bacteria	Finished	2687453433	Burkholderia sp. HB1	
+Bacteria	Permanent Draft	2708743147	Paraburkholderia sp. BL21I4N1	
+Bacteria	Permanent Draft	2708743151	Paraburkholderia sp. BL18I3N2	
+Bacteria	Permanent Draft	2710723546	Fluviicola sp. RIFCSPHIGHO2_12_FULL_43_24	
+Bacteria	Finished	2718217837	Serratia marcescens CAV1492	
+Bacteria	Permanent Draft	2728369711	Pseudomonas putida JCM 9802	
+Bacteria	Permanent Draft	2740892410	Pectobacterium betavasculorum NCPPB 2795	
+Bacteria	Permanent Draft	8114336756	Pantoea agglomerans pv. betae 4188	
+Bacteria	Permanent Draft	2754412365	Burkholderia sp. RF2-non_BP3	
+Bacteria	Permanent Draft	2757320494	Caballeronia sordidicola ES_PA-B12	
+Bacteria	Permanent Draft	2757320523	Pseudomonas sp. NP10-3	
+Bacteria	Permanent Draft	2767802270	Pseudomonas sp. 25 E 4	
+Bacteria	Permanent Draft	2767802275	Pseudomonas sp. 37 R 15	
+Bacteria	Permanent Draft	2773858095	Uncultured Gammaproteobacteria Gam6 ca_lh25	
+Bacteria	Permanent Draft	2775507201	Pseudomonas sp. S09F 262	
+Bacteria	Permanent Draft	2775507208	Pseudomonas sp. KK4	
+Bacteria	Permanent Draft	2791355115	Poseidonibacter lekithochrous LFT 1.7	
+Bacteria	Permanent Draft	2791355131	Mesorhizobium helmanticense CSLC115N	
+Bacteria	Finished	2791355146	Serratia sp. SSNIH1	
+Bacteria	Permanent Draft	2791355349	Burkholderia sp. AU16741	
+Bacteria	Permanent Draft	2791355543	Pseudomonas sp. MPR-R2A4	
+Bacteria	Permanent Draft	2791355563	Pseudomonas sp. GP01-A14	
+Bacteria	Permanent Draft	2791355574	Pseudomonas sp. FW104-R4	
+Bacteria	Permanent Draft	2791355577	Pseudomonas sp. MPR-ANB1	
+Bacteria	Permanent Draft	2791355586	Pseudomonas sp. GW704-F2	
+Bacteria	Permanent Draft	2791355588	Pseudomonas sp. FW215-L2	
+Bacteria	Permanent Draft	2791355589	Pseudomonas sp. GW456-11-11-14-LB4	
+Bacteria	Permanent Draft	2791355630	Pseudomonas sp. GP01-A15	
+Bacteria	Finished	2802429419	Pseudomonas palleroniana MAB3	
+Bacteria	Permanent Draft	2808606355	Pseudomonas fluorescens TE19177	
+Bacteria	Permanent Draft	2814123434	Burkholderia vietnamiensis AU15829	
+Bacteria	Finished	2816332253	Burkholderia vietnamiensis HI2297	
+Bacteria	Permanent Draft	2816332276	Burkholderia vietnamiensis FL-5-2-10-S2-D0	
+Bacteria	Permanent Draft	2816332285	Burkholderia vietnamiensis AU25340	
+Bacteria	Permanent Draft	2816332286	Burkholderia vietnamiensis HI2221	
+Bacteria	Finished	2825657510	Burkholderia diffusa RF2-non-BP9	
+Bacteria	Finished	2826349812	Agrobacterium rhizogenes K599 (NCPPB2659)	
+Bacteria	Permanent Draft	2834859536	Dickeya dianthicola WV516	
+Bacteria	Finished	2846770146	Agrobacterium tumefaciens 183	
+Bacteria	Permanent Draft	2858619700	Agrobacterium deltaense Zutra 3/1	
+Bacteria	Permanent Draft	2868955639	Pectobacterium odoriferum S6-2	
+Bacteria	Permanent Draft	2874353682	Chryseobacterium sp. JV274	
+Bacteria	Finished	2880224358	Pseudomonas chlororaphis piscium ChPhzS135	
+Bacteria	Permanent Draft	2881206490	Xanthomonas arboricola pv. populi CFBP3123	
+Bacteria	Permanent Draft	2885888304	Pseudomonas sp. R21(2017)	
+Bacteria	Permanent Draft	2886225313	Pseudomonas sp. R47(2017)	
+Bacteria	Permanent Draft	2886231304	Pseudomonas sp. R34(2017)	
+Bacteria	Permanent Draft	2897671627	Xenorhabdus stockiae DSM 17904	
+Bacteria	Permanent Draft	2904550169	Stutzerimonas stutzeri 1099	
+Bacteria	Permanent Draft	2909541658	Oscillatoria sp. FACHB-1406	
+Bacteria	Permanent Draft	2918228026	Pseudomonas sp. BP6	
+Bacteria	Permanent Draft	2918233510	Pseudomonas sp. BP7	
+Bacteria	Finished	2923153595	Pseudomonas chlororaphis piscium PCL1391	
+Bacteria	Permanent Draft	2939636861	Pseudomonas sp. 2725	
+Bacteria	Permanent Draft	2959372618	Actinobacteria bacterium 88447	
+Bacteria	Finished	2962408733	Pseudomonas chlororaphis piscium DTR133	
+Bacteria	Draft	2990929826	Pseudomonas poae BP1812	
+Bacteria	Permanent Draft	2996260335	Paraburkholderia sabiae LMG 24235	
+Bacteria	Permanent Draft	3005820984	Burkholderia sp. 4M9327F10	
+Bacteria	Finished	3007256920	Pseudomonas sp. R2-37-08W	
+Bacteria	Finished	3007267188	Pseudomonas chlororaphis Lzh-T5	
+Bacteria	Finished	3007333252	Pseudomonas sp. S04	
+Bacteria	Finished	3007660125	Pseudomonas entomophila Small	
+Bacteria	Permanent Draft	3007893501	Pseudomonas gingeri A8002	
+Bacteria	Permanent Draft	3007907379	Pseudomonas gingeri G9001	
+Bacteria	Permanent Draft	8001491201	Fibrella forsythiae HMF5405	
+Bacteria	Permanent Draft	8010974801	Pseudomonas savastanoi pv. glycinea ICMP 9589	
+Bacteria	Permanent Draft	8011181369	Pseudomonas sp. PD9R	
+Bacteria	Permanent Draft	8011200657	Pseudomonas fluorescens HKI0874	
+Bacteria	Permanent Draft	8011274496	Pseudomonas frederiksbergensis DM22	
+Bacteria	Finished	8019697015	Pseudomonas sp. J3E11	
+Bacteria	Permanent Draft	8020807995	Burkholderia sp. B10	
+Bacteria	Finished	8023943185	Agrobacterium fabrum N40/94	
+Bacteria	Finished	8025764143	Phormidium yuhuli AB48	
+Bacteria	Permanent Draft	8035085127	Pseudomonas soli LBp-160603	
+Bacteria	Permanent Draft	8035326735	Pseudomonas prosekii A2-NA13	
+Bacteria	Permanent Draft	8035357749	Pseudomonas fragi F1813	
+Bacteria	Permanent Draft	8044289885	Pseudomonas savastanoi pv. glycinea ICMP 4631	
+Bacteria	Permanent Draft	8044616867	Pseudomonas savastanoi pv. glycinea ICMP 10450	
+Bacteria	Permanent Draft	8044646782	Pseudomonas amygdali pv. myricae ICMP 7118	
+Bacteria	Permanent Draft	8045178432	Pseudomonas amygdali pv. myricae ICMP 11510	
+Bacteria	Permanent Draft	8052258976	Pseudomonas savastanoi pv. glycinea ICMP 10451	
+Bacteria	Permanent Draft	8052487153	Pseudomonas putida A514	
+Bacteria	Permanent Draft	8052599795	Pseudomonas putida HAMBI_6	
+Bacteria	Finished	8056131705	Pseudomonas asgharzadehiana SWRI132	
+Bacteria	Permanent Draft	8056155041	Pseudomonas farris SWRI79	
+Bacteria	Permanent Draft	8063062827	Tychonema sp. LEGE 07196	
+Bacteria	Finished	8069456523	Paraburkholderia edwinii Pe01	
+Bacteria	Permanent Draft	8069829729	Pseudomonas sp. TE50-3-F-2023	
+Bacteria	Permanent Draft	8074312080	Trinickia caryophylli DSM 50341	
+Bacteria	Permanent Draft	8083867691	Serratia entomophila 7a94af0c-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8084826874	Pseudomonas chlororaphis ATCC 17814	
+Bacteria	Finished	8087590616	Pseudomonas sp. H22_DOA	
+Bacteria	Finished	8088474632	Pseudomonas chlororaphis ATCC 17809	
+Bacteria	Finished	8103273928	Pseudomonas migulae HY-2	
+Bacteria	Permanent Draft	8104201121	Pseudomonas sp. PGPR40	
+Bacteria	Permanent Draft	8110133462	Pseudomonas oryzicola RD9SR1	
+Bacteria	Finished	8110845361	Agrobacterium tumefaciens 14-818c	
+Bacteria	Permanent Draft	8113342741	Pseudomonas lactucae MAFF 301380	
+Bacteria	Permanent Draft	8114331817	Pantoea agglomerans pv. gypsophilae 824-1	
+Bacteria	Permanent Draft	8117845374	Burkholderia diffusa DSM 23434	
+Bacteria	Permanent Draft	8119785029	Pseudomonas chlororaphis chlororaphis DSM 50083	
+Bacteria	Finished	8120916702	Pseudomonas monteilii B5	
+Bacteria	Finished	648028011	Burkholderia sp. CCGE1003	
+Bacteria	Finished	649633086	Pseudomonas fluorescens SBW25	
+Bacteria	Permanent Draft	2508501125	Burkholderia sp. WSM2232	
+Bacteria	Permanent Draft	2506783023	Pseudomonas syringae CC94	
+Bacteria	Permanent Draft	2508501073	Pseudomonas syringae pv. syringae B728a	
+Bacteria	Permanent Draft	2506783058	Pseudomonas syringae PsyB48	
+Bacteria	Permanent Draft	2505313065	Pseudomonas syringae PmaM6	
+Bacteria	Permanent Draft	2519899622	Pseudomonas sp. Ag1	
+Bacteria	Permanent Draft	2523533547	Pseudomonas parafulva DSM 17004	
+Bacteria	Permanent Draft	2540341200	Agrobacterium larrymoorei ATCC 51759	
+Bacteria	Permanent Draft	2545555812	Pseudomonas sp. LAIL14HWK12:I11	
+Bacteria	Permanent Draft	2551306350	Pseudomonas sp. S13.1.2	
+Bacteria	Permanent Draft	2551306467	Pseudomonas sp. PAMC 26793	
+Bacteria	Permanent Draft	2556921620	Pseudomonas monteilii DSM 14164	
+Bacteria	Permanent Draft	2563367041	Pseudomonas syringae pv. actinidia ICMP 19095	
+Bacteria	Permanent Draft	2571042114	Pseudomonas syringae KCTC 12500	
+Bacteria	Permanent Draft	8054285046	Pseudomonas petroselini MAFF 311096	
+Bacteria	Permanent Draft	2582580891	Pseudomonas chlororaphis YL-1	
+Bacteria	Permanent Draft	2582580912	Pseudomonas canadensis 2-92	
+Bacteria	Permanent Draft	2585428006	Pseudomonas savastanoi pv. savastanoi DAPP-PG722	
+Bacteria	Permanent Draft	2599185190	Pseudomonas sp. NFPP04	
+Bacteria	Permanent Draft	2599185355	Burkholderia sp. NFACC33-1	
+Bacteria	Permanent Draft	2609460236	Burkholderia paludis MSh1	
+Bacteria	Permanent Draft	2615840637	Roseateles sp. YR242	
+Bacteria	Finished	2627854237	Pseudomonas plecoglossicida NyZ12	
+Bacteria	Permanent Draft	2630968439	Pseudomonas fluorescens AU11518	
+Bacteria	Permanent Draft	2630968725	Pseudomonas putida UASWS0946	
+Bacteria	Permanent Draft	2636415816	Pseudomonas simiae MEB105	
+Bacteria	Permanent Draft	2636415960	Pseudomonas sp. C5pp	
+Bacteria	Permanent Draft	2636416019	Pseudomonas chlororaphis aurantiaca LMG 21630	
+Bacteria	Permanent Draft	2636416095	Yersinia wautersii WP-931205	
+Bacteria	Permanent Draft	2636416188	Pseudomonas migulae LMG 21608	
+Bacteria	Permanent Draft	2639762637	Pseudomonas poae LMG 21465	
+Bacteria	Permanent Draft	2648501644	Pseudomonas syringae Riq4	
+Bacteria	Permanent Draft	2651870170	Paraburkholderia phenazinium LMG 2247	
+Bacteria	Permanent Draft	2671180749	Serratia marcescens UNN43_S7	
+Bacteria	Permanent Draft	2675903316	Pseudomonas savastanoi pv. glycinea ICMP 2189	
+Bacteria	Finished	2687453165	Pseudomonas agarici NCPPB 2472	
+Bacteria	Finished	2687453392	Mesorhizobium ciceri biserrulae WSM1284	
+Bacteria	Permanent Draft	2703718693	Serratia marcescens 946252515	
+Bacteria	Permanent Draft	2708743154	Paraburkholderia rhizosphaerae LMG 29544	
+Bacteria	Permanent Draft	2713896848	Pseudomonas cannabina ICMP 2823	
+Bacteria	Finished	2718218196	Pseudoalteromonas luteoviolacea S4054249	
+Bacteria	Permanent Draft	2728368913	Pseudomonas syringae pv. syringae HRI-W 7924	
+Bacteria	Permanent Draft	2728368918	Pseudomonas amygdali pv. myricae CFBP 2897	
+Bacteria	Permanent Draft	2728369042	Pseudomonas putida Simmons01	
+Bacteria	Permanent Draft	2734482072	Pseudomonas asplenii ES_PA-B6	
+Bacteria	Permanent Draft	2738543008	Paraburkholderia sp. GV060	
+Bacteria	Permanent Draft	2751185846	Paraburkholderia ribeironis STM 7296	
+Bacteria	Finished	2751186029	Burkholderia seminalis FL-5-4-10-S1-D7	
+Bacteria	Permanent Draft	2757320524	Pseudomonas sp. OV577	
+Bacteria	Permanent Draft	2772190770	Burkholderia seminalis FL-5-5-10-S1-D0	
+Bacteria	Permanent Draft	2772190928	Paraburkholderia sp. BL17N1	
+Bacteria	Permanent Draft	2773858093	Uncultured Gammaproteobacteria Gam6 ca_ze12	
+Bacteria	Finished	2775507209	Pseudomonas sp. S09G 359	
+Bacteria	Permanent Draft	2791355513	Pseudomonas sp. MYb187	
+Bacteria	Permanent Draft	2791355515	Pseudomonas sp. MYb13	
+Bacteria	Finished	2791355518	Pseudomonas sp. PONIH3	
+Bacteria	Permanent Draft	2791355527	Pseudomonas sp. FW306-02-H06C	
+Bacteria	Permanent Draft	2791355534	Pseudomonas sp. GW456-L14	
+Bacteria	Permanent Draft	2791355544	Pseudomonas sp. GW460-4	
+Bacteria	Permanent Draft	2791355578	Pseudomonas sp. MPR-LB5	
+Bacteria	Permanent Draft	2791355579	Pseudomonas sp. MPR-R2A3	
+Bacteria	Permanent Draft	2791355580	Pseudomonas sp. MPR-LB3	
+Bacteria	Permanent Draft	2791355584	Pseudomonas sp. GW456-12-1-14-LB3	
+Bacteria	Permanent Draft	2791355645	Pseudomonas sp. FW215-R3	
+Bacteria	Permanent Draft	2814123444	Burkholderia vietnamiensis FL-2-3-10-S3-D0	
+Bacteria	Permanent Draft	2816332249	Burkholderia vietnamiensis FL-2-5-10-S1-D0	
+Bacteria	Permanent Draft	2816332266	Burkholderia vietnamiensis AU25004	
+Bacteria	Permanent Draft	2816332277	Burkholderia vietnamiensis FL-5-1-10-S1-D0	
+Bacteria	Permanent Draft	2816332278	Burkholderia vietnamiensis FL-7-4-30-S2-D0	
+Bacteria	Finished	2816332459	Burkholderia vietnamiensis FDAARGOS_239	
+Bacteria	Permanent Draft	2818991317	Pseudomonas baetica TE19181	
+Bacteria	Permanent Draft	2823919643	Paraburkholderia sp. SG903	
+Bacteria	Permanent Draft	2829251778	Pseudomonadales bacterium DeMMO5_2	
+Bacteria	Finished	2841602973	Neorhizobium sp. NCHU2750	
+Bacteria	Finished	2843199234	Agrobacterium tumefaciens CFBP5877	
+Bacteria	Finished	2846797076	Agrobacterium tumefaciens 1D1460	
+Bacteria	Permanent Draft	2858475070	Pectobacterium odoriferum T5	
+Bacteria	Permanent Draft	2858596155	Agrobacterium sp. B131/95	
+Bacteria	Permanent Draft	2867889587	Pseudomonas sp. TECH13	
+Bacteria	Permanent Draft	2867895920	Pseudomonas sp. TECH14	
+Bacteria	Permanent Draft	2868951055	Pectobacterium odoriferum S6	
+Bacteria	Finished	2870350189	Pseudomonas chlororaphis aureofaciens ChPhzTR38	
+Bacteria	Permanent Draft	2881789473	Pseudomonas sp. R44(2017)	
+Bacteria	Permanent Draft	2881795172	Pseudomonas sp. R43(2017)	
+Bacteria	Permanent Draft	2883087390	Paraburkholderia guartelaensis CNPSo 3008	
+Bacteria	Permanent Draft	2885911132	Pseudomonas sp. B9(2017)	
+Bacteria	Permanent Draft	2885927794	Pseudomonas sp. B35(2017)	
+Bacteria	Permanent Draft	2886075046	Pseudomonas sp. QS1027	
+Bacteria	Permanent Draft	2893630232	Pseudomonas migulae TE3808	
+Bacteria	Permanent Draft	2903528002	Mesorhizobium loti R7ANS::ICEMlSym2037	
+Bacteria	Permanent Draft	2904601388	Herbaspirillum sp. 1273	
+Bacteria	Finished	2908379859	Pseudomonas chlororaphis piscium ZJU60	
+Bacteria	Permanent Draft	2919009306	Pseudomonas synxantha BE46	
+Bacteria	Permanent Draft	2921714897	Paraburkholderia sp. UCT2	
+Bacteria	Permanent Draft	2924459726	Pantoea sp. paga	
+Bacteria	Permanent Draft	2930974279	Pseudomonas sp. PvP001	
+Bacteria	Finished	2962453242	Pseudomonas putida E41	
+Bacteria	Finished	2962465459	Pseudomonas chlororaphis aurantiaca PB-St2	
+Bacteria	Finished	2969360729	Pseudomonas chlororaphis piscium SLPH10	
+Bacteria	Finished	2972026387	Pseudomonas sp. R5-89-07	
+Bacteria	Permanent Draft	2981221118	Paraburkholderia atlantica JPY425	
+Bacteria	Permanent Draft	2981279711	Pseudomonas sp. PvP125	
+Bacteria	Permanent Draft	2981423465	Caballeronia udeis GAS109	
+Bacteria	Permanent Draft	2984707122	Paraburkholderia sp. JPY480	
+Bacteria	Permanent Draft	2987018510	Pleionea sp. CnH1-48	
+Bacteria	Permanent Draft	2998245082	Pseudomonas sp. Irchel s3h17	
+Bacteria	Finished	3003593465	Agrobacterium sp. 13-2099-1-2	
+Bacteria	Permanent Draft	3003598935	Agrobacterium larrymoorei FPH-AR2	
+Bacteria	Finished	3004326452	Mesorhizobium sp. INR15	
+Bacteria	Permanent Draft	3005806420	Burkholderia sp. BCC0506	
+Bacteria	Finished	3007285674	Pseudomonas syringae pv. syringae Pss9097	
+Bacteria	Permanent Draft	3007373055	Pseudomonas sp. BBP2017	
+Bacteria	Permanent Draft	3007412950	Pseudomonas sp. FEN	
+Bacteria	Permanent Draft	3007478678	Pseudomonas sp. S37	
+Bacteria	Permanent Draft	3007750090	Pseudomonas fluorescens 28B5	
+Bacteria	Permanent Draft	8003955200	Paraburkholderia mimosarum LMG 23256	
+Bacteria	Permanent Draft	8004577007	Serratia sp. SSNIH3	
+Bacteria	Permanent Draft	8010986635	Pseudomonas marginalis ICMP 3553	
+Bacteria	Finished	8011055147	Pseudomonas sp. LTGT-11-2Z	
+Bacteria	Permanent Draft	8021039708	Burkholderia sp. Bp9012	
+Bacteria	Finished	8023953772	Agrobacterium tumefaciens O54/95	
+Bacteria	Permanent Draft	8035001888	Pseudomonas bubulae TH26	
+Bacteria	Permanent Draft	8035217925	Pseudomonas cannabina ICMP 2821	
+Bacteria	Permanent Draft	8035321120	Pseudomonas prosekii A2-NA12	
+Bacteria	Permanent Draft	8044211734	Pseudomonas savastanoi pv. glycinea ICMP 5027	
+Bacteria	Permanent Draft	8044283625	Pseudomonas savastanoi pv. glycinea ICMP 4966	
+Bacteria	Permanent Draft	8044373082	Pseudomonas savastanoi ICMP 17525	
+Bacteria	Permanent Draft	8044481823	Pseudomonas savastanoi pv. glycinea ICMP 867	
+Bacteria	Permanent Draft	8044611020	Pseudomonas savastanoi pv. glycinea ICMP 807	
+Bacteria	Permanent Draft	8044634723	Pseudomonas poae 29G9	
+Bacteria	Permanent Draft	8052301423	Pseudomonas savastanoi pv. glycinea ICMP 5562	
+Bacteria	Permanent Draft	8052539842	Pseudomonas putida 1312	
+Bacteria	Finished	8055770955	Pseudomonas chlororaphis qlu-1	
+Bacteria	Permanent Draft	8076369461	Pseudomonas sp. 14P_8.1_Bac3	
+Bacteria	Permanent Draft	8083926753	Serratia entomophila 7b754a08-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8084326256	Serratia entomophila 757c227a-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8084839925	Pseudomonas chlororaphis ATCC 17417	
+Bacteria	Permanent Draft	8085237721	Pseudomonas sp. AL03	
+Bacteria	Permanent Draft	8087808417	Serratia entomophila 7276a6a4-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087877409	Serratia entomophila 7c7c566c-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8110243830	Agrobacterium rhizogenes LMG150	
+Bacteria	Permanent Draft	8114246849	Agrobacterium tumefaciens 15-1187-1-2a	
+Bacteria	Finished	8117280849	Herbaspirillum rubrisubalbicans DSM 11543	
+Bacteria	Permanent Draft	8117852025	Pseudomonas antarctica CMS 35	
+Bacteria	Finished	8121922286	Agrobacterium rhizogenes LBA9402	
+Bacteria	Finished	637000224	Pseudomonas syringae pv. syringae B728a	
+Bacteria	Permanent Draft	2508501054	Pseudomonas syringae pv. aceris M302273PT	
+Bacteria	Permanent Draft	2505119011	Microcoleus vaginatus PCC 9802	
+Bacteria	Permanent Draft	2511231015	Pseudomonas sp. GM49	
+Bacteria	Finished	2518645549	Pseudomonas putida DOT-T1E	
+Bacteria	Finished	2518645580	Paraburkholderia phenoliruptrix BR3459	
+Bacteria	Permanent Draft	2524023231	Pseudomonas putida SQ1	
+Bacteria	Permanent Draft	2537561708	Pseudomonas syringae pv. glycinea race 4	
+Bacteria	Permanent Draft	2545824551	Pseudomonas sp. CC120222-01b	
+Bacteria	Permanent Draft	2556921606	Pseudomonas mosselii SJ10	
+Bacteria	Finished	2558309084	Pseudomonas sp. TKP	
+Bacteria	Permanent Draft	2558860225	Dickeya sp. CSL RW240	
+Bacteria	Permanent Draft	2562617135	Pseudomonas syringae pv. syringae 1212	
+Bacteria	Permanent Draft	2563366759	Pseudomonas syringae pv. syringae B301D-R	
+Bacteria	Permanent Draft	2563367043	Pseudomonas syringae pv. actinidia ICMP 19098	
+Bacteria	Permanent Draft	2565956822	Pseudomonas putida LF54	
+Bacteria	Finished	2597489942	Pseudomonas moraviensis R28-S	
+Bacteria	Permanent Draft	2597490288	Burkholderia pyrrocinia Lyc2	
+Bacteria	Permanent Draft	2609460070	Agrobacterium rhizogenes ATCC 15834	
+Bacteria	Permanent Draft	2609460131	Burkholderia cenocepacia 869T2	
+Bacteria	Permanent Draft	2617271064	Pseudomonas capeferrum WCS358	
+Bacteria	Permanent Draft	2617271307	Pseudomonas plecoglossicida TND35	
+Bacteria	Permanent Draft	2627854242	Dickeya dianthicola RNS04.9	
+Bacteria	Permanent Draft	2630968308	Burkholderia vietnamiensis CBMB40	
+Bacteria	Permanent Draft	2630968584	Pseudomonas syringae pv. viburni CFBP 1702	
+Bacteria	Permanent Draft	2636416079	Pseudomonas frederiksbergensis LMG 19851	
+Bacteria	Permanent Draft	2636416186	Elstera litoralis Dia-1	
+Bacteria	Permanent Draft	2639762561	Pseudomonas marginalis NCPPB 667	
+Bacteria	Permanent Draft	2639762651	Pseudomonas grimontii DSM 17515	
+Bacteria	Permanent Draft	2643221565	Pseudomonas sp. Root562	
+Bacteria	Permanent Draft	2643221633	Pseudomonas sp. Root329	
+Bacteria	Permanent Draft	2643221665	Acinetobacter sp. Root1280	
+Bacteria	Permanent Draft	2643221805	Pseudomonas sp. Leaf129	
+Bacteria	Permanent Draft	2645727751	Pseudomonas chlororaphis aureofaciens NBRC 3521	
+Bacteria	Permanent Draft	2648501178	Pseudomonas fluorescens NT0133	
+Bacteria	Permanent Draft	2648501409	Pseudomonas savastanoi pv. glycinea BR1	
+Bacteria	Permanent Draft	2654587514	Pseudomonas veronii 1YB2	
+Bacteria	Permanent Draft	2657245614	Pseudomonas sp. NBRC 111118	
+Bacteria	Permanent Draft	2660238045	Pseudomonas sp. NBRC 111144	
+Bacteria	Permanent Draft	2667527432	Pseudomonas cannabina CFBP 2341	
+Bacteria	Permanent Draft	2671180025	Pseudomonas extremaustralis USBA 515	
+Bacteria	Permanent Draft	2671181110	Serratia marcescens 950166381	
+Bacteria	Permanent Draft	2695420309	Paraburkholderia phenazinium GAS95	
+Bacteria	Permanent Draft	2700989462	Pseudomonas monteilii GTC 10897	
+Bacteria	Permanent Draft	2700989542	Pseudomonas putida ABAC63	
+Bacteria	Finished	2703719187	Pseudomonas sp. S4G9	
+Bacteria	Finished	8084813701	Pseudomonas chlororaphis NCCB 60037	
+Bacteria	Permanent Draft	2708742962	Fluviicola sp. RIFCSPHIGHO2_01_FULL_43_53	
+Bacteria	Permanent Draft	2713896850	Pseudomonas syringae pv. cerasicola ICMP 17524	
+Bacteria	Permanent Draft	2713897232	Pseudomonas sp. MIACH	
+Bacteria	Finished	2718217915	Pseudomonas fluorescens L321	
+Bacteria	Finished	2718218234	Pseudoalteromonas luteoviolacea S4054	
+Bacteria	Finished	2718218238	Pseudoalteromonas luteoviolacea S40542	
+Bacteria	Finished	2721755558	Mesorhizobium loti NZP2037	
+Bacteria	Permanent Draft	2731957835	Paraburkholderia kirstenboschensis RAU2d2	
+Bacteria	Permanent Draft	2737471644	Microcoleus vaginatus PCC9802	
+Bacteria	Permanent Draft	2744054782	Pseudomonas fluorescens HKI0770	
+Bacteria	Permanent Draft	2744055058	Caballeronia udeis ES_FE-B12	
+Bacteria	Permanent Draft	2756170262	Pseudomonas sp. LE5F10	
+Bacteria	Permanent Draft	2757320430	Pseudomonas sp. OV529	
+Bacteria	Permanent Draft	2757320535	Pseudomonas asplenii ES_PA-E7	
+Bacteria	Finished	2767802286	Pseudomonas glycinae MS586	
+Bacteria	Finished	2773858024	Pseudomonas azotoformans F77	
+Bacteria	Permanent Draft	2785510724	Burkholderia vietnamiensis WW_17	
+Bacteria	Permanent Draft	2785510728	Pseudomonas putida BIGb0473	
+Bacteria	Permanent Draft	2791355137	Paraburkholderia piptadeniae STM7183	
+Bacteria	Permanent Draft	2791355561	Pseudomonas sp. FW305-20	
+Bacteria	Permanent Draft	2791355562	Pseudomonas sp. GP01-A3	
+Bacteria	Permanent Draft	2791355566	Pseudomonas sp. GW123-5D08	
+Bacteria	Permanent Draft	2791355585	Pseudomonas sp. GW460-LB6	
+Bacteria	Permanent Draft	2791355607	Pseudomonas sp. FW507-29LB	
+Bacteria	Permanent Draft	2791355620	Pseudomonas sp. GW704-F5	
+Bacteria	Permanent Draft	2791355624	Pseudomonas sp. GP01-A4	
+Bacteria	Permanent Draft	2791355639	Pseudomonas sp. FW507-F1	
+Bacteria	Permanent Draft	2802429377	Pseudomonas lurida MYb1	
+Bacteria	Finished	2806310737	Pseudomonas mosselii BS011	
+Bacteria	Permanent Draft	2814123436	Burkholderia vietnamiensis FL-2-2-10-S1-D0	
+Bacteria	Permanent Draft	2816332250	Burkholderia vietnamiensis FL-2-5-30-S1-D0	
+Bacteria	Permanent Draft	2816332252	Burkholderia vietnamiensis AZ-3-1-30-S1-D7	
+Bacteria	Permanent Draft	2818991450	Burkholderia sp. 604	
+Bacteria	Permanent Draft	2829908084	Rhizobium skierniewicense DSM 26438	
+Bacteria	Permanent Draft	2838884228	Trinickia caryophylli HAMBI_2159	
+Bacteria	Finished	2847226916	Dickeya dianthicola ME23	
+Bacteria	Finished	2847734164	Serratia marcescens CAV1761	
+Bacteria	Finished	2850604028	Agrobacterium fabrum 1D132	
+Bacteria	Permanent Draft	2852767922	Paraburkholderia atlantica JPY171	
+Bacteria	Permanent Draft	2855200214	Pectobacterium odoriferum Q3	
+Bacteria	Permanent Draft	2868941310	Pectobacterium carotovorum NCPPB 3839	
+Bacteria	Permanent Draft	2871825570	Serratia marcescens gn2716	
+Bacteria	Finished	2877788174	Pseudomonas syringae pv. cerasicola CFBP6109	
+Bacteria	Finished	2884737437	Caballeronia sp. SBC1	
+Bacteria	Permanent Draft	2885270888	Paraburkholderia sp. UYCPa14C	
+Bacteria	Permanent Draft	2885842184	Pseudomonas sp. R5(2017)	
+Bacteria	Permanent Draft	2885922063	Pseudomonas sp. B3(2017)	
+Bacteria	Permanent Draft	2885961229	Pseudomonas sp. B15(2017)	
+Bacteria	Permanent Draft	2886041690	Pseudomonas sp. BCA13	
+Bacteria	Finished	2886123723	Pseudomonas monteilii 170620603RE	
+Bacteria	Finished	2913222336	Pseudomonas putida 111	
+Bacteria	Permanent Draft	2917137258	Pseudomonas poae LMG 21465	
+Bacteria	Permanent Draft	2918684406	Paraburkholderia graminis DS1054	
+Bacteria	Finished	2923115996	Pseudomonas chlororaphis aureofaciens ChPhzTR18	
+Bacteria	Finished	2923128604	Pseudomonas chlororaphis aurantiaca ARS 38	
+Bacteria	Finished	2923140608	Pseudomonas chlororaphis piscium ChPhzTR44	
+Bacteria	Finished	2925763965	Pseudomonas chlororaphis aurantiaca 464	
+Bacteria	Finished	2931390751	Pseudomonas sp. DR208	
+Bacteria	Permanent Draft	2931057125	Pseudomonas baetica TE3574	
+Bacteria	Finished	2962773892	Dickeya chrysanthemi NCPPB 402	
+Bacteria	Finished	2969276890	Pseudomonas chlororaphis piscium ChPhzS140	
+Bacteria	Permanent Draft	2984407380	Paraburkholderia youngii JPY403	
+Bacteria	Permanent Draft	2979148884	Paraburkholderia sp. WC7.3g	
+Bacteria	Permanent Draft	2979243886	Paraburkholderia sp. JPY623	
+Bacteria	Finished	2980551598	Pseudomonas chlororaphis aureofaciens ChPhzTR39	
+Bacteria	Finished	2980564143	Pseudomonas chlororaphis ATCC 17809	
+Bacteria	Permanent Draft	2984381759	Paraburkholderia sp. JPY419	
+Bacteria	Permanent Draft	2984698331	Paraburkholderia youngii JPY485	
+Bacteria	Permanent Draft	2984725027	Paraburkholderia sp. JPY465	
+Bacteria	Permanent Draft	2988734134	Pseudomonas prosekii P2673	
+Bacteria	Permanent Draft	2988739781	Pseudomonas prosekii P2406	
+Bacteria	Permanent Draft	2990703756	Paraburkholderia graminis SLBN-33	
+Bacteria	Permanent Draft	2997896752	Pseudomonas quercus hsmgli-8	
+Bacteria	Permanent Draft	2998184468	Pseudomonas putida DZ-C18	
+Bacteria	Finished	3007246537	Pseudomonas putida B6-2	
+Bacteria	Finished	3007326796	Pseudomonas chlororaphis piscium ToZa7	
+Bacteria	Permanent Draft	3007488259	Pseudomonas sp. ANT_H12B	
+Bacteria	Permanent Draft	8001391078	Chitinilyticum piscinae 4Y14	
+Bacteria	Finished	8003530180	Agrobacterium tumefaciens K224	
+Bacteria	Permanent Draft	8003564246	Agrobacterium tumefaciens 1D1609	
+Bacteria	Permanent Draft	8003624136	Agrobacterium vitis CG957	
+Bacteria	Permanent Draft	8005662826	Rhizobium sp. rho-13.1	
+Bacteria	Permanent Draft	8011232364	Pseudomonas entomophila 4A7	
+Bacteria	Permanent Draft	8011267867	Pseudomonas cedrina LMG 21467	
+Bacteria	Permanent Draft	8034909009	Pseudomonas cremoris WS 5106	
+Bacteria	Permanent Draft	8043885334	Pseudomonas cremoris WS 5096	
+Bacteria	Permanent Draft	8043891956	Pseudomonas ogarae Ea RS28	
+Bacteria	Permanent Draft	8044217839	Pseudomonas savastanoi pv. retacarpa ICMP 16947	
+Bacteria	Permanent Draft	8044402452	Pseudomonas savastanoi pv. glycinea ICMP 6373	
+Bacteria	Permanent Draft	8044558040	Pseudomonas savastanoi pv. glycinea ICMP 9026	
+Bacteria	Permanent Draft	8045308564	Pseudomonas viridiflava p6.F1	
+Bacteria	Finished	8046952167	Pseudomonas kermanshahensis Mr36	
+Bacteria	Finished	8055499929	Agrobacterium cucumeris O132	
+Bacteria	Permanent Draft	8067875719	Photorhabdus caribbeanensis HG29	
+Bacteria	Finished	8069818173	Pseudomonas sp. TE24-3-F2023	
+Bacteria	Permanent Draft	8069931265	Pseudomonas putida KPS-3	
+Bacteria	Permanent Draft	8073654335	Agrobacterium rhizogenes P1/75	
+Bacteria	Permanent Draft	8074318137	Trinickia caryophylli LMG 2155	
+Bacteria	Finished	8080768031	Mesorhizobium sp. 131-3-5	
+Bacteria	Permanent Draft	8083907313	Serratia entomophila 74e814c2-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8083931777	Serratia entomophila 774784e6-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8084833194	Pseudomonas chlororaphis ATCC 17811	
+Bacteria	Permanent Draft	8087798720	Serratia entomophila 7295cffc-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8099496490	Agrobacterium tumefaciens But001	
+Bacteria	Permanent Draft	8103025515	Erwinia sp. TH79	
+Bacteria	Permanent Draft	8109310562	Pseudomonas crudilactis UCMA 17988	
+Bacteria	Finished	8112732345	Pseudomonas tritici SWRI145	
+Bacteria	Finished	8114434202	Serratia sp. HRI	
+Bacteria	Permanent Draft	8117635956	Pseudomonas marginalis DSM 13124	
+Bacteria	Finished	637000053	Paraburkholderia xenovorans LB400	
+Bacteria	Finished	650716076	Pseudomonas putida S16	
+Bacteria	Permanent Draft	2508501126	Mesorhizobium sp. WSM1293	
+Bacteria	Permanent Draft	2512047018	Pseudomonas chlororaphis chlororaphis GP72	
+Bacteria	Permanent Draft	2513237082	Paraburkholderia mimosarum STM3621	
+Bacteria	Permanent Draft	2511231014	Pseudomonas sp. GM48	
+Bacteria	Permanent Draft	2509887024	Dulcicalothrix desertica PCC 7102	
+Bacteria	Permanent Draft	2506210028	Microcoleus vaginatus FGP-2	
+Bacteria	Finished	2516653025	Pseudomonas monteilii SB3078	
+Bacteria	Permanent Draft	2521172670	Pseudomonas sp. LAIL14HWK12:I8	
+Bacteria	Finished	2521172690	Liberibacter crescens BT-1	
+Bacteria	Permanent Draft	2522125081	Bordetella sp. FB-8, DSM 24873	
+Bacteria	Permanent Draft	2523533534	Pseudomonas cremoricolorata DSM 17059	
+Bacteria	Permanent Draft	2526164713	Paraburkholderia phenoliruptrix JPY366	
+Bacteria	Permanent Draft	8044324721	Pseudomonas savastanoi pv. glycinea ICMP 3482	
+Bacteria	Permanent Draft	2541047480	Pseudomonas fluorescens BRIP34879	
+Bacteria	Permanent Draft	2548876982	Pseudomonas sp. R62	
+Bacteria	Permanent Draft	2551306410	Herbaspirillum seropedicae Os45	
+Bacteria	Permanent Draft	2551306416	Herbaspirillum seropedicae Os34	
+Bacteria	Permanent Draft	2551306688	Pseudomonas fluorescens Pf29Arp	
+Bacteria	Permanent Draft	2554235175	Paraburkholderia phenoliruptrix AC1100	
+Bacteria	Permanent Draft	2563366740	Pseudomonas tolaasii NCPPB 2192	
+Bacteria	Permanent Draft	2565956699	Acinetobacter rudis CIP 110305	
+Bacteria	Permanent Draft	2579778571	Pseudomonas monteilii IOFA19	
+Bacteria	Permanent Draft	2579778690	Paraburkholderia kururiensis JCM 10599	
+Bacteria	Permanent Draft	2585427680	Pseudomonas monteilii NBRC 103158	
+Bacteria	Permanent Draft	2585428010	Pseudomonas putida T2-2	
+Bacteria	Permanent Draft	2597489885	Pseudomonas chlororaphis O6	
+Bacteria	Finished	2597490176	Pseudomonas alkylphenolica KL28	
+Bacteria	Permanent Draft	2597490269	Pseudomonas sp. QTF5	
+Bacteria	Permanent Draft	2599185167	Pseudomonas sp. NFPP28	
+Bacteria	Permanent Draft	2599185257	Pseudomonas sp. NFACC41-3	
+Bacteria	Permanent Draft	2599185290	Pseudomonas sp. NFPP11	
+Bacteria	Permanent Draft	2615840645	Burkholderia sp. WP40	
+Bacteria	Finished	2617270755	Pseudomonas syringae pv. syringae B301D	
+Bacteria	Permanent Draft	2617270790	Pseudomonas chlororaphis chlororaphis ATCC 9446	
+Bacteria	Finished	2627854076	Pectobacterium odoriferum BC S7	
+Bacteria	Permanent Draft	2630968653	Pseudomonas frederiksbergensis SI8	
+Bacteria	Permanent Draft	2630968664	Pseudomonas fluorescens H21	
+Bacteria	Permanent Draft	2636415573	Pseudomonas fluorescens C8	
+Bacteria	Permanent Draft	2636416078	Pseudomonas antarctica LMG 22709	
+Bacteria	Permanent Draft	2639762577	Pseudomonas trivialis LMG 21464	
+Bacteria	Permanent Draft	2651869693	Pseudomonas syringae pv. actinidifoliorum CFBP8180 isolate:LSV43.65	
+Bacteria	Permanent Draft	2654587785	Pseudomonas sp. RIT-PI-q	
+Bacteria	Permanent Draft	2667527210	Pseudomonas agarici LMG 2112	
+Bacteria	Permanent Draft	2667527782	Pseudomonas sp. NBRC 111131	
+Bacteria	Permanent Draft	2675903129	Burkholderia pyrrocinia NFIX32	
+Bacteria	Permanent Draft	2681813258	Serratia marcescens 945174350	
+Bacteria	Permanent Draft	2684622678	Yersinia pseudotuberculosis OK6088	
+Bacteria	Permanent Draft	2684623003	Pseudomonas sp. OV546	
+Bacteria	Finished	2684623188	Pseudomonas fluorescens FW300-N2E3	
+Bacteria	Finished	2687453321	Serratia marcescens B3R3	
+Bacteria	Finished	2687453548	Pseudomonas chlororaphis 189	
+Bacteria	Permanent Draft	2687453791	Pseudomonas sp. PDC86	
+Bacteria	Permanent Draft	2698536551	Serratia marcescens 950196656	
+Bacteria	Permanent Draft	2713896856	Pseudomonas syringae pv. maculicola ICMP 3935	
+Bacteria	Permanent Draft	2713896863	Pseudomonas syringae pv. solidagae PsoICMP16925	
+Bacteria	Permanent Draft	2728368991	Agrobacterium vitis NCPPB 3554	
+Bacteria	Permanent Draft	2728369712	Pseudomonas putida JCM 18452	
+Bacteria	Permanent Draft	2738541226	Pseudomonas psychrophila JB418 re-analysis	
+Bacteria	Permanent Draft	2738541296	Paraburkholderia sp. GV073	
+Bacteria	Permanent Draft	2751186015	Burkholderia sp. RF4-BP95	
+Bacteria	Permanent Draft	2757320513	Paraburkholderia sp. PDC91	
+Bacteria	Permanent Draft	2757320534	Caballeronia udeis ES_AL-E11	
+Bacteria	Permanent Draft	2767802264	Pseudomonas sp. 52 E 6	
+Bacteria	Permanent Draft	2767802265	Pseudomonas sp. 35 E 8	
+Bacteria	Permanent Draft	2767802472	Pseudomonas jessenii E2333	
+Bacteria	Permanent Draft	2773857665	Pseudomonas sp. 2848	
+Bacteria	Finished	2775506700	Paraburkholderia xenovorans LB400	
+Bacteria	Finished	2775506945	Chromobacterium sp. ATCC 53434	
+Bacteria	Permanent Draft	2775507026	Pantoea sp. FDAARGOS_194	
+Bacteria	Finished	2775507205	Pseudomonas sp. 09C 129	
+Bacteria	Permanent Draft	2778261711	Pseudomonas sp. 1033	
+Bacteria	Permanent Draft	2784132037	Pseudomonas helleri DSM 29165	
+Bacteria	Permanent Draft	2784132072	Pseudomonas sp. 460	
+Bacteria	Permanent Draft	2791355528	Pseudomonas sp. GW456-L12	
+Bacteria	Permanent Draft	2791355533	Pseudomonas sp. FW306-02-F02-AB	
+Bacteria	Permanent Draft	2791355535	Pseudomonas sp. MPR-R2A6	
+Bacteria	Permanent Draft	2791355569	Pseudomonas sp. FW306-02-H06B	
+Bacteria	Permanent Draft	2791355570	Pseudomonas sp. FW305-131	
+Bacteria	Permanent Draft	2791355599	Pseudomonas sp. FW126-L8	
+Bacteria	Permanent Draft	2791355618	Pseudomonas sp. GW704-F3	
+Bacteria	Permanent Draft	2791355628	Pseudomonas sp. GP01-A5	
+Bacteria	Permanent Draft	2795385510	Pseudomonas sp. FW306-2-11AA	
+Bacteria	Finished	2802429421	Pseudomonas lurida MYb11	
+Bacteria	Finished	2808606704	Burkholderia sp. MSMB0856	
+Bacteria	Permanent Draft	2811994986	Pseudomonas putida TE19180	
+Bacteria	Permanent Draft	2814123437	Burkholderia vietnamiensis HI3908	
+Bacteria	Finished	2816332256	Burkholderia vietnamiensis MSMB608WGS	
+Bacteria	Permanent Draft	2816332279	Burkholderia vietnamiensis FL-7-4-10-S1-D0	
+Bacteria	Permanent Draft	2858484501	Pectobacterium odoriferum Q142	
+Bacteria	Finished	2872296317	Burkholderia territorii MSMB2203WGS	
+Bacteria	Finished	2877820159	Pseudomonas chlororaphis ATCC 17415	
+Bacteria	Permanent Draft	2881818675	Pseudomonas sp. R19(2017)	
+Bacteria	Permanent Draft	2882904839	Pseudomonas sp. JMN1	
+Bacteria	Permanent Draft	2885792518	Pseudomonas sp. 10	
+Bacteria	Permanent Draft	2885802934	Pseudomonas sp. 13.2	
+Bacteria	Permanent Draft	2885871342	Pseudomonas sp. R29(2017)	
+Bacteria	Permanent Draft	2885905433	Pseudomonas sp. R12(2017)	
+Bacteria	Permanent Draft	2885916348	Pseudomonas sp. B7(2017)	
+Bacteria	Permanent Draft	2886237313	Pseudomonas sp. R32(2017)	
+Bacteria	Permanent Draft	2886733105	Geitlerinema sp. P-1104	
+Bacteria	Permanent Draft	2899834825	Agrobacterium vitis Rr4	
+Bacteria	Permanent Draft	2904584206	Herbaspirillum sp. 1050	
+Bacteria	Finished	2908386141	Pseudomonas chlororaphis TAMOak81	
+Bacteria	Finished	2908486269	Pseudomonas chlororaphis aurantiaca DSM 19603	
+Bacteria	Permanent Draft	2917131931	Pseudomonas trivialis LMG 21464	
+Bacteria	Permanent Draft	2917843420	Pseudomonas baetica a390	
+Bacteria	Permanent Draft	2918548257	Pseudomonas simiae TE4630B	
+Bacteria	Permanent Draft	2918829582	Paraburkholderia phenoliruptrix DS998	
+Bacteria	Permanent Draft	2919385768	Pseudomonas sp. 2957	
+Bacteria	Permanent Draft	2927742676	Pseudomonas grimontii BIGb0428	
+Bacteria	Permanent Draft	2928108538	Paraburkholderia terricola 1595	
+Bacteria	Permanent Draft	2937745690	Serratia sp. SSNIH4	
+Bacteria	Permanent Draft	2945934425	Paraburkholderia graminis W1I13	
+Bacteria	Finished	2962433822	Pseudomonas sp. 31-12	
+Bacteria	Finished	2962490117	Pseudomonas sp. R3-18-08	
+Bacteria	Finished	2962495622	Pseudomonas chlororaphis aurantiaca PCM 2210	
+Bacteria	Finished	2972014215	Pseudomonas sp. 29A	
+Bacteria	Permanent Draft	2979278510	Paraburkholderia atlantica JPY395	
+Bacteria	Permanent Draft	2979303222	Paraburkholderia sp. JPY156	
+Bacteria	Finished	2980650083	Pseudomonas fluorescens KUIN-1	
+Bacteria	Permanent Draft	2982060834	Pseudomonas sp. 89996_182_B11	
+Bacteria	Permanent Draft	2984232459	Pseudomonas sp. C5pp	
+Bacteria	Finished	2986590662	Pseudomonas syringae pv. syringae CFBP4215	
+Bacteria	Permanent Draft	2987466894	Agrobacterium vitis AB3	
+Bacteria	Permanent Draft	2988781840	Pseudomonas sp. SID14000	
+Bacteria	Permanent Draft	2989268556	Sneathiella chinensis LMG 23452	
+Bacteria	Permanent Draft	2998097943	Pseudomonas viridiflava p1.F2	
+Bacteria	Permanent Draft	2998238523	Pseudomonas sp. LS-2 LS-2	
+Bacteria	Finished	3007776982	Pseudomonas sp. MPC6	
+Bacteria	Permanent Draft	8003575593	Agrobacterium vitis V80/94	
+Bacteria	Finished	8003547561	Agrobacterium tumefaciens A47a	
+Bacteria	Permanent Draft	8005454183	Rhizobium sp. 16-488-2b	
+Bacteria	Finished	8010843193	Pseudomonas putida JQ581	
+Bacteria	Permanent Draft	8011227825	Pseudomonas entomophila 6C6	
+Bacteria	Permanent Draft	8020889155	Burkholderia sp. BCC0419	
+Bacteria	Permanent Draft	8020917774	Burkholderia sp. BCC1630	
+Bacteria	Finished	8024007772	Paraburkholderia terricola SMT4a	
+Bacteria	Finished	8030686851	Pseudomonas sp. OVF7	
+Bacteria	Permanent Draft	8035239897	Pseudomonas kilonensis ACN7	
+Bacteria	Permanent Draft	8035315873	Pseudomonas mosselii LB-090624	
+Bacteria	Permanent Draft	8035416935	Pseudomonas monteilii BCN3	
+Bacteria	Permanent Draft	8040173305	Burkholderia vietnamiensis BE10	
+Bacteria	Permanent Draft	8044432354	Pseudomonas savastanoi pv. glycinea ICMP 4402	
+Bacteria	Permanent Draft	8044451578	Pseudomonas savastanoi pv. glycinea ICMP 5928	
+Bacteria	Permanent Draft	8045676432	Rhizobium skierniewicense Ch11	
+Bacteria	Finished	8056137416	Pseudomonas fakonensis COW40	
+Bacteria	Permanent Draft	8056172158	Pseudomonas ekonensis COR58	
+Bacteria	Finished	8057010494	Sneathiella marina PHK-P5	
+Bacteria	Permanent Draft	8057865054	Pseudomonas agronomica SAICEU22T	
+Bacteria	Permanent Draft	8062865034	Elstera cyanobacteriorum CGMCC 1.15802	
+Bacteria	Permanent Draft	8072128020	Pseudomonas sp. G(2018)	
+Bacteria	Permanent Draft	8080462922	Paraburkholderia sp. ZP32-5	
+Bacteria	Finished	8082264457	Agrobacterium fabrum 1D1478	
+Bacteria	Permanent Draft	8083872534	Serratia entomophila 7d78b7e0-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8084102989	Pseudomonas sp. UMAB-40	
+Bacteria	Finished	8085540347	Burkholderia sp. MS455	
+Bacteria	Permanent Draft	8087764860	Serratia entomophila 6ebddaaa-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087823314	Serratia entomophila 7bf24134-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Permanent Draft	8087838003	Serratia entomophila 739399ca-a76c-11e8-a962-3c4a9275d6c8	
+Bacteria	Finished	8099490414	Agrobacterium tumefaciens cl001	
+Bacteria	Permanent Draft	8100503412	Xenorhabdus sp. IM139775	
+Bacteria	Permanent Draft	8103019756	Erwinia sp. TH29	
+Bacteria	Finished	8110138451	Pseudomonas anuradhapurensis RD8MR3	
+Bacteria	Permanent Draft	8115185636	Burkholderia diffusa CCUG 54558	
+Bacteria	Permanent Draft	8115383368	Burkholderia seminalis LMG 24067	
+Bacteria	Permanent Draft	8115456804	Paraburkholderia phenoliruptrix LMG 22037	
+Bacteria	Permanent Draft	8116548949	Agrobacterium tumefaciens ATCC 4720	
+Bacteria	Permanent Draft	8116899607	Burkholderia kururiensis KP23	
+Bacteria	Permanent Draft	8117383975	Pseudomonas extremorientalis LMG 19695	
+Bacteria	Permanent Draft	8120884234	Pseudomonas arcuscaelestis V1	
+Bacteria	Permanent Draft	8121371490	Pseudomonas reactans IPO3751	
+Plasmid:Bacteria	Finished	640048218	Agrobacterium rhizogenes MAFF03-01724 plasmid pRi1724	
+Plasmid:Bacteria	Finished	640048220	Agrobacterium tumefaciens MAFF301001 plasmid pTi-SAKURA	
+Plasmid:Bacteria	Finished	642914106	Agrobacterium tumefaciens Bo542 plasmid Ti plasmid pTiBo542	
+Plasmid:Bacteria	Finished	640048219	Agrobacterium tumefaciens plasmid Ti	
