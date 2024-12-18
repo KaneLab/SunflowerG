@@ -666,8 +666,8 @@ label_df_long <- rbind(label_df_16S, label_df_ITS)
 # Don't show sig. letters. Just state heritability
 label_df_long <- data.frame(x = c(75, 75, 75, 75),
                             y = c(1700, 6.6, 150, 2.25),
-                            label = c("H = 0.41", "H = 0.38", "H = 0.26", "H = 0.31"),
-                            plabel = c("p < 0.05", "p < 0.05", "N.S.D", "p < 0.1"),
+                            label = c("H = 0.42", "H = 0.38", "H = 0.26", "H = 0.31"),
+                            plabel = c("p < 0.001", "p < 0.001", "N.S.D", "p < 0.1"),
                             px = c(41.5, 41.5, 41.5, 41.5),
                             py = c(2400, 7.3, 275, 4.25),
                             Dataset = c("16S", "16S", "ITS", "ITS"),
@@ -692,7 +692,9 @@ g3 <- ggplot(alpha_long, aes(pedigree, value)) +
         axis.title.y = element_blank(),
         axis.title.x = element_text(size = 12),
         axis.text.y = element_text(size = 10),
-        axis.text.x = element_text(size = 3, angle = 90, hjust = 1, vjust = 0.5),
+        #axis.text.x = element_text(size = 3, angle = 90, hjust = 1, vjust = 0.5),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
         strip.text = element_text(size = 14),
         strip.background = element_rect(fill = "white"),
         panel.grid = element_blank())
