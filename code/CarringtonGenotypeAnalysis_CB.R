@@ -5367,4 +5367,65 @@ iaa_phylum <- iaa_taxonomy %>%
   summarise(count = sum(count))
 
 
+
+#### 12. NCBI ####
+# Submit ZOTU sequences to NCBI
+# First need to take the repset fasta from Jason and subset it to the used ZOTUs
+# Used ZOTU IDs are from the rarefied dataset with n = 368 samples
+repset_16S <- microseq::readFasta("~/Desktop/Kane/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
+  filter(Header %in% input_n3_16S$taxonomy_loaded$taxonomy8)
+nrow(repset_16S) == nrow(input_n3_16S$taxonomy_loaded)
+microseq::writeFasta(repset_16S, "data/repset_16S.fasta")
+
+repset_ITS <- microseq::readFasta("~/Desktop/Kane/Cloe/ITS/ITS_rep_set_zotus_filt_relabeled.fa") %>%
+  filter(Header %in% input_n3_ITS$taxonomy_loaded$taxonomy8)
+nrow(repset_ITS) == nrow(input_n3_ITS$taxonomy_loaded)
+microseq::writeFasta(repset_ITS, "data/repset_ITS.fasta")
+
+# Now assign ASVs to samples (not comprehensive, just first sample)
+info <- input_n3_16S$data_loaded
+names(info) <- input_n3_16S$map_loaded$sampleID
+for (i in 1:ncol(info)) {
+  for (j in 1:nrow(info)) {
+    ifelse(info[j, i] > 0, info[j, i] <- names(info)[i], info[j, i] <- "")
+  }
+}
+info_cat <- info
+info_cat <- info_cat %>%
+  mutate_all(na_if, "") %>%
+  mutate(unite(., "sample_name", c(names(info)), sep = ", ")) %>%
+  mutate(sample_name = gsub("NA, ", "", sample_name)) %>%
+  mutate(sample_name = gsub(", NA", "", sample_name)) %>%
+  rownames_to_column(var = "Sequence_ID") %>%
+  dplyr::select(Sequence_ID, sample_name)
+info_first <- info_cat %>%
+  separate(sample_name, into = c("sample_name", "Junk"), sep = ", ") %>%
+  dplyr::select(Sequence_ID, sample_name)
+info_first <- info_first %>%
+  filter(Sequence_ID %in% repset_16S$Header)
+write_tsv(info_first, file = "data/biosample_assignment_16S.tsv")
+
+info <- input_n3_ITS$data_loaded
+names(info) <- input_n3_ITS$map_loaded$sampleID
+for (i in 1:ncol(info)) {
+  for (j in 1:nrow(info)) {
+    ifelse(info[j, i] > 0, info[j, i] <- names(info)[i], info[j, i] <- "")
+  }
+}
+info_cat <- info
+info_cat <- info_cat %>%
+  mutate_all(na_if, "") %>%
+  mutate(unite(., "sample_name", c(names(info)), sep = ", ")) %>%
+  mutate(sample_name = gsub("NA, ", "", sample_name)) %>%
+  mutate(sample_name = gsub(", NA", "", sample_name)) %>%
+  rownames_to_column(var = "Sequence_ID") %>%
+  dplyr::select(Sequence_ID, sample_name)
+info_first <- info_cat %>%
+  separate(sample_name, into = c("sample_name", "Junk"), sep = ", ") %>%
+  dplyr::select(Sequence_ID, sample_name)
+info_first <- info_first %>%
+  filter(Sequence_ID %in% repset_ITS$Header)
+write_tsv(info_first, file = "data/biosample_assignment_ITS.tsv")
+
+
 # End Script
