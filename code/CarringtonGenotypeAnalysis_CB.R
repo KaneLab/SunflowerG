@@ -47,6 +47,7 @@ library(phyloseq) # microbial analyses, can handle trees
 library(picante) # Trees
 library(conditionz)
 library(taxize) # version 0.9.100.1 from archive
+library(readxl)
 
 # Repo Directory
 setwd("~/Documents/GitHub/SunflowerG/")
@@ -5375,12 +5376,12 @@ iaa_phylum <- iaa_taxonomy %>%
 repset_16S <- microseq::readFasta("~/Desktop/Kane/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
   filter(Header %in% input_n3_16S$taxonomy_loaded$taxonomy8)
 nrow(repset_16S) == nrow(input_n3_16S$taxonomy_loaded)
-microseq::writeFasta(repset_16S, "data/repset_16S.fasta")
+#microseq::writeFasta(repset_16S, "data/repset_16S.fasta")
 
 repset_ITS <- microseq::readFasta("~/Desktop/Kane/Cloe/ITS/ITS_rep_set_zotus_filt_relabeled.fa") %>%
   filter(Header %in% input_n3_ITS$taxonomy_loaded$taxonomy8)
 nrow(repset_ITS) == nrow(input_n3_ITS$taxonomy_loaded)
-microseq::writeFasta(repset_ITS, "data/repset_ITS.fasta")
+#microseq::writeFasta(repset_ITS, "data/repset_ITS.fasta")
 
 # Now assign ASVs to samples (not comprehensive, just first sample)
 info <- input_n3_16S$data_loaded
@@ -5427,5 +5428,22 @@ info_first <- info_first %>%
   filter(Sequence_ID %in% repset_ITS$Header)
 write_tsv(info_first, file = "data/biosample_assignment_ITS.tsv")
 
+# Filter NCBI flagged seqs from fasta
+flagged_16S <-read_xlsx("data/NCBI_flagged.xlsx", sheet = 1)
+repset_16S <- readFasta("data/repset_16S.fasta") %>%
+  filter(Header %notin% flagged_16S$flagged_16S)
+#microseq::writeFasta(repset_16S, "data/repset_16S_filtered.fasta")
+flagged_ITS <-read_xlsx("data/NCBI_flagged.xlsx", sheet = 2)
+repset_ITS <- readFasta("data/repset_ITS.fasta") %>%
+  filter(Header %notin% flagged_ITS$flagged_ITS)
+#microseq::writeFasta(repset_ITS, "data/repset_ITS_filtered.fasta")
+
+# Filter NCBI flagged seqs from biosample assignment
+bs16S <- read.table("data/biosample_assignment_16S.tsv", header = T) %>%
+  filter(Sequence_ID %notin% flagged_16S$flagged_16S)
+#write_tsv(bs16S, file = "data/biosample_assignment_16S_filtered.tsv")
+bsITS <- read_xlsx("~/Desktop/Kane/Carrington/source_modifiers.xlsx") %>%
+  filter(Sequence_ID %notin% flagged_ITS$flagged_ITS)
+write_csv(bsITS, file = "data/source_modifiers_ITS_filtered.csv")
 
 # End Script
