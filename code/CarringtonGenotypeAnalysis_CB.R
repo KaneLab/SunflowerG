@@ -12,6 +12,11 @@
 # 5. Sclerotinia
 # 6. Networks
 # 7. SNPs/Microbes
+# 8. Inhibitors
+# 9. NTI
+# 10. Sloan
+# 11. IAA
+# 12. NCBI
 
 
 
@@ -394,6 +399,8 @@ input_n3_ITS <- filter_taxa_from_input(input_n3_ITS,
 # Save those
 #saveRDS(input_n3_16S, "data/input_filt_16S_noSing.rds")
 #saveRDS(input_n3_ITS, "data/input_filt_ITS_noSing.rds")
+
+
 
 #### _Start here ####
 input_n3_16S <- readRDS("data/input_filt_16S_noSing.rds")
@@ -1013,6 +1020,107 @@ qplot(bc_16S, bc_ITS, geom = "point", alpha = 0.001) +
   #ylim(0, 1) +
   theme_bw() +
   theme(legend.position = "none")
+dev.off()
+
+
+
+#### _Taxa ####
+# Reviewer says paper is lacking standard taxonomic graphs
+# Make Figure S3 to present the top prokaryotic phyla and top fungal classes
+# Prokaryotic phyla
+tax_sum_phylum_pro <- summarize_taxonomy(input = input_n3_16S,
+                                         level = 2,
+                                         report_higher_tax = F)
+bars_phyla <- plot_taxa_bars(tax_table = tax_sum_phylum_pro, 
+                             metadata_map = input_n3_16S$map_loaded, 
+                             type_header = "sampleID",
+                             num_taxa = 13,
+                             data_only = T) %>%
+  left_join(., input_n3_16S$map_loaded, by = c("group_by" = "sampleID"))
+top_phyla <- bars_phyla %>%
+  group_by(taxon) %>%
+  summarise(mean = mean(mean_value)) %>%
+  filter(taxon != "Other") %>%
+  filter(taxon != "NA") %>%
+  arrange(-mean) %>%
+  mutate(taxon = as.character(taxon))
+bars_phyla <- bars_phyla %>%
+  mutate(taxon = factor(taxon,
+                        levels = c("Other", "NA", rev(top_phyla$taxon))))
+s3 <- ggplot(bars_phyla, aes(group_by, mean_value, fill = taxon)) +
+  geom_bar(stat = "identity", colour = NA, linewidth = 0.25) +
+  labs(x = "Sample", y = "Relative abundance", fill = "Phylum") +
+  scale_fill_manual(values = c("grey75", "grey90", brewer.pal(12, "Paired")[12:1])) +
+  scale_y_continuous(expand = c(0.01, 0.01)) + 
+  facet_grid(~ pedigree, space = "free", scales = "free_x") +
+  theme_classic() +
+  theme(axis.title.y = element_text(face = "bold", size = 12),
+        axis.title.x = element_blank(),
+        axis.text.y = element_text(size = 10),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.line.x = element_blank(),
+        axis.line.y = element_blank(),
+        strip.text = element_text(size = 5, angle = 90, hjust = 0, margin = margin(b = 0)),
+        strip.background = element_blank(),
+        legend.position = "right",
+        legend.margin = margin(0, 0, 0, 0, unit = "pt"),
+        legend.box.margin = margin(0, 0, 0, 0, unit = "pt"),
+        legend.key.size = unit(0.4, "cm"),
+        panel.spacing.x = unit(rep(0.1, 94), "lines"))
+pdf("FinalFigs/FigureS3.pdf", width = 9, height = 6)
+s3
+dev.off()
+png("FinalFigs/FigureS3.png", width = 9, height = 6, units = "in", res = 300)
+s3
+dev.off()
+
+# Fungal classes
+tax_sum_class <- summarize_taxonomy(input = input_n3_ITS,
+                                    level = 3,
+                                    report_higher_tax = F)
+bars_class <- plot_taxa_bars(tax_table = tax_sum_class, 
+                             metadata_map = input_n3_ITS$map_loaded, 
+                             type_header = "sampleID",
+                             num_taxa = 13,
+                             data_only = T) %>%
+  left_join(., input_n3_ITS$map_loaded, by = c("group_by" = "sampleID"))
+top_class <- bars_class %>%
+  group_by(taxon) %>%
+  summarise(mean = mean(mean_value)) %>%
+  filter(taxon != "Other") %>%
+  filter(taxon != "NA") %>%
+  arrange(-mean) %>%
+  mutate(taxon = as.character(taxon))
+bars_class <- bars_class %>%
+  mutate(taxon = factor(taxon,
+                        levels = c("Other", "NA", rev(top_class$taxon))))
+s4 <- ggplot(bars_class, aes(group_by, mean_value, fill = taxon)) +
+  geom_bar(stat = "identity", colour = NA, linewidth = 0.25) +
+  labs(x = "Sample", y = "Relative abundance", fill = "Phylum") +
+  scale_fill_manual(values = c("grey75", "grey90", brewer.pal(12, "Paired")[12:1])) +
+  scale_y_continuous(expand = c(0.01, 0.01)) + 
+  facet_grid(~ pedigree, space = "free", scales = "free_x") +
+  theme_classic() +
+  theme(axis.title.y = element_text(face = "bold", size = 12),
+        axis.title.x = element_blank(),
+        axis.text.y = element_text(size = 10),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.line.x = element_blank(),
+        axis.line.y = element_blank(),
+        strip.text = element_text(size = 5, angle = 90, hjust = 0, margin = margin(b = 0)),
+        strip.background = element_blank(),
+        legend.position = "right",
+        legend.margin = margin(0, 0, 0, 0, unit = "pt"),
+        legend.box.margin = margin(0, 0, 0, 0, unit = "pt"),
+        legend.key.size = unit(0.4, "cm"),
+        panel.spacing.x = unit(rep(0.1, 94), "lines"))
+pdf("FinalFigs/FigureS4.pdf", width = 9, height = 6)
+s4
+dev.off()
+png("FinalFigs/FigureS4.png", width = 9, height = 6, units = "in", res = 300)
+s4
 dev.off()
 
 
@@ -4439,8 +4547,9 @@ pheatmap(mat = chr_zotus,
 
 
 #### 8. Inhibitors ####
-# Check heritability/genotype effects of 6 inhibitor OTUs 
-# For paper with Lara Vimercati/Alisha Quandt
+# Check heritability/genotype effects of 6 inhibitor OTUs
+# Not for main manuscript submitted to Phyotbiomes Journal
+# This is for a separate paper with Lara Vimercati and Alisha Quandt
 inhibitors <- c("OTU_10441", "OTU_12372", "OTU_978", "OTU_4850", "OTU_275", "OTU_1672")
 tax_sum_OTU_16S <- summarize_taxonomy(input = input_filt_rare_16S, 
                                       level = 8, 
@@ -4621,7 +4730,7 @@ dev.off()
 #### 9. NTI ####
 # Look at Nearest Taxon Index to infer assembly mechanisms
 # Just do for 16S as ITS trees are questionable
-# Hypothesis that genotype effects lead to deterministic assembly
+# Hypothesis is that genotype effects lead to deterministic assembly
 # Read in and filter repset fasta
 nrow(input_n3_16S$taxonomy_loaded)
 cs15 <- as.data.frame(rowSums(input_n3_16S$data_loaded)) %>%
@@ -4631,9 +4740,9 @@ input_15 <- filter_taxa_from_input(input_n3_16S,
                                    taxa_IDs_to_keep = rownames(cs15))
 nrow(input_15$taxonomy_loaded) # 10522
 View(input_15$taxonomy_loaded)
-repset <- readFasta("~/Desktop/Sunflower/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
+repset <- readFasta("~/Desktop/Kane/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
   filter(Header %in% input_15$taxonomy_loaded$taxonomy8)
-#writeFasta(repset, "~/Desktop/Sunflower/Cloe/16S/16S_rep_set_zotus_filt15.fa")
+#writeFasta(repset, "~/Desktop/Kane/Cloe/16S/16S_rep_set_zotus_filt15.fa")
 
 # Transfer to microbe, run qiime commands for alignment and tree
 # screen align_seqs.py -i  16S_rep_set_zotus_filt15.fa -m muscle -o ./
@@ -4642,7 +4751,7 @@ repset <- readFasta("~/Desktop/Sunflower/Cloe/16S/16S_rep_set_zotus_filt_relabel
 
 # The NTI values between −2 and 2 indicate stochastic community assembly, whereas NTI values less than −2 or higher than 2 indicate that deterministic processes play a more important role in structuring the community (deterministic environmental filtering)
 
-# Run on microbe
+# Run on Fierer Lab microbe server to speed up
 #saveRDS(input_15, "data/input_15.rds")
 # Use dataframe with taxa with >= 15 reads in whole dataset (10522)
 bac_asv <- as.data.frame(t(input_15$data_loaded))
@@ -4672,6 +4781,8 @@ hist(NTI$NTI)
 t.test(NTI$NTI, mu = 0) # p < 0.05, different than 0!
 nrow(NTI) # 368
 sum(NTI$NTI > 2) # 127 of 368 above the 2 cutoff
+
+# Merge to the rest of the metadata
 input_15$map_loaded <- input_15$map_loaded %>%
   left_join(., NTI, by = "sampleID")
 rownames(input_n3_16S$map_loaded)
@@ -4794,7 +4905,7 @@ dev.off()
 
 
 #### 10. Sloan ####
-# Run Sloane Neutral Model
+# Run Sloane Neutral Model to complement the NTI analyses on assembly mechanisms
 # Run with pctax package, use github version for plot editing
 #devtools::install_github("Asa12138/pctax", force = TRUE)
 library(pctax)
@@ -4933,9 +5044,13 @@ pdf("FinalFigs/Figure6.pdf", width = 8, height = 4)
 plot_grid(fig6a, fig6b)
 dev.off()
 
+
+
 #### 11. IAA ####
+# Not for main manuscript submitted to Phytobiomes Journal
+# For separate manuscript on GWAS with Kyle Keepers
 # Check which taxa have genes for IAA
-# From Kyle: Check these:
+# From Kyle Keepers: Check these:
 # 1. Acidobacteriota Holophagae (no)
 # 2. Actinobacteriota Solirubrobacterales (no)
 # 3. Proteobacteria Hyphomonadaceae (no)
@@ -5371,7 +5486,7 @@ iaa_phylum <- iaa_taxonomy %>%
 
 #### 12. NCBI ####
 # Submit ZOTU sequences to NCBI
-# First need to take the repset fasta from Jason and subset it to the used ZOTUs
+# First need to take the repset fasta from Jason Corwin and subset it to the used ZOTUs
 # Used ZOTU IDs are from the rarefied dataset with n = 368 samples
 repset_16S <- microseq::readFasta("~/Desktop/Kane/Cloe/16S/16S_rep_set_zotus_filt_relabeled.fa") %>%
   filter(Header %in% input_n3_16S$taxonomy_loaded$taxonomy8)
