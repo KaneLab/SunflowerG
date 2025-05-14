@@ -3,7 +3,7 @@ Sunflower rhizosphere microbiomes from 95 genotypes at Carrington, ND\
 Analyses build on Pogoda et al. 2024 by including more community-level diversity analyses, analysis of multiple taxonomic levels, comparison of archaea/bacteria and fungi, and assessment of assembly mechanisms\
 Analyses by Cliff Bueno de Mesquita, May 2024\
 Finalized December 2024 and submitted to Phytobiomes Journal\
-Revised May 2025\
+Revised May 2025
 
 ## Repository Structure
 In addition to the README, there are 4 subdirectories: code, data, FinalFigs, InitialFigs
