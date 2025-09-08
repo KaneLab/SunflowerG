@@ -4153,6 +4153,622 @@ keystone <- roles %>%
 
 
 
+#### _Leo ####
+# Send networks to Leo
+# Prok, Fung, and Prok/Fung
+# Use cutoff of 37% prevalence, which is what was used in the SPIEC-EASI paper
+# 368*0.37 = 136
+top_16S <- input_n3_16S$data_loaded %>%
+  mutate(Ubiquity = rowSums(. > 0)) %>%
+  filter(Ubiquity >= 137)
+input_abund_16S <- filter_taxa_from_input(input_n3_16S,
+                                          taxa_IDs_to_keep = rownames(top_16S),
+                                          at_spec_level = 8)
+nrow(input_abund_16S$data_loaded) # 1462
+otu_16S <- otu_table(input_abund_16S$data_loaded, taxa_are_rows = T)
+tax_16S <- tax_table(as.matrix(input_abund_16S$taxonomy_loaded))
+map_16S <- sample_data(input_abund_16S$map_loaded)
+input_phy_16S <- phyloseq(otu_16S, tax_16S, map_16S)
+# Too big! Do on microbe with multiple cores
+#saveRDS(input_phy_16S, "data/input_phy_16S.rds")
+# se_mb_16S <- spiec.easi(input_phy_16S, 
+#                         method = 'mb', 
+#                         lambda.min.ratio = 1e-2,
+#                         nlambda = 20, 
+#                         pulsar.params = list(rep.num = 50))
+se_mb_16S <- readRDS("~/Desktop/se_mb_16S.rds")
+net_16S <- adj2igraph(getRefit(se_mb_16S),  
+                      vertex.attr=list(name = taxa_names(input_phy_16S)))
+se_mb_16S$lambda
+bm_16S <- symBeta(getOptBeta(se_mb_16S), mode = "maxabs")
+diag(bm_16S) <- 0
+weights <- Matrix::summary(t(bm_16S))[,3]
+E(net_16S)$weight <- weights
+E(net_16S)[weight > 0]$color <-"blue" # positive blue
+E(net_16S)[weight < 0]$color <-"red"  # negative red
+edge_attr(net_16S)
+E(net_16S)
+V(net_16S)
+saveRDS(net_16S, "data/net_16S.rds")
+pdf("InitialFigs/Network_16S_n1462.pdf", width = 7, height = 5)
+set.seed(1)
+plot_network(net_16S, 
+             input_phy_16S, 
+             type = 'taxa', 
+             color = "taxonomy2",
+             point_size = 3,
+             label = NULL) +
+  labs(color = "Class") +
+  ggtitle("16S Network (n = 1462)") +
+  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5))
+dev.off()
+
+top_ITS <- input_n3_ITS$data_loaded %>%
+  mutate(Ubiquity = rowSums(. > 0)) %>%
+  filter(Ubiquity >= 137)
+input_abund_ITS <- filter_taxa_from_input(input_n3_ITS,
+                                          taxa_IDs_to_keep = rownames(top_ITS),
+                                          at_spec_level = 8)
+nrow(input_abund_ITS$data_loaded) # 196
+otu_ITS <- otu_table(input_abund_ITS$data_loaded, taxa_are_rows = T)
+tax_ITS <- tax_table(as.matrix(input_abund_ITS$taxonomy_loaded))
+map_ITS <- sample_data(input_abund_ITS$map_loaded)
+input_phy_ITS <- phyloseq(otu_ITS, tax_ITS, map_ITS)
+se_mb_ITS <- spiec.easi(input_phy_ITS, 
+                        method = 'mb', 
+                        lambda.min.ratio = 1e-2,
+                        nlambda = 20, 
+                        pulsar.params = list(rep.num = 50))
+saveRDS(se_mb_ITS, "data/se_mb_ITS.rds")
+net_ITS <- adj2igraph(getRefit(se_mb_ITS),  
+                      vertex.attr=list(name = taxa_names(input_phy_ITS)))
+se_mb_ITS$lambda
+bm_ITS <- symBeta(getOptBeta(se_mb_ITS), mode = "maxabs")
+diag(bm_ITS) <- 0
+weights <- Matrix::summary(t(bm_ITS))[,3]
+E(net_ITS)$weight <- weights
+E(net_ITS)[weight > 0]$color <-"blue" # positive blue
+E(net_ITS)[weight < 0]$color <-"red"  # negative red
+edge_attr(net_ITS)
+E(net_ITS)
+V(net_ITS)
+saveRDS(net_ITS, "data/net_ITS.rds")
+pdf("InitialFigs/Network_ITS_196.pdf", width = 7, height = 5)
+set.seed(1)
+plot_network(net_ITS, 
+             input_phy_ITS, 
+             type = 'taxa', 
+             color = "taxonomy3",
+             point_size = 3,
+             label = NULL) +
+  labs(color = "Class") +
+  ggtitle("ITS Network (n = 196)") +
+  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5))
+dev.off()
+
+# Need to create unique prok and euk ESV (ASV) IDs
+# Unique ASV IDs are needed for rownames of $data_loaded and $taxonomy_loaded
+# Also filter 16S data to ITS data
+input_abund_16S <- filter_data(input_abund_16S,
+                               filter_cat = "sampleID",
+                               keep_vals = input_n3_ITS$map_loaded$sampleID)
+input_abund_16S_toMerge <- input_abund_16S
+num_16S <- seq(1:nrow(input_abund_16S_toMerge$data_loaded))
+ASVlabel_16S <- rep("ASV_Prok_", nrow(input_abund_16S_toMerge$data_loaded))
+IDs_16S <- paste(ASVlabel_16S, num_16S, sep = "")
+rownames(input_abund_16S_toMerge$data_loaded) <- IDs_16S
+rownames(input_abund_16S_toMerge$taxonomy_loaded) <- IDs_16S
+input_abund_16S_toMerge$taxonomy_loaded$taxonomy9 <- IDs_16S
+
+input_abund_ITS_toMerge <- input_abund_ITS
+num_ITS <- seq(1:nrow(input_abund_ITS_toMerge$data_loaded))
+ASVlabel_ITS <- rep("ASV_Euk_", nrow(input_abund_ITS_toMerge$data_loaded))
+IDs_ITS <- paste(ASVlabel_ITS, num_ITS, sep = "")
+rownames(input_abund_ITS_toMerge$data_loaded) <- IDs_ITS
+rownames(input_abund_ITS_toMerge$taxonomy_loaded) <- IDs_ITS
+input_abund_ITS_toMerge$taxonomy_loaded$taxonomy9 <- IDs_ITS
+
+input_filt_abund_combined <- input_abund_16S_toMerge
+input_filt_abund_combined$data_loaded <- rbind(input_filt_abund_combined$data_loaded,
+                                               input_abund_ITS_toMerge$data_loaded)
+input_filt_abund_combined$taxonomy_loaded <- rbind(input_filt_abund_combined$taxonomy_loaded,
+                                                   input_abund_ITS_toMerge$taxonomy_loaded)
+nrow(input_filt_abund_combined$data_loaded) # 1658 total taxa
+
+# Convert mctoolsr to phyloseq
+names(input_filt_abund_combined$taxonomy_loaded) <- c("Domain", "Phylum", "Class", "Order",
+                                                      "Family", "Genus", "Species", "ASV_ID",
+                                                      "ASV_ID2")
+otu <- otu_table(input_filt_abund_combined$data_loaded, taxa_are_rows = T)
+tax <- tax_table(as.matrix(input_filt_abund_combined$taxonomy_loaded))
+map <- sample_data(input_filt_abund_combined$map_loaded)
+input.phy <- phyloseq(otu, tax, map)
+# Too big! Do on microbe with multiple cores
+# saveRDS(input.phy, "data/input.phy.rds")
+# se.mb2 <- spiec.easi(input.phy, 
+#                      method='mb', 
+#                      lambda.min.ratio=1e-2,
+#                      nlambda=20,
+#                      pulsar.params=list(rep.num=50))
+se_mb <- readRDS("~/Desktop/se_mb.rds")
+net <- adj2igraph(getRefit(se_mb),  
+                      vertex.attr=list(name = taxa_names(input.phy)))
+se_mb$lambda
+bm <- symBeta(getOptBeta(se_mb), mode = "maxabs")
+diag(bm) <- 0
+weights <- Matrix::summary(t(bm))[,3]
+E(net)$weight <- weights
+E(net)[weight > 0]$color <-"blue" # positive blue
+E(net)[weight < 0]$color <-"red"  # negative red
+edge_attr(net)
+E(net)
+V(net)
+saveRDS(net, "data/net.rds")
+
+# Phyloseq plot
+plot_network(net, 
+             input.phy, 
+             type = 'taxa', 
+             color = "Phylum",
+             shape = "Domain",
+             point_size = 3,
+             label = NULL)
+plot_network(net, 
+             input.phy, 
+             type = 'taxa', 
+             color = "Phylum",
+             shape = "Domain",
+             point_size = 3,
+             label = NULL,
+             layout.method = layout.circle)
+
+# Stats
+E(net) # 466
+V(net) # 200
+transitivity(net) # Average clustering coefficient. 0.225
+deg <- degree(net, mode="all")
+mean(deg) # 4.66
+
+# Add taxonomic information and color
+# Add phylum, which is in the taxonomy_loaded table
+# Check phylum numbers
+table(input_filt_abund_combined$taxonomy_loaded$Phylum) # 18
+
+# Check match
+sum(V(net)$name != rownames(input_filt_abund_combined$taxonomy_loaded)) # Check match
+
+# Make factor
+input_filt_abund_combined$taxonomy_loaded$Phylum <- as.factor(input_filt_abund_combined$taxonomy_loaded$Phylum)
+
+# Confer to network
+V(net)$phylum = input_filt_abund_combined$taxonomy_loaded$Phylum
+
+# Check levels
+levels(input_filt_abund_combined$taxonomy_loaded$Phylum) # There are 18 phyla
+
+# Set n to number of levels
+n <- length(levels(input_filt_abund_combined$taxonomy_loaded$Phylum))
+
+# Save taxonomy and colors in tax
+tax <- input_filt_abund_combined$taxonomy_loaded
+
+# Get colors for n levels
+colrs <- colorRampPalette(brewer.pal(12, "Paired"))(n) # expanded Rcolorbrewer paired palette
+tax$color <- tax$Phylum
+levels(tax$Phylum)
+tax$color <- recode_factor(tax$color,
+                           "Acidobacteriota" = colrs[1],
+                           "Actinobacteriota" = colrs[2],
+                           "Ascomycota" = colrs[3],
+                           "Bacteroidota" = colrs[4],
+                           "Basidiomycota" = colrs[5],
+                           "Chloroflexi" = colrs[6],
+                           "Chytridiomycota" = colrs[7],
+                           "Crenarchaeota" = colrs[8],
+                           "Firmicutes" = colrs[9],
+                           "Gemmatimonadota" = colrs[10],
+                           "Mortierellomycota" = colrs[11],
+                           "Mucoromycota" = colrs[12],
+                           "Myxococcota" = colrs[13],
+                           "NA" = colrs[14],
+                           "Nitrospirota" = colrs[15],
+                           "Planctomycetota" = colrs[16],
+                           "Proteobacteria" = colrs[17],
+                           "Verrucomicrobiota" = colrs[18])
+V(net)$color <- as.character(tax$color)
+
+# Layout in circle
+par(mar = c(0,8,0,0), xpd = TRUE) # bottom, left, top, right
+plot(net,
+     vertex.color = V(net)$color, 
+     vertex.size = deg*2, 
+     vertex.shape = "circle", 
+     vertex.frame.color = "black",
+     vertex.label = NA, 
+     #edge.color = ifelse(cor.matrix$r > 0, "#619CFF","#F8766D"),
+     edge.curved = 0.2,
+     edge.width = 0.2,
+     layout = layout_in_circle(net, order = order(V(net)$phylum)))
+legend(x = -2, y = 0.7, levels(input_filt_abund_combined$taxonomy_loaded$Phylum), 
+       pch = 21, col = "black", pt.bg = colrs, pt.cex = 2, cex = 0.8, bty = "n", ncol = 1)
+
+# Refine taxonomy, shapes, color edged, other stylistic things
+
+# Check Modules
+rng_adj <- igraph::get.adjacency(net, sparse = FALSE)
+netcarto(rng_adj) # 9 modules
+edge.betweenness.community(net) # 28 groups
+fastgreedy.community(net) # 110 groups
+walktrap.community(net) # 101 groups
+spinglass.community(net) # Can't work with unconnected graph
+leading.eigenvector.community(net) # 70 groups
+label.propagation.community(net) # 63 groups
+cluster_louvain(net) # 65 groups
+
+# Color edge by weight
+se.mb2$lambda
+bm <- symBeta(getOptBeta(se.mb2), mode = "maxabs")
+diag(bm) <- 0
+weights <- Matrix::summary(t(bm))[,3]
+E(net)$weight <- weights
+E(net)[weight > 0]$color <-"blue" # positive blue
+E(net)[weight < 0]$color <-"red"  # negative red
+edge_attr(net)
+
+# Vertex shape by role
+adj <- as.matrix(as_adjacency_matrix(net))
+role <- netcarto(adj)
+role <- role[[1]]
+v.names <- data.frame(name = V(net)$name)
+v.names.ni <- v.names %>%
+  filter(name %notin% role$name) %>%
+  mutate(module = NA,
+         connectivity = NA,
+         participation = NA,
+         role = NA)
+role <- rbind(role, v.names.ni) %>%
+  mutate(role = as.factor(role)) %>%
+  droplevels() %>%
+  mutate(shape = recode_factor(role,
+                               #"Peripheral Hub" = "square",
+                               "Connector Hub" = "square",
+                               #"Kinless Hub" = "square",
+                               "Connector" = "diamond",
+                               #"Kinless" = "triangle",
+                               "Peripheral" = "circle",
+                               "Ultra peripheral" = "circle")) %>%
+  mutate(shape = as.character(shape)) %>%
+  mutate(shape = replace_na(shape, "circle"))
+vertex_attr(net)
+V(net)$shape <- role$shape
+hubcon <- role %>%
+  filter(role == "Peripheral Hub" | role == "Connector Hub") %>%
+  left_join(., input_filt_abund_combined$taxonomy_loaded, by = c("name" = "ASV_ID2"))
+
+# Info for labels
+length(V(net))
+length(E(net))
+round(mean(deg), 1)
+round(transitivity(net), 3)
+
+#### _Color, Shape
+# Color edges, shape by role
+
+# Plot Circle
+par(mar = c(2,8,0,0), xpd = TRUE) # bottom, left, top, right
+plot(net,
+     vertex.color = V(net)$color,
+     vertex.size = deg,
+     vertex.shape = V(net)$shape,
+     vertex.frame.color = "black",
+     vertex.label = NA, 
+     edge.curved = 0.2,
+     edge.width = 0.5,
+     layout = layout_in_circle(net, order = order(V(net)$phylum)))
+legend(x = -1.7, y = 1.1, levels(input_filt_abund_combined$taxonomy_loaded$Phylum), 
+       pch = 21, col = "black", pt.bg = colrs, pt.cex = 2, cex = 0.8, bty = "n", ncol = 1,
+       title = "Taxonomy", title.adj = 0)
+legend(x = -1.7, y = -0.4, c("Peripheral", "Connector", "Hub"), pch = c(21, 23, 22), 
+       col = "black", pt.cex = 2, cex = 0.8, bty = "n", ncol = 1, 
+       title = "Role", title.adj = 0)
+legend(x = -1.7, y = -0.8, c("Positive", "Negative"), lwd = 2,
+       col = c("blue", "red"), cex = 0.8, bty = "n", ncol = 1, 
+       title = "Association", title.adj = 0)
+title(main = "Sunflower Rhizosphere Network (SPIEC-EASI)", adj = 0.5, line = -1.5, cex.main = 1.5)
+mtext("Nodes = 200", side = 1, line = -2, cex = 0.8)
+mtext("Edges = 466", side = 1, line = -1, cex = 0.8)
+mtext("Mean Degrees = 4.7", side = 1, line = 0, cex = 0.8)
+mtext("Clustering Coefficient = 0.225", side = 1, line = 1, cex = 0.8)
+
+# Update taxonomy
+# Need to label Archaea, Bacteria, Fungi (A_, B_, F_)
+View(input_filt_abund_combined$taxonomy_loaded)
+input_filt_abund_combined$taxonomy_loaded <- input_filt_abund_combined$taxonomy_loaded %>%
+  mutate(Phylum = as.character(Phylum)) %>%
+  mutate(taxonomy = paste(Domain, Phylum, sep = "_")) %>%
+  mutate(taxonomy = gsub("Archaea", "A", taxonomy)) %>%
+  mutate(taxonomy = gsub("Bacteria", "B", taxonomy)) %>%
+  mutate(taxonomy = gsub("Fungi", "F", taxonomy))
+
+# Run as above but with taxonomy instead of Phylum
+sum(V(net)$name != rownames(input_filt_abund_combined$taxonomy_loaded)) # Check match
+input_filt_abund_combined$taxonomy_loaded$taxonomy <- as.factor(input_filt_abund_combined$taxonomy_loaded$taxonomy)
+V(net)$taxonomy = input_filt_abund_combined$taxonomy_loaded$taxonomy
+levels(input_filt_abund_combined$taxonomy_loaded$taxonomy) # There are 17 phyla
+n <- length(levels(input_filt_abund_combined$taxonomy_loaded$taxonomy))
+tax <- input_filt_abund_combined$taxonomy_loaded
+colrs <- colorRampPalette(brewer.pal(12, "Paired"))(n) # expanded Rcolorbrewer paired palette
+tax$color <- tax$taxonomy
+levels(tax$taxonomy)
+tax$color <- recode_factor(tax$color,
+                           "A_Crenarchaeota" = colrs[1],
+                           "B_Acidobacteriota" = colrs[2],
+                           "B_Actinobacteriota" = colrs[3],
+                           "B_Bacteroidota" = colrs[4],
+                           "B_Chloroflexi" = colrs[5],
+                           "B_Firmicutes" = colrs[6],
+                           "B_Gemmatimonadota" = colrs[7],
+                           "B_Myxococcota" = colrs[8],
+                           "B_Nitrospirota" = colrs[9],
+                           "B_Planctomycetota" = colrs[10],
+                           "B_Proteobacteria" = colrs[11],
+                           "B_Verrucomicrobiota" = colrs[12],
+                           "F_Ascomycota" = colrs[13],
+                           "F_Basidiomycota" = colrs[14],
+                           "F_Chytridiomycota" = colrs[15],
+                           "F_Mortierellomycota" = colrs[16],
+                           "F_Mucoromycota" = colrs[17],
+                           "F_NA" = colrs[18])
+V(net)$color <- as.character(tax$color)
+
+# And add ASV ID as vertex attribute
+V(net)$ASV_ID2 <- input_filt_abund_combined$taxonomy_loaded$ASV_ID2
+
+#### _Good Taxonomy
+# Replot, Circle, shape by Role
+par(mar = c(3,8,1,0), xpd = TRUE) # bottom, left, top, right
+plot(net,
+     vertex.color = V(net)$color,
+     vertex.size = deg,
+     vertex.shape = V(net)$shape,
+     vertex.frame.color = "black",
+     vertex.label = NA, 
+     edge.curved = 0.2,
+     edge.width = 0.5,
+     layout = layout_in_circle(net, order = order(V(net)$taxonomy)))
+legend(x = -1.8, y = 1.1, levels(input_filt_abund_combined$taxonomy_loaded$taxonomy), 
+       pch = 21, col = "black", pt.bg = colrs, pt.cex = 2, cex = 0.8, bty = "n", ncol = 1,
+       title = "Taxonomy", title.adj = 0)
+legend(x = -1.8, y = -0.35, c("Peripheral", "Connector", "Hub"), pch = c(21, 23, 22), 
+       col = "black", pt.cex = 2, cex = 0.8, bty = "n", ncol = 1, 
+       title = "Role", title.adj = 0)
+legend(x = -1.8, y = -0.7, c("Positive", "Negative"), lwd = 2,
+       col = c("blue", "red"), cex = 0.8, bty = "n", ncol = 1, 
+       title = "Association", title.adj = 0)
+title(main = "Sunflower Rhizosphere Network (SPIEC-EASI)", adj = 0.5, line = -1, cex.main = 1.5)
+mtext("Nodes = 200", side = 1, line = -1.5, cex = 0.8)
+mtext("Edges = 466", side = 1, line = -0.5, cex = 0.8)
+mtext("Mean Degrees = 4.7", side = 1, line = 0.5, cex = 0.8)
+mtext("Clustering Coefficient = 0.225", side = 1, line = 1.5, cex = 0.8)
+
+# Replot, Circle, shape by Domain. Save this one.
+sum(V(net)$name != rownames(input_filt_abund_combined$taxonomy_loaded)) # Check match
+V(net)$Domain = input_filt_abund_combined$taxonomy_loaded$Domain
+V(net)$Domain <- gsub("Archaea", "square", V(net)$Domain)
+V(net)$Domain <- gsub("Bacteria", "circle", V(net)$Domain)
+V(net)$Domain <- gsub("Fungi", "triangle", V(net)$Domain)
+
+pdf("InitialFigs/Network_Combined.pdf", width = 8, height = 6)
+par(mar = c(3,8,1,0), xpd = TRUE) # bottom, left, top, right
+plot(net,
+     vertex.color = V(net)$color,
+     vertex.size = deg,
+     vertex.shape = V(net)$Domain,
+     vertex.frame.color = "black",
+     vertex.label = NA, 
+     edge.curved = 0.2,
+     edge.width = 0.5,
+     layout = layout_in_circle(net, order = order(V(net)$taxonomy)))
+legend(x = -1.8, y = 1.1, levels(input_filt_abund_combined$taxonomy_loaded$taxonomy), 
+       pch = c(rep(22, 2), rep(21, 10), rep(24, 15)), col = "black", pt.bg = colrs, pt.cex = 1.5, 
+       cex = 0.8, bty = "n", ncol = 1,
+       title = "Taxonomy", title.cex = 1.1, title.adj = 0, y.intersp = 1.1)
+legend(x = -1.8, y = -0.6, c("Archaea", "Bacteria", "Fungi"), pch = c(22, 21, 24), 
+       col = "black", pt.cex = 1.5, cex = 0.8, bty = "n", ncol = 1, 
+       title = "Domain", title.cex = 1.1, title.adj = 0, y.intersp = 1.1)
+legend(x = -1.8, y = -1, c("Positive", "Negative"), lwd = 2,
+       col = c("blue", "red"), cex = 0.8, bty = "n", ncol = 1, 
+       title = "Association", title.cex = 1.1, title.adj = 0)
+title(main = "Sunflower Rhizosphere Network (SPIEC-EASI)", adj = 0.5, line = -1, cex.main = 1.2)
+mtext("Nodes = 200", side = 1, line = -1.5, cex = 0.8)
+mtext("Edges = 466", side = 1, line = -0.5, cex = 0.8)
+mtext("Mean Degrees = 4.7", side = 1, line = 0.5, cex = 0.8)
+mtext("Clustering Coefficient = 0.225", side = 1, line = 1.5, cex = 0.8)
+dev.off()
+
+
+
+#### _Betweenness
+# Plot degree versus betweenness for each network
+se <- se.mb2
+net <- adj2igraph(getRefit(se),  vertex.attr=list(name=taxa_names(input.phy)))
+bw <- data.frame("Degree" = degree(net, mode="all"),
+                 "Betweenness" = betweenness(net)) %>%
+  mutate("ASV" = rownames(.)) %>%
+  left_join(., input_filt_abund_combined$taxonomy_loaded, by = c("ASV" = "ASV_ID2")) %>%
+  mutate(Phylum = as.factor(Phylum))
+
+nb.cols <- length(levels(bw$Phylum))
+mycolors <- colorRampPalette(brewer.pal(12, "Paired"))(nb.cols)
+ggplot(bw, aes(Degree, Betweenness, colour = taxonomy, shape = Domain)) +
+  geom_jitter(size = 2, alpha = 1, width = 0.15) +
+  labs(x = "Degree",
+       y = "Betweenness",
+       colour = "Phylum") +
+  scale_color_manual(values = mycolors) +
+  scale_x_continuous(limits = c(-0.2, 35.2),
+                     breaks = seq(from = 0, to = 35, by = 1)) +
+  theme_bw() +
+  theme(legend.key.size = unit(0.5, "cm"),
+        legend.spacing.y = unit(0, "cm"),
+        panel.grid.minor.x = element_blank())
+
+# Check ASVs, add labels
+ggplot(bw, aes(Degree, Betweenness, colour = taxonomy, shape = Domain)) +
+  geom_jitter(size = 2, alpha = 1, width = 0.15) +
+  geom_text(data = bw,
+            aes(x = Degree, y = Betweenness, label = ASV), 
+            size = 3, inherit.aes = F) +
+  labs(x = "Degree",
+       y = "Betweenness",
+       colour = "Phylum") +
+  scale_color_manual(values = mycolors) +
+  scale_x_continuous(limits = c(-0.2, 35.2),
+                     breaks = seq(from = 0, to = 35, by = 1)) +
+  theme_bw() +
+  theme(legend.key.size = unit(0.5, "cm"),
+        legend.spacing.y = unit(0, "cm"),
+        panel.grid.minor.x = element_blank())
+
+bw_asvs <- bw %>%
+  filter(Betweenness > 500) %>%
+  mutate("HighTax" = ifelse(Genus != "NA",
+                            Genus,
+                            ifelse(Family != "NA",
+                                   Family,
+                                   ifelse(Order != "NA",
+                                          Order,
+                                          ifelse(Class != "NA",
+                                                 Class,
+                                                 ifelse(Phylum != "NA",
+                                                        Phylum,
+                                                        Domain)))))) %>%
+  mutate("HightTax_ASV" = paste(HighTax, ASV_ID, sep = "_"))
+
+pdf("InitialFigs/Network_Betweenness.pdf", width = 7, height = 5)
+ggplot(bw, aes(Degree, Betweenness, colour = taxonomy, shape = Domain)) +
+  geom_jitter(size = 2, alpha = 1, width = 0.15) +
+  geom_text_repel(data = bw_asvs,
+                  #min.segment.length = 0,
+                  aes(x = Degree, y = Betweenness, label = HightTax_ASV), 
+                  size = 2, inherit.aes = F,
+                  position = position_jitter(width = 0.15)) +
+  labs(x = "Degree",
+       y = "Betweenness",
+       colour = "Phylum") +
+  scale_color_manual(values = mycolors) +
+  scale_x_continuous(limits = c(-0.2, 35.2),
+                     breaks = seq(from = 0, to = 35, by = 1)) +
+  guides(shape = guide_legend(order = 1),
+         color = guide_legend(override.aes = list(shape = c(16,17,17,17,
+                                                            17,17,17,17,
+                                                            17,17,17,17,
+                                                            15,15,15,15,
+                                                            15,15)))) +
+  theme_bw() +
+  theme(legend.key.size = unit(0.5, "cm"),
+        legend.spacing.y = unit(0, "cm"),
+        panel.grid.minor.x = element_blank())
+dev.off()
+
+
+
+#### _Participation
+# Plot participation coefficient and within-module degree (Barnes et al.)
+# Dashed lines at 0.61 and 2.2
+# z-score (within module degree) is "connectivity"
+# participation coefficient P is "participation
+roles <- role %>%
+  left_join(., input_filt_abund_combined$taxonomy_loaded, by = c("name" = "ASV_ID2")) %>%
+  mutate(Phylum = as.factor(Phylum),
+         role = as.factor(role)) %>%
+  filter(is.na(module) == F) %>%
+  droplevels()
+nb.cols <- length(levels(roles$Phylum))
+mycolors <- colorRampPalette(brewer.pal(12, "Paired"))(nb.cols)
+ggplot(roles, aes(participation, connectivity, colour = taxonomy, shape = role)) +
+  geom_vline(xintercept = 0.62, linetype = "dashed", colour = "gray", linewidth = 0.25) +
+  geom_hline(yintercept = 2.5, linetype = "dashed", colour = "gray", linewidth = 0.25) +
+  geom_point(size = 2, alpha = 0.75) +
+  labs(x = "Participation coefficient (P)",
+       y = "Within module degree (z)",
+       colour = "Phylum",
+       shape = "Network Role") +
+  scale_color_manual(values = mycolors) +
+  guides(shape = guide_legend(order = 1),
+         color = guide_legend(override.aes = list(shape = c(16,17,17,17,
+                                                            17,17,17,17,
+                                                            17,17,17,15,
+                                                            15,15,15,15)))) +
+  theme_bw() +
+  theme(legend.key.size = unit(0.5, "cm"),
+        legend.spacing.y = unit(0, "cm"),
+        panel.grid = element_blank())
+
+# Check ASVs, add labels
+ggplot(roles, aes(participation, connectivity, colour = taxonomy, shape = role)) +
+  geom_vline(xintercept = 0.62, linetype = "dashed", colour = "gray", linewidth = 0.25) +
+  geom_hline(yintercept = 2.5, linetype = "dashed", colour = "gray", linewidth = 0.25) +
+  geom_point(size = 2, alpha = 0.75) +
+  geom_text(data = roles,
+            aes(x = participation, y = connectivity, label = name), 
+            size = 3, inherit.aes = F) +
+  labs(x = "Participation coefficient (P)",
+       y = "Within module degree (z)",
+       colour = "Phylum",
+       shape = "Network Role") +
+  scale_color_manual(values = mycolors) +
+  guides(shape = guide_legend(order = 1),
+         color = guide_legend(override.aes = list(shape = c(16,17,17,17,
+                                                            17,17,17,17,
+                                                            17,17,17,15,
+                                                            15,15,15,15)))) +
+  theme_bw() +
+  theme(legend.key.size = unit(0.5, "cm"),
+        legend.spacing.y = unit(0, "cm"),
+        panel.grid = element_blank())
+
+pz_asvs <- roles %>%
+  filter(connectivity > 2.5 | participation > 0.62) %>%
+  mutate("HighTax" = ifelse(Genus != "NA",
+                            Genus,
+                            ifelse(Family != "NA",
+                                   Family,
+                                   ifelse(Order != "NA",
+                                          Order,
+                                          Class))))
+
+pdf("InitialFigs/Network_Participation.pdf", width = 7, height = 5)
+ggplot(roles, aes(participation, connectivity, colour = taxonomy, shape = role)) +
+  geom_vline(xintercept = 0.62, linetype = "dashed", colour = "gray", linewidth = 0.25) +
+  geom_hline(yintercept = 2.5, linetype = "dashed", colour = "gray", linewidth = 0.25) +
+  geom_point(size = 2, alpha = 0.75) +
+  geom_text_repel(data = pz_asvs,
+                  min.segment.length = 0,
+                  max.overlaps = 20,
+                  aes(x = participation, y = connectivity, label = HighTax), 
+                  size = 2, inherit.aes = F) +
+  labs(x = "Participation coefficient (P)",
+       y = "Within module degree (z)",
+       colour = "Phylum",
+       shape = "Network Role") +
+  scale_color_manual(values = mycolors) +
+  guides(shape = guide_legend(order = 1),
+         color = guide_legend(override.aes = list(shape = c(16,17,17,17,
+                                                            17,17,17,17,
+                                                            17,17,17,15,
+                                                            15,15,15,15)))) +
+  theme_bw() +
+  theme(legend.key.size = unit(0.4, "cm"),
+        legend.margin = margin(0,0,0,0),
+        panel.grid = element_blank())
+dev.off()
+
+keystone <- roles %>%
+  filter(participation > 0.62 | connectivity > 2.5)
+
+
+
 #### 7. SNPs/Microbes ####
 # This is a really cool aspect of having BOTH microbial data and plant genomic data
 # Look for associations between SNPs and ASVs
@@ -4548,7 +5164,7 @@ pheatmap(mat = chr_zotus,
 
 #### 8. Inhibitors ####
 # Check heritability/genotype effects of 6 inhibitor OTUs
-# Not for main manuscript submitted to Phyotbiomes Journal
+# Not for main manuscript submitted to Phytobiomes Journal
 # This is for a separate paper with Lara Vimercati and Alisha Quandt
 inhibitors <- c("OTU_10441", "OTU_12372", "OTU_978", "OTU_4850", "OTU_275", "OTU_1672")
 tax_sum_OTU_16S <- summarize_taxonomy(input = input_filt_rare_16S, 
