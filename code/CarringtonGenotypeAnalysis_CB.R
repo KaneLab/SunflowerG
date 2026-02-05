@@ -420,6 +420,48 @@ input_n3_ITS$map_loaded$shannon <- vegan::diversity(input_n3_ITS$data_loaded,
 #write.csv(input_n3_16S$taxonomy_loaded, "data/16S_taxonomy.csv", row.names = F)
 #write.csv(input_n3_ITS$taxonomy_loaded, "data/ITS_taxonomy.csv", row.names = F)
 
+# Format for FAPROTAX
+otu_table_16S <- input_n3_16S$data_loaded %>%
+  mutate(taxonomy = paste(input_n3_16S$taxonomy_loaded$taxonomy1,
+                          input_n3_16S$taxonomy_loaded$taxonomy2,
+                          input_n3_16S$taxonomy_loaded$taxonomy3,
+                          input_n3_16S$taxonomy_loaded$taxonomy4,
+                          input_n3_16S$taxonomy_loaded$taxonomy5,
+                          input_n3_16S$taxonomy_loaded$taxonomy6,
+                          input_n3_16S$taxonomy_loaded$taxonomy8,
+                          sep = ",")) %>%
+  dplyr::select(taxonomy, everything())
+write.table(otu_table_16S, "data/otu_table_16S.txt", row.names = F, sep = "\t")
+# Open the table in Excel, delete the taxonomy column name and rewrite "taxonomy"
+# There were special character issues or something
+# Then run FAPROTAX in terminal
+# ~/Desktop/FAPROTAX_1.2.9/collapse_table.py -i ~/Documents/GitHub/SunflowerG/data/otu_table_16S.txt -o ~/Documents/GitHub/SunflowerG/data/func_table.tsv -g ~/Desktop/FAPROTAX_1.2.9/FAPROTAX.txt -d "taxonomy" -c "#" -v
+# Assigned 3398 records to groups, 9861 records were leftovers
+
+
+
+# Format for FUNGuild
+otu_table_ITS <- input_n3_ITS$data_loaded %>%
+  rownames_to_column(var = "OTU_ID") %>%
+  mutate(taxonomy = paste(input_n3_ITS$taxonomy_loaded$taxonomy1,
+                          input_n3_ITS$taxonomy_loaded$taxonomy2,
+                          input_n3_ITS$taxonomy_loaded$taxonomy3,
+                          input_n3_ITS$taxonomy_loaded$taxonomy4,
+                          input_n3_ITS$taxonomy_loaded$taxonomy5,
+                          input_n3_ITS$taxonomy_loaded$taxonomy6,
+                          sep = ";"))
+#write.table(otu_table_ITS, "data/otu_table_ITS.txt", sep = "\t", row.names = F)
+# Open the table in Excel, delete the taxonomy column name and rewrite "taxonomy"
+# There were special character issues or something
+# Then run FUNGuild in terminal
+# python Guilds_v1.1.py -otu ~/Documents/GitHub/SunflowerG/data/otu_table_ITS.txt -db fungi
+# Found 1807 matching taxonomy records in the database.
+# Dereplicating and sorting the result...
+# FunGuild tried to assign function to 1425 OTUs in '/Users/cliftonbdemesquita/Documents/GitHub/SunflowerG/data/otu_table_ITS.txt'.
+# FUNGuild made assignments on 955 OTUs.
+# Result saved to '/Users/cliftonbdemesquita/Documents/GitHub/SunflowerG/data/otu_table_ITS.guilds.txt'
+# Total calculating time: 8.64 seconds.
+
 
 
 #### 2. Alpha ####
